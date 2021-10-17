@@ -31,6 +31,7 @@ public class MainController {
         Worker worker = new Worker("Petya", "Pupkin", login, "123", "321");
         workRepo.save(worker);
         model.addAttribute(worker);
+        model.addAttribute("title", "Create");
         return "success";
     }
 }

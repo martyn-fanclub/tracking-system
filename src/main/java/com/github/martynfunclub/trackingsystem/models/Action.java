@@ -13,7 +13,16 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity(name = "actions")
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Action {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,71 +44,11 @@ public class Action {
     @JsonIgnore
     private Change change;
 
-    public Action() {
-    }
-
     public Action(Timestamp startingTime, Timestamp endingTime, Integer timeLimit, ActionType actionType, Change change) {
         this.startingTime = startingTime;
         this.endingTime = endingTime;
         this.timeLimit = timeLimit;
         this.actionType = actionType;
         this.change = change;
-    }
-
-    public Action(Long id, Timestamp startingTime, Timestamp endingTime, Integer timeLimit, ActionType actionType, Change change) {
-        this.id = id;
-        this.startingTime = startingTime;
-        this.endingTime = endingTime;
-        this.timeLimit = timeLimit;
-        this.actionType = actionType;
-        this.change = change;
-    }
-
-    public Change getChange() {
-        return change;
-    }
-
-    public void setChange(Change change) {
-        this.change = change;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Timestamp getStartingTime() {
-        return startingTime;
-    }
-
-    public void setStartingTime(Timestamp startingTime) {
-        this.startingTime = startingTime;
-    }
-
-    public Timestamp getEndingTime() {
-        return endingTime;
-    }
-
-    public void setEndingTime(Timestamp endingTime) {
-        this.endingTime = endingTime;
-    }
-
-    public Integer getTimeLimit() {
-        return timeLimit;
-    }
-
-    public void setTimeLimit(Integer timeLimit) {
-        this.timeLimit = timeLimit;
-    }
-
-    public ActionType getActionType() {
-        return actionType;
-    }
-
-    public void setActionType(ActionType actionType) {
-        this.actionType = actionType;
     }
 }
