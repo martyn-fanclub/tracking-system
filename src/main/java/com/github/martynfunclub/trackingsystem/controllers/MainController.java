@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.martynfunclub.trackingsystem.models.Worker;
-import com.github.martynfunclub.trackingsystem.repositories.WorkerRepository;
+import com.github.martynfunclub.trackingsystem.dao.WorkerRepository;
 
 @Controller
 public class MainController {
