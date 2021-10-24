@@ -9,40 +9,38 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity(name = "changes")
-@Setter
+@Table(name = "changes")
+@Entity
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Change {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(nullable = false)
-    private Timestamp startingTime;
+    @Column(name = "start_time", nullable = false)
+    private Timestamp startTime;
 
-    @Column(nullable = false)
-    private Timestamp endingTime;
+    @Column(name = "end_time", nullable = false)
+    private Timestamp endTime;
 
     @ManyToOne(optional = false)
-    private Worker worker;
+    @JoinColumn(name = "worker_id", nullable = false)
+    private User user;
 
-    @OneToMany(targetEntity = Action.class, cascade = CascadeType.ALL, mappedBy = "change")
+    @OneToMany(mappedBy = "change", cascade = CascadeType.ALL)
     private Set<Action> actions;
-
-    public Change(Timestamp startingTime, Timestamp endingTime, Worker worker, Set<Action> actions) {
-        this.startingTime = startingTime;
-        this.endingTime = endingTime;
-        this.worker = worker;
-        this.actions = actions;
-    }
 }

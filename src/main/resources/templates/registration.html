@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/styles/index.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="vh-100 row align-items-center">
+        <div class="col-md-10 mx-auto col-lg-5">
+            <form class="p-5 pt-4 border rounded-3 bg-light" action="#" th:action="@{/registration}" th:object="${user}" method="post">
+                <div class="mb-4 col text-center fs-2">Регистрация на станке</div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name" placeholder="Name" th:field="*{name}">
+                    <label for="name">Имя</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="surname" placeholder="Surname" th:field="*{surname}">
+                    <label for="surname">Фамилия</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="username" placeholder="Username" th:field="*{username}">
+                    <label for="username">Логин</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" th:field="*{password}">
+                    <label for="floatingPassword">Пароль</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword2" placeholder="Password" th:field="*{passwordConfirm}">
+                    <label for="floatingPassword2">Подтвердите пароль</label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Зарегистрироваться</button>
+                <hr class="my-4">
+                <small class="text-muted">© Система контроля над работяжками</small>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

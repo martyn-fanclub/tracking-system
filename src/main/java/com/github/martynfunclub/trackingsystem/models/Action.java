@@ -10,45 +10,43 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity(name = "actions")
-@Setter
+@Table(name = "actions")
+@Entity
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
+@Setter
 public class Action {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(nullable = false)
-    private Timestamp startingTime;
-
-    @Column(nullable = false)
-    private Timestamp endingTime;
-
-    private Integer timeLimit;
-
     @ManyToOne(optional = false)
-    private ActionType actionType;
+    @JoinColumn(name = "place", nullable = false)
+    private WorkersPlace place;
 
-    @ManyToOne(cascade = {CascadeType.DETACH})
-    @JoinColumn(name = "change_id")
-    @JsonIgnore
+    @ManyToOne(
+            optional = false,
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}
+    )
+    @JoinColumn(name = "change_id", nullable = false)
     private Change change;
 
-    public Action(Timestamp startingTime, Timestamp endingTime, Integer timeLimit, ActionType actionType, Change change) {
-        this.startingTime = startingTime;
-        this.endingTime = endingTime;
-        this.timeLimit = timeLimit;
-        this.actionType = actionType;
-        this.change = change;
-    }
+    @Column(name = "start_time", nullable = false)
+    private Timestamp startTime;
+
+    @Column(name = "end_time", nullable = false)
+    private Timestamp endTime;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "action_type_id", nullable = false)
+    private ActionType actionType;
+
+    @ManyToOne
+    @JoinColumn(name = "detail_id")
+    private Detail detail;
 }

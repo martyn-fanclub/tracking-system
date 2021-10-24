@@ -16,16 +16,14 @@
         <th>Surname</th>
         <th>Login</th>
         <th>Password</th>
-        <th>Salt</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="worker : ${workers}">
         <td th:text="${worker.name}"></td>
         <td th:text="${worker.surname}"></td>
-        <td th:text="${worker.login}"></td>
+        <td th:text="${worker.username}"></td>
         <td th:text="${worker.password}"></td>
-        <td th:text="${worker.salt}"></td>
     </tr>
     </tbody>
 </table>

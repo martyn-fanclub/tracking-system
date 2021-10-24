@@ -6,16 +6,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.github.martynfunclub.trackingsystem.models.Worker;
-import com.github.martynfunclub.trackingsystem.repositories.WorkerRepository;
+import com.github.martynfunclub.trackingsystem.models.User;
+import com.github.martynfunclub.trackingsystem.repositories.UserRepository;
 
 @Controller
 public class MainController {
 
-    WorkerRepository workRepo;
+    UserRepository workRepo;
 
     @Autowired
-    public MainController(WorkerRepository workRepo) {
+    public MainController(UserRepository workRepo) {
         this.workRepo = workRepo;
     }
 
@@ -24,14 +24,5 @@ public class MainController {
         model.addAttribute("workers", workRepo.findAll());
         model.addAttribute("title", "Home");
         return "main";
-    }
-
-    @GetMapping("/create")
-    public String create(@RequestParam(value = "name") String login, Model model) {
-        Worker worker = new Worker("Petya", "Pupkin", login, "123", "321");
-        workRepo.save(worker);
-        model.addAttribute(worker);
-        model.addAttribute("title", "Create");
-        return "success";
     }
 }
