@@ -1,8 +1,5 @@
 package com.github.martynfunclub.trackingsystem.models;
 
-import java.sql.Timestamp;
-import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,38 +8,42 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
-@Table(name = "changes")
 @Entity
+@Table
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-public class Change {
+public class Number {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "start_time", nullable = false)
-    private Timestamp startTime;
+    @Column(name = "number", nullable = false, length = 12)
+    private String number;
 
-    @Column(name = "end_time")
-    private Timestamp endTime;
+    @Column(name = "comment", columnDefinition = "TEXT")
+    private String comment;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "worker_id", nullable = false)
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "change", cascade = CascadeType.ALL)
-    private Set<Production> productions;
+    public Number(String number, String comment, User user) {
+        this.number = number;
+        this.comment = comment;
+        this.user = user;
+    }
+
+    public Number(String number) {
+        this.number = number;
+    }
 }

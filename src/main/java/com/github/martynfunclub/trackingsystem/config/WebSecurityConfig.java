@@ -26,12 +26,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                     .authorizeRequests()
-                    //Доступ только для не зарегистрированных пользователей
-                    .antMatchers("/login", "/registration").not().fullyAuthenticated()
                     //Доступ только для пользователей с ролью Администратор
-                    .antMatchers("/admin/**").hasRole("ADMIN")
-                    .antMatchers("/").hasAnyRole("ADMIN", "USER")
+//                    .antMatchers("/admin/**").hasRole("ADMIN")
                     //Доступ разрешен всем пользователей
+                    .antMatchers("/login", "/registration").not().fullyAuthenticated()
+                    .antMatchers("/admin").hasRole("ADMIN")
                     .antMatchers("/static/**").permitAll()
                     //Все остальные страницы требуют аутентификации
                     .anyRequest().authenticated()

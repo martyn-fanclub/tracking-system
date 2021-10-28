@@ -3,6 +3,7 @@ package com.github.martynfunclub.trackingsystem.models;
 import java.util.Collection;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -38,28 +40,58 @@ public class User implements UserDetails {
     @Column(name = "surname", nullable = false, length = 45)
     private String surname;
 
+    @Column(name = "patronymic", length = 45)
+    private String patronymic;
+
     @Column(name = "email", nullable = false, length = 45)
     private String username;
 
     @Column(name = "password", nullable = false, length = 60)
     private String password;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private Set<Number> numbers;
+
+    @Column(name = "personnel_number", nullable = false, length = 60, unique = true)
+    private String personnelNumber;
+
+    @Column(name = "salary", columnDefinition = "bigint default 0")
+    private Long salary;
+
+    @Column(name = "skills", columnDefinition = "TEXT")
+    private String skills;
+
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
-    public User(String name, String surname, String username, String password) {
+    public User(String name, String surname, String patronymic, String username, String password, Set<Number> numbers, String personnelNumber, Long salary, String skills, Set<Role> roles) {
+        if (numbers != null) {
+            for (Number number : numbers) {
+                number.setUser(this);
+            }
+        }
         this.name = name;
         this.surname = surname;
+        this.patronymic = patronymic;
         this.username = username;
         this.password = password;
+        this.numbers = numbers;
+        this.personnelNumber = personnelNumber;
+        this.salary = salary;
+        this.skills = skills;
+        this.roles = roles;
     }
 
-    public User(String name, String surname, String username, String password, Set<Role> roles) {
+    public User(String name, String surname, String patronymic, String username, String password, Set<Number> numbers, String personnelNumber, Long salary, String skills) {
         this.name = name;
         this.surname = surname;
+        this.patronymic = patronymic;
         this.username = username;
         this.password = password;
-        this.roles = roles;
+        this.numbers = numbers;
+        this.personnelNumber = personnelNumber;
+        this.salary = salary;
+        this.skills = skills;
     }
 
     @Override

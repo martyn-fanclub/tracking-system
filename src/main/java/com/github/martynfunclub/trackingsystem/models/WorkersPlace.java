@@ -1,13 +1,16 @@
 package com.github.martynfunclub.trackingsystem.models;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,7 +29,21 @@ public class WorkersPlace {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "pcs", nullable = false)
-    private Pc pcs;
+    @Column(name = "place_name", nullable = false, unique = true)
+    private String name;
+
+    @OneToMany(mappedBy = "place", fetch = FetchType.EAGER)
+    private Set<Production> productions;
+
+    @Transient
+    private Production currentProduction;
+
+    @Override
+    public String toString() {
+        return "WorkersPlace{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", actions=" + productions +
+                '}';
+    }
 }

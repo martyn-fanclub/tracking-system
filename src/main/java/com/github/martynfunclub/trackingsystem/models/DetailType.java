@@ -1,5 +1,7 @@
 package com.github.martynfunclub.trackingsystem.models;
 
+import java.sql.Time;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,5 +27,8 @@ public class DetailType {
     private Long id;
 
     @Column(name = "name", nullable = false)
-    private Integer name;
+    private String name;
+
+    @Column(name = "max_time", nullable = false)
+    private Time maxTime;
 }
