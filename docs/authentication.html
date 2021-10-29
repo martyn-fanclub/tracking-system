@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Авторизация</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="vh-100 row align-items-center">
+        <div class="col-md-10 mx-auto col-lg-5">
+            <form class="p-5 pt-4 border rounded-3 bg-light">
+                <div class="mb-4 col text-center fs-2">Авторизация на станке</div>
+                <div class="form-floating mb-3">
+                    <!--[REDACT] Ввод логина-->
+                    <input class="form-control" id="floatingInput" placeholder="Login" type="text">
+                    <label for="floatingInput">Логин</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <!--[REDACT] Ввод пароля-->
+                    <input class="form-control" id="floatingPassword" placeholder="Password" type="password">
+                    <label for="floatingPassword">Пароль</label>
+                </div>
+                <div class="d-flex flex-row justify-content-around align-items-center">
+                    <div class="bg-grey border rounded-3 px-5">
+                        <!--[REDACT] Отчет времени до возврата из-за бездействия-->
+                        <div class="h1 mt-2">
+                            30
+                        </div>
+                    </div>
+                    <!--[REDACT] Отправка формы-->
+                    <a class="px-4 btn btn-lg btn-primary" href="index.html" type="submit">Войти</a>
+                </div>
+                <hr class="my-4">
+                <small class="text-muted">© Система контроля над работяжками</small>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
