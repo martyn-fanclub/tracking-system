@@ -3,6 +3,7 @@ package com.github.martynfunclub.trackingsystem.services;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -45,14 +46,29 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
+    public boolean createAdmin(UserDTO userDTO) {
+        User userFromDB = userRepository.findByUsername(userDTO.getUsername());
+
+        if (userFromDB != null) {
+            return false;
+        }
+        User newUser = new User(userDTO.getName(), userDTO.getSurname(), userDTO.getPatronymic(), userDTO.getUsername(),
+                userDTO.getPassword(), userDTO.getNumbers(), userDTO.getPersonnelNumber(), userDTO.getSalary(), userDTO.getSkills());
+        newUser.setRoles(Set.of(roleRepository.getRoleByName("ROLE_ADMIN")));
+        newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
+        userRepository.save(newUser);
+        return true;
+    }
+
     public boolean saveUser(UserDTO userDTO) {
         User userFromDB = userRepository.findByUsername(userDTO.getUsername());
 
         if (userFromDB != null) {
             return false;
         }
-        User newUser = new User(userDTO.getName(), userDTO.getSurname(), userDTO.getUsername(), userDTO.getPassword());
-        newUser.setRoles(Set.of(roleRepository.getRoleByName("USER")));
+        User newUser = new User(userDTO.getName(), userDTO.getSurname(), userDTO.getPatronymic(), userDTO.getUsername(),
+                userDTO.getPassword(), userDTO.getNumbers(), userDTO.getPersonnelNumber(), userDTO.getSalary(), userDTO.getSkills());
+        newUser.setRoles(Set.of(roleRepository.getRoleByName("ROLE_WORKER")));
         newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
         userRepository.save(newUser);
         return true;
