@@ -38,7 +38,7 @@ public class AdminController {
 
     @PostMapping("/changes/{id}")
     public String getChanges(@PathVariable Long id, Model model) {
-        model.addAttribute("title", "All changes");
+        model.addAttribute("title", "Change id");
         model.addAttribute("change", changeRepository.findById(id));
         return "admin/change";
     }
