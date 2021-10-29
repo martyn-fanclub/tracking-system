@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Авторизация</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/index.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Рабочий экран</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
 </head>
 <body class="app">
 
@@ -41,17 +41,28 @@
 
             <div class="w-100 d-flex flex-row justify-content-between align-items-stretch">
 
-                <div class="m-3 p-2 py-3 w-50 border rounded-3 bg-light d-flex flex-column justify-content-between align-items-center">
-                    <div class="h4 mb-4">
-                        <!--[REDACT] Название станка -->
-                        Станок станковой
+                <div class="m-3 p-2 py-3 w-50 border rounded-3 bg-light d-flex flex-column justify-content-around align-items-center">
+                    <div class="d-flex flex-column align-items-center justify-content-center w-100">
+                        <div class="h4 text-center">
+                            <!--[REDACT] Название станка -->
+                            Станок станковой
+                        </div>
+                        <div class="h5 mb-4 text-center">
+                            <!--[REDACT] Название человека -->
+                            Мартынов Мартын Мартынович
+                        </div>
                     </div>
 
-                    <!--[REDACT] Кнопка начала смены, должна МЕНЯТЬ состояние этой страницы, не переходить на другую -->
+                    <!--[REDACT] Кнопки, должны МЕНЯТЬ страгицу, не переходить на другую-->
                     <div class="d-flex flex-column align-items-center justify-content-center w-100">
-                        <a class="w-75 btn btn-primary" href="shift-started-condition.html" type="button">Начать
+                        <a class="w-75 btn btn-primary d-flex align-items-center justify-content-center" href="detail-work.html" type="button"><div>Закончить подготовительную
+                            стадию</div></a>
+                        <a class="w-75 btn btn-secondary mt-1" href="stale.html"
+                           type="button">Простой</a>
+                        <a class="w-75 btn btn-danger mt-1" href="index.html" type="button">Закончить
                             смену</a>
                     </div>
+
                 </div>
 
                 <div class="m-3 p-2 w-50 border rounded-3 bg-light d-flex flex-column align-items-center">
@@ -62,6 +73,58 @@
                         <!--[REDACT] Сюда передаем текущее время системы -->
                         <div class="h1">
                             00:00
+                        </div>
+                    </div>
+
+                    <div class="w-100 d-flex flex-column">
+                        <div class="h5">
+                            Время смены:
+                        </div>
+                        <div class="bg-grey w-100 p-2 border rounded-3 d-flex flex-column">
+                            <div class="w-100 p-2 d-flex flex-row align-items-baseline">
+                                <div class="h-25 h5 p-0 m-0">
+                                    нач:
+                                </div>
+                                <!--[REDACT] Сюда передаем время начала смены -->
+                                <div class="h1 p-0 m-0 px-1">
+                                    00:00
+                                </div>
+                            </div>
+                            <div class="w-100 p-2 d-flex flex-row align-items-baseline">
+                                <div class="h-25 h5 p-0 m-0">
+                                    длт:
+                                </div>
+                                <!--[REDACT] Сюда передаем длительность смены -->
+                                <div class="h1 p-0 m-0 px-1">
+                                    00:00
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-100 d-flex flex-column">
+                            <div class="h5">
+                                Изготовление детали (подготовка):
+                            </div>
+                            <div class="bg-grey w-100 p-2 border rounded-3 d-flex flex-column">
+                                <div class="w-100 p-2 d-flex flex-row align-items-baseline">
+                                    <div class="h-25 h5 p-0 m-0">
+                                        прош:
+                                    </div>
+                                    <!--[REDACT] Сюда передаем время прошедшее с начала изг детали -->
+                                    <div class="h1 p-0 m-0 px-1">
+                                        00:00
+                                    </div>
+                                </div>
+                                <div class="w-100 p-2 d-flex flex-row align-items-baseline">
+                                    <div class="h-25 h5 p-0 m-0">
+                                        макс:
+                                    </div>
+                                    <!--[REDACT] Сюда макс время изг детали -->
+                                    <div class="h1 p-0 m-0 px-1">
+                                        00:00
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

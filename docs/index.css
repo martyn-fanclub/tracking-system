@@ -3,6 +3,7 @@
     background-color: var(--bs-dark);
     border-color: var(--bs-gray);
 }
+
 .form-control-dark:focus {
     color: #fff;
     background-color: var(--bs-dark);
@@ -17,4 +18,8 @@
 
 .text-small {
     font-size: 85%;
+}
+
+.bg-grey {
+    background-color: whitesmoke;
 }
