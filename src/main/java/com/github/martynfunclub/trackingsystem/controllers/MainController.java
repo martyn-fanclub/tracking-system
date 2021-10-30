@@ -32,7 +32,7 @@ public class MainController {
             place.setCurrentProduction(productionRepository.getProductionByPlaceAndEndTimeIsNull(place));
         }
         model.addAttribute("places", places);
-        model.addAttribute("title", "Main");
+        model.addAttribute("title", "Станки");
         return "main";
     }
 }
