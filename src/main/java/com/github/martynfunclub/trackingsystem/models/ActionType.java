@@ -1,30 +1,34 @@
 package com.github.martynfunclub.trackingsystem.models;
 
+import java.sql.Time;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity(name = "action_types")
+@Table(name = "action_types")
+@Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class ActionType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String type;
+    @Column(name = "name", nullable = false, length = 45)
+    private String name;
 
-    public ActionType(String type) {
-        this.type = type;
-    }
+    @Column(name = "max_time", nullable = false)
+    private Time maxTime;
 }
