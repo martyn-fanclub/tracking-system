@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Table(name = "action_types")
 @Entity
@@ -20,6 +21,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class ActionType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,4 +33,9 @@ public class ActionType {
 
     @Column(name = "max_time", nullable = false)
     private Time maxTime;
+
+    public ActionType(String name, Time maxTime) {
+        this.name = name;
+        this.maxTime = maxTime;
+    }
 }

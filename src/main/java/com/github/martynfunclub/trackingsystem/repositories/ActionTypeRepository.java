@@ -7,4 +7,5 @@ import com.github.martynfunclub.trackingsystem.models.ActionType;
 
 @Repository
 public interface ActionTypeRepository extends JpaRepository<ActionType, Long> {
+    ActionType findByName(String name);
 }
