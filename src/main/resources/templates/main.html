@@ -1,41 +1,15 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <base href="/">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Рабочий экран</title>
-    <link rel="stylesheet" th:href="@{static/bootstrap/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{static/styles/home.css}">
-</head>
+<th:block th:replace="fragments/head"/>
+
 <body class="app">
-
-<header class="sticky-top p-3 py-2 bg-dark text-white">
-    <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a th:href="@{/}" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none mx-4">
-                <img th:src="@{/static/data/logo.png}" alt="mdo" width="48" height="48" src="">
-            </a>
-
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-2 text-white">Рабочее место</a></li>
-                <li><a href="statistics.html" class="nav-link px-2 text-secondary">Личная статистика</a></li>
-            </ul>
-
-            <div class="dropdown text-end">
-                <a class="btn btn-outline-light me-2">Заблокировать</a>
-                <a class="btn btn-outline-danger">Выйти</a>
-            </div>
-        </div>
-    </div>
-</header>
+<th:block th:replace="fragments/header"/>
 
 <main class="row">
     <div th:each="place : ${places}" class="mt-5 col-md-10 mx-auto col-lg-5">
         <p class="m-3">Станок №<span th:text="${place.name}"></span></p>
         <p class="m-3">Изготовление:
             <span th:if="${place.currentProduction}">
-                <span th:if="${place.currentProduction.detail}" th:text="${place.currentProduction.detail.detailType.name}"></span>
+                <span th:if="${place.currentProduction.detail}"
+                      th:text="${place.currentProduction.detail.detailType.name}"></span>
                 <span th:text="${place.currentProduction.change.user.name}"></span>
             </span>
             <span th:unless="${place.currentProduction}">простой</span>
@@ -51,6 +25,14 @@
         </form>
     </div>
 </main>
-
+<script>
+    let timeDisplays = document.getElementsByClassName("clock");
+    document.body.onload = refreshTime;
+    function refreshTime() {
+        for (let timeDisplay of timeDisplays) {
+            timeDisplay.innerHTML = new Date().toLocaleTimeString("ru-RU");
+        }
+    }
+    setInterval(refreshTime, 1000);
+</script>
 </body>
-</html>

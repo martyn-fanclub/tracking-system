@@ -29,7 +29,6 @@ public class UserDTO {
     @NotBlank
     private String personnelNumber;
 
-    @NotNull
     private Set<Number> numbers;
 
     @NotBlank
@@ -53,5 +52,16 @@ public class UserDTO {
         this.personnelNumber = personnelNumber;
         this.username = username;
         this.password = password;
+    }
+
+    public UserDTO(String name, String surname, String personnelNumber, String username, String password, String passwordConfirm, Long salary, String skills) {
+        this.name = name;
+        this.surname = surname;
+        this.personnelNumber = personnelNumber;
+        this.username = username;
+        this.password = password;
+        this.passwordConfirm = passwordConfirm;
+        this.salary = salary;
+        this.skills = skills;
     }
 }
