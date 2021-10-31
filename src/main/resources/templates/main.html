@@ -25,5 +25,14 @@
         </form>
     </div>
 </main>
-
+<script>
+    let timeDisplays = document.getElementsByClassName("clock");
+    document.body.onload = refreshTime;
+    function refreshTime() {
+        for (let timeDisplay of timeDisplays) {
+            timeDisplay.innerHTML = new Date().toLocaleTimeString("ru-RU");
+        }
+    }
+    setInterval(refreshTime, 1000);
+</script>
 </body>

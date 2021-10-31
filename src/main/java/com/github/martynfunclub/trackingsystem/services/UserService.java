@@ -52,8 +52,8 @@ public class UserService implements UserDetailsService {
         if (userFromDB != null) {
             return false;
         }
-        User newUser = new User(userDTO.getName(), userDTO.getSurname(), userDTO.getPatronymic(), userDTO.getUsername(),
-                userDTO.getPassword(), userDTO.getNumbers(), userDTO.getPersonnelNumber(), userDTO.getSalary(), userDTO.getSkills());
+        User newUser = new User(userDTO.getName(), userDTO.getSurname(), userDTO.getPatronymic(), userDTO.getUsername(), userDTO.getPersonnelNumber(), userDTO.getSalary(), userDTO.getSkills());
+        newUser.setNumbers(userDTO.getNumbers());
         newUser.setRoles(Set.of(roleRepository.getRoleByName("ROLE_ADMIN")));
         newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
         userRepository.save(newUser);
@@ -66,10 +66,10 @@ public class UserService implements UserDetailsService {
         if (userFromDB != null) {
             return false;
         }
-        User newUser = new User(userDTO.getName(), userDTO.getSurname(), userDTO.getPatronymic(), userDTO.getUsername(),
-                userDTO.getPassword(), userDTO.getNumbers(), userDTO.getPersonnelNumber(), userDTO.getSalary(), userDTO.getSkills());
+        User newUser = new User(userDTO.getName(), userDTO.getSurname(), userDTO.getPatronymic(), userDTO.getUsername(), userDTO.getPersonnelNumber(), userDTO.getSalary(), userDTO.getSkills());
+        newUser.setNumbers(userDTO.getNumbers());
         newUser.setRoles(Set.of(roleRepository.getRoleByName("ROLE_WORKER")));
-        newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
+        newUser.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
         userRepository.save(newUser);
         return true;
     }
