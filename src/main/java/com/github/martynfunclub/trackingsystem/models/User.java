@@ -43,7 +43,7 @@ public class User implements UserDetails {
     @Column(name = "patronymic", length = 45)
     private String patronymic;
 
-    @Column(name = "email", nullable = false, length = 45)
+    @Column(name = "login", nullable = false, length = 45)
     private String username;
 
     @Column(name = "password", nullable = false, length = 60)
@@ -64,12 +64,27 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
+    public User(String name, String surname, String username, String password, String personnelNumber, Long salary, Set<Role> roles) {
+        this.name = name;
+        this.surname = surname;
+        this.username = username;
+        this.password = password;
+        this.personnelNumber = personnelNumber;
+        this.salary = salary;
+        this.roles = roles;
+    }
+
+    public User(String name, String surname, String patronymic, String username, String personnelNumber, Long salary, String skills) {
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        this.username = username;
+        this.personnelNumber = personnelNumber;
+        this.salary = salary;
+        this.skills = skills;
+    }
+
     public User(String name, String surname, String patronymic, String username, String password, Set<Number> numbers, String personnelNumber, Long salary, String skills, Set<Role> roles) {
-        if (numbers != null) {
-            for (Number number : numbers) {
-                number.setUser(this);
-            }
-        }
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
@@ -82,16 +97,13 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
-    public User(String name, String surname, String patronymic, String username, String password, Set<Number> numbers, String personnelNumber, Long salary, String skills) {
-        this.name = name;
-        this.surname = surname;
-        this.patronymic = patronymic;
-        this.username = username;
-        this.password = password;
+    public void setNumbers(Set<Number> numbers) {
+        if (numbers != null) {
+            for (Number number : numbers) {
+                number.setUser(this);
+            }
+        }
         this.numbers = numbers;
-        this.personnelNumber = personnelNumber;
-        this.salary = salary;
-        this.skills = skills;
     }
 
     @Override
