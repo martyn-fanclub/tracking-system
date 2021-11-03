@@ -1,0 +1,22 @@
+<th:block th:replace="fragments/head"/>
+<body>
+<th:block th:replace="fragments/header"/>
+<div class="col-md-10 mx-auto col-lg-5">
+    <form class="p-5 pt-4 border rounded-3 bg-light" action="#" th:action="@{/action-types}"
+          th:object="${actionTypeForm}" method="post">
+        <div class="mb-4 col text-center fs-2">Добавить действие</div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="name" placeholder="Название" th:field="*{name}">
+            <label for="name">Название</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="max-time" placeholder="Максимальное время"
+                   th:field="*{maxTime}">
+            <label for="max-time">Максимальное время</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Добавить</button>
+        <hr class="my-4">
+        <small class="text-muted">© Система контроля над работяжками</small>
+    </form>
+</div>
+</body>

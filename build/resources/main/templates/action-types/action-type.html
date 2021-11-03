@@ -1,0 +1,9 @@
+<th:block th:replace="fragments/head"/>
+<body>
+<th:block th:replace="fragments/header"/>
+<div th:text="${actionType}"></div>
+<form action="#" th:action="@{/action-types/delete}" method="post">
+    <input type="hidden" name="id" th:value="${actionType.id}">
+    <button type="submit">Удалить</button>
+</form>
+</body>

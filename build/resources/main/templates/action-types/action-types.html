@@ -1,0 +1,6 @@
+<th:block th:replace="fragments/head"/>
+<body>
+<th:block th:replace="fragments/header"/>
+    <div th:each="actionType : ${actionTypes}" th:text="${actionType}">
+    </div>
+</body>
