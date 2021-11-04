@@ -1,6 +1,6 @@
 package com.github.martynfunclub.trackingsystem.models;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,7 +14,6 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Table(name = "productions")
 @Entity
@@ -38,10 +37,10 @@ public class Production {
     private Change change;
 
     @Column(name = "start_time", nullable = false)
-    private Timestamp startTime;
+    private LocalDateTime startTime;
 
     @Column(name = "end_time")
-    private Timestamp endTime;
+    private LocalDateTime endTime;
 
     @ManyToOne
     @JoinColumn(name = "detail_id")
