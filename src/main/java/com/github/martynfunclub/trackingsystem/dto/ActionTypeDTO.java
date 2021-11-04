@@ -17,5 +17,6 @@ public class ActionTypeDTO {
     @NotBlank
     private String name;
 
-    private int maxTime;
+    @NotBlank
+    private String maxTime;
 }

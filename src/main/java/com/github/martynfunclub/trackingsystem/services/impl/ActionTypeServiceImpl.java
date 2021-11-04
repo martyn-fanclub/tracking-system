@@ -33,8 +33,7 @@ public class ActionTypeServiceImpl implements ActionTypeService {
         if (actionTypeRepository.findByName(actionTypeDTO.getName()) != null) {
             return false;
         }
-        LocalTime time = LocalTime.MIN.plusMinutes(actionTypeDTO.getMaxTime());
-        actionTypeRepository.save(new ActionType(actionTypeDTO.getName(), Time.valueOf(time)));
+        actionTypeRepository.save(new ActionType(actionTypeDTO.getName(), LocalTime.parse(actionTypeDTO.getMaxTime())));
         return true;
     }
 
