@@ -1,6 +1,6 @@
 package com.github.martynfunclub.trackingsystem.models;
 
-import java.sql.Time;
+import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,9 +32,9 @@ public class ActionType {
     private String name;
 
     @Column(name = "max_time", nullable = false)
-    private Time maxTime;
+    private LocalTime maxTime;
 
-    public ActionType(String name, Time maxTime) {
+    public ActionType(String name, LocalTime maxTime) {
         this.name = name;
         this.maxTime = maxTime;
     }
