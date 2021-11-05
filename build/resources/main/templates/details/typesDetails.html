@@ -1,38 +1,28 @@
 <!doctype html>
 <html xmlns:th="https://thymeleaf.org" lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="https://thymeleaf.org ">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title th:text="${title}"></title>
-</head>
+<th:block th:replace="fragments/head"/>
 <body>
-<a href="http://localhost:8080/details">back to all details</a>
-<div>
-    <form method = "get" action="/detailsTypes/createNewTypeDetail">
-        <input type="text" name="name" placeholder="name">
-        <input type="time" name="maxTime" placeholder="max time">
-        <button type="submit">Создать</button>
-    </form>
+<th:block th:replace="fragments/header"/>
+<div class="col-md-10 mx-auto col-lg-5">
+    <a href="http://localhost:8080/details">back to all details</a>
+    <a href="http://localhost:8080/detailsTypes/createNew">create new</a>
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>max time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="type : ${detailTypes}">
+            <td th:text="${type.id}"></td>
+            <td th:text="${type.name}"></td>
+            <td th:text="${type.maxTime}"></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
-<table>
-    <thead>
-    <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>max time</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="type : ${detailTypes}">
-        <td th:text="${type.id}"></td>
-        <td th:text="${type.name}"></td>
-        <td th:text="${type.maxTime}"></td>
-    </tr>
-    </tbody>
-</table>
-
 </body>
 </html>

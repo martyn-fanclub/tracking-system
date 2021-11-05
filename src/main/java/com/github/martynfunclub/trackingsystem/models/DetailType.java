@@ -1,6 +1,7 @@
 package com.github.martynfunclub.trackingsystem.models;
 
 import java.sql.Time;
+import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +23,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class DetailType {
 
-    public DetailType(String name, String maxTime){
+    public DetailType(String name, LocalTime maxTime){
         this.name=name;
         this.maxTime=maxTime;
     }
@@ -36,5 +37,5 @@ public class DetailType {
     private String name;
 
     @Column(name = "maxTime", nullable = false)
-    private String maxTime;
+    private LocalTime maxTime;
 }
