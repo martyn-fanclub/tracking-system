@@ -1,0 +1,21 @@
+<th:block th:replace="fragments/head"/>
+<body>
+<th:block th:replace="fragments/header"/>
+<div class="col-md-10 mx-auto col-lg-5">
+<a href="http://localhost:8080/detailsTypes">back</a>
+    <form action="#" th:action="@{/detailsTypes}" th:object="${detailTypeForm}" method="post">
+        <div>Добавить тип детали</div>
+        <div>
+            <label for="name">Название</label>
+            <input type="text" class="form-control" id="name" placeholder="Название" th:field="*{name}">
+        </div>
+        <div>
+            <label for="max-time">Максимальное время</label>
+            <input type="time" class="form-control" id="max-time" placeholder="Максимальное время"
+                   th:field="*{maxTime}">
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Добавить</button>
+    </form>
+</div>
+</body>
+</html>

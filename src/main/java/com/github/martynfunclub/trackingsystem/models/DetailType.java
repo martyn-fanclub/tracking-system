@@ -1,6 +1,7 @@
 package com.github.martynfunclub.trackingsystem.models;
 
 import java.sql.Time;
+import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,6 +22,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DetailType {
+
+    public DetailType(String name, LocalTime maxTime){
+        this.name=name;
+        this.maxTime=maxTime;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -29,6 +36,6 @@ public class DetailType {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "max_time", nullable = false)
-    private Time maxTime;
+    @Column(name = "maxTime", nullable = false)
+    private LocalTime maxTime;
 }
