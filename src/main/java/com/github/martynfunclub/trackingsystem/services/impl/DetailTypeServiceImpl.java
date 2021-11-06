@@ -32,9 +32,7 @@ public class DetailTypeServiceImpl implements DetailTypeService {
         if (detailTypeRepository.findByName(detailTypeDTO.getName()) != null) {
             return false;
         }
-        int h = Integer.parseInt(detailTypeDTO.getMaxTime().substring(0, 2));
-        int m = Integer.parseInt(detailTypeDTO.getMaxTime().substring(3, 5));
-        detailTypeRepository.save(new DetailType(detailTypeDTO.getName(), LocalTime.of(h, m)));
+        detailTypeRepository.save(new DetailType(detailTypeDTO.getName(), LocalTime.parse(detailTypeDTO.getMaxTime())));
         return true;
     }
 

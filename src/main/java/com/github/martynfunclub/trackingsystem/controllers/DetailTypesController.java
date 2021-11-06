@@ -14,9 +14,12 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/detailsTypes")
 public class DetailTypesController {
+    DetailTypeService detailsTypeService;
 
     @Autowired
-    DetailTypeService detailsTypeService;
+    public DetailTypesController(DetailTypeService detailsTypeService) {
+        this.detailsTypeService = detailsTypeService;
+    }
 
     @GetMapping
     public String getAllTypeDetail(Model model) {
@@ -42,10 +45,12 @@ public class DetailTypesController {
     }
 
     @PostMapping("/deleteDetailType")
-    public String deleteTypeDetail(@RequestParam(name = "id") Long id) {
-        try {
-            detailsTypeService.deleteById(id);
-        } catch (EmptyResultDataAccessException ignored) {
+    public String deleteTypeDetail(@RequestParam(name = "id") String id) {
+        if ((id != null) && (!id.isEmpty())) {
+            try {
+                detailsTypeService.deleteById((long) Integer.parseInt(id));
+            } catch (EmptyResultDataAccessException ignored) {
+            }
         }
         return "redirect:/detailsTypes";
     }

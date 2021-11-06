@@ -15,12 +15,6 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DetailType {
-
-    public DetailType(String name, LocalTime maxTime) {
-        this.name = name;
-        this.maxTime = maxTime;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -31,4 +25,9 @@ public class DetailType {
 
     @Column(name = "max_time", nullable = false)
     private LocalTime maxTime;
+
+    public DetailType(String name, LocalTime maxTime) {
+        this.name = name;
+        this.maxTime = maxTime;
+    }
 }
