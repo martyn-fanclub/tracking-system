@@ -1,17 +1,12 @@
 <th:block th:replace="fragments/head"/>
 <body>
 <th:block th:replace="fragments/header"/>
+<div class="col-md-10 mx-auto col-lg-5">
 <a href="http://localhost:8080/detailsTypes">all detail types</a>
 <div>
-    <form method="get" action="getDetail">
+    <form method="post" action="#" th:action="@{/details}">
         <input type="number" name="id" placeholder="id типа детали">
-        <button type="button">Искать</button>
-    </form>
-</div>
-<div>
-    <form method="post" action="createDetail">
-        <input type="number" name="id" placeholder="id типа детали">
-        <button type="button">Создать</button>
+        <button type="submit">Создать</button>
     </form>
 </div>
 <table>
@@ -29,12 +24,12 @@
     <tbody>
     <tr th:each="detail : ${details}">
         <td th:text="${detail.id}"></td>
-        <td th:text="${detail.detail_type_id.id}"></td>
-        <td th:text="${detail.detail_type_id.name}"></td>
-        <td th:text="${detail.detail_type_id.max_time}"></td>
+        <td th:text="${detail.detailType.id}"></td>
+        <td th:text="${detail.detailType.name}"></td>
+        <td th:text="${detail.detailType.maxTime}"></td>
     </tr>
     </tbody>
 </table>
-
+</div>
 </body>
 </html>
