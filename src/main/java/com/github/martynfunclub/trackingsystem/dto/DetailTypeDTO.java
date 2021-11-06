@@ -16,5 +16,6 @@ public class DetailTypeDTO {
     @NotBlank
     private String name;
 
+    @NotBlank
     private String maxTime;
 }
