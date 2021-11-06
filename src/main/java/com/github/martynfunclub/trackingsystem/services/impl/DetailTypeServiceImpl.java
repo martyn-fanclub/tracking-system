@@ -1,6 +1,5 @@
 package com.github.martynfunclub.trackingsystem.services.impl;
 
-
 import com.github.martynfunclub.trackingsystem.dto.DetailTypeDTO;
 import com.github.martynfunclub.trackingsystem.models.DetailType;
 import com.github.martynfunclub.trackingsystem.repositories.DetailTypeRepository;
