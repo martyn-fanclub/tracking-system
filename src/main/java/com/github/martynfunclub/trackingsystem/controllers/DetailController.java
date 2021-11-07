@@ -41,7 +41,7 @@ public class DetailController {
 
     @PostMapping
     public String createDetail(@RequestParam(name = "id") String id, Model model) {
-        if ((id != null) && (!id.isEmpty())) {
+        if ((id != null) && !id.isEmpty()) {
             detailService.save(Integer.parseInt(id));
         }
         return "redirect:/details";

@@ -16,12 +16,12 @@ import java.util.Optional;
 public class DetailServiceImpl implements DetailService {
 
     DetailRepository detailRepository;
-    @Autowired
     DetailTypeService detailTypeService;
 
     @Autowired
-    public DetailServiceImpl(DetailRepository detailRepository) {
+    public DetailServiceImpl(DetailRepository detailRepository, DetailTypeService detailTypeService) {
         this.detailRepository = detailRepository;
+        this.detailTypeService = detailTypeService;
     }
 
     @Override
@@ -34,10 +34,10 @@ public class DetailServiceImpl implements DetailService {
         try {
             Optional<DetailType> detailType = detailTypeService.findById(id);
             detailRepository.save(new Detail(detailType.get()));
-            return true;
         } catch (NoSuchElementException e) {
             return false;
         }
+        return true;
     }
 
     @Override
