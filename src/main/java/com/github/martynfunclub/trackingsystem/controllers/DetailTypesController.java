@@ -1,6 +1,7 @@
 package com.github.martynfunclub.trackingsystem.controllers;
 
 import com.github.martynfunclub.trackingsystem.dto.DetailTypeDTO;
+import com.github.martynfunclub.trackingsystem.dto.IdDTO;
 import com.github.martynfunclub.trackingsystem.services.DetailTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -25,6 +26,7 @@ public class DetailTypesController {
     public String getAllTypeDetail(Model model) {
         model.addAttribute("title", "All detail types");
         model.addAttribute("detailTypes", detailsTypeService.findAll());
+        model.addAttribute("IdDTO", new IdDTO());
         return "details/typesDetails";
     }
 
@@ -45,10 +47,10 @@ public class DetailTypesController {
     }
 
     @PostMapping("/deleteDetailType")
-    public String deleteTypeDetail(@RequestParam(name = "id") String id) {
-        if ((id != null) && !id.isEmpty()) {
+    public String deleteTypeDetail(@ModelAttribute("IdDTO") IdDTO idDTO) {
+        if (idDTO.getId() != null) {
             try {
-                detailsTypeService.deleteById((long) Integer.parseInt(id));
+                detailsTypeService.deleteById(idDTO.getId());
             } catch (EmptyResultDataAccessException ignored) {
             }
         }

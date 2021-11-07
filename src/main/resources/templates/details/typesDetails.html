@@ -4,9 +4,12 @@
 <div class="col-md-10 mx-auto col-lg-5">
     <div><a href="http://localhost:8080/details">back to all details</a></div>
     <div><a href="http://localhost:8080/detailsTypes/createNew">create new</a></div>
-    <form method="post" action="#" th:action="@{/detailsTypes/deleteDetailType}">
-        <input type="number" name="id" placeholder="id типа детали">
-        <button type="submit">удалить</button>
+    <form action="#" th:action="@{/detailsTypes/deleteDetailType}" method="post">
+        <div>удалить тип детали</div>
+        <div>
+            <input type="number" class="form-control" id="id" placeholder="id" th:field="*{IdDTO.id}">
+            <button type="submit">удалить</button>
+        </div>
     </form>
     <table>
         <thead>

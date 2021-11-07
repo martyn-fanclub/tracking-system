@@ -1,5 +1,6 @@
 package com.github.martynfunclub.trackingsystem.controllers;
 
+import com.github.martynfunclub.trackingsystem.dto.IdDTO;
 import com.github.martynfunclub.trackingsystem.models.Detail;
 import com.github.martynfunclub.trackingsystem.services.DetailService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class DetailController {
     public String getDetails(Model model) {
         model.addAttribute("title", "All details");
         model.addAttribute("details", detailService.findAll());
+        model.addAttribute("IdDTO", new IdDTO());
         return "details/details";
     }
 
@@ -40,9 +42,9 @@ public class DetailController {
     }
 
     @PostMapping
-    public String createDetail(@RequestParam(name = "id") String id, Model model) {
-        if ((id != null) && !id.isEmpty()) {
-            detailService.save(Integer.parseInt(id));
+    public String createDetail(@ModelAttribute("IdDTO") IdDTO idDTO) {
+        if (idDTO.getId() != null) {
+            detailService.save(idDTO.getId());
         }
         return "redirect:/details";
     }
