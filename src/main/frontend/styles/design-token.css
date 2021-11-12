@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+/* design token. Colors*/
+:root {
+    --font: 'Montserrat', sans-serif;
+    --color-background: #FFFFFF;
+    --color-support-light: #EDEDED;
+    --color-suppor-dark: #E1E1E1;
+    --color-button: #C9C9C9;
+    --color-accent: #FE6732;
+    --color-header: #313131;
+    --color-text: #FFFFFF;
+    --color-alert: #DE4A4A;
+    --gradient-timer: linear-gradient(#CAD3F4, #B3AFF6);
+    --width: calc(100vh / 3 * 4); /*Временное решение*/
+}

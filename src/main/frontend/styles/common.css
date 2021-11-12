@@ -1,0 +1,24 @@
+@import "design-token.css";
+
+.button {
+    cursor: pointer;
+    width: 150px;
+    height: 60px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.button__text {
+    font-family: Roboto, serif;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: indianred;
+    width: 160px;
+    height: 70px;
+}
