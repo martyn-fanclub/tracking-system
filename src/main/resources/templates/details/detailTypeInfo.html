@@ -1,0 +1,14 @@
+<th:block th:replace="fragments/head"/>
+<body>
+<th:block th:replace="fragments/header"/>
+<div class="col-md-10 mx-auto col-lg-5">
+<a href="http://localhost:8080/detailsTypes">back</a>
+<div>id:</div>
+<div th:text="${detailType.id}"></div>
+<div>name:</div>
+<div th:text="${detailType.name}"></div>
+<div>max time:</div>
+<div th:text="${detailType.maxTime}"></div>
+</div>
+</body>
+</html>

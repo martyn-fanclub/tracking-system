@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/details")
@@ -30,13 +30,13 @@ public class DetailController {
 
     @GetMapping("/{id}")
     public String getDetail(@PathVariable(name = "id") Long id, Model model) {
-        model.addAttribute("title", "detail with id " + id);
-        try {
-            Detail detail = detailService.findById(id).get();
-            model.addAttribute("detail", detailService.findById(id).get());
+        Optional<Detail> detail = detailService.findById(id);
+        if (detail.isPresent()) {
+            model.addAttribute("detail", detail.get());
+            model.addAttribute("title", "detail with id " + id);
             //[REDACT] add new page and more information
             return "details/detailInfo";
-        } catch (NoSuchElementException ignored) {
+        } else {
             return "redirect:/details";
         }
     }
