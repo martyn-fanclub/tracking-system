@@ -11,6 +11,6 @@
     --color-header: #313131;
     --color-text: #FFFFFF;
     --color-alert: #DE4A4A;
-    --gradient-timer: linear-gradient(#CAD3F4, #B3AFF6);
+    --gradient-timer: linear-gradient(to left, #CAD3F4, #B3AFF6);
     --width: calc(100vh / 3 * 4); /*Временное решение*/
 }
