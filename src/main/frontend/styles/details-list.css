@@ -1,0 +1,65 @@
+@import "design-token.css";
+
+.table-line-odd {
+    background-color: var(--color-support-light);
+}
+
+.table-line-first {
+    width: 98.55%;
+    border: 3.5px solid var(--color-accent);
+}
+
+.table-header {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 9%;
+    background-color: var(--color-support-light);
+}
+
+.table-header__number {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7.5%;
+    height: 100%;
+    font-family: var(--font);
+    font-style: normal;
+    font-size: 65%;
+}
+
+.table-header__name-detail {
+    position: relative;
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    font-family: var(--font);
+    font-style: normal;
+    font-size: 65%;
+}
+
+.table-header__time {
+    position: relative;
+    width: 13%;
+    height: 100%;
+    display: flex;
+    color: #000000;
+    align-items: center;
+    font-family: var(--font);
+    font-style: normal;
+    font-size: 65%;
+}
+
+.table-header__cell-number {
+    position: relative;
+    width: 21.1%;
+    display: flex;
+    align-items: center;
+    font-family: var(--font);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 65%;
+}
