@@ -1,0 +1,9 @@
+@import "design-token.css";
+
+.details-list__button{
+    background-color: var(--color-button);
+}
+
+#1{
+    font-weight: var(--font-regular);
+}
