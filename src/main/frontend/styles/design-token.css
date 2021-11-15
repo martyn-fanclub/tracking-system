@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
 /* design token. Colors*/
 :root {
     --font: 'Montserrat', sans-serif;
+    --font-regular: 400;
+    --font-semi-bold: 600;
     --color-background: #FFFFFF;
     --color-support-light: #EDEDED;
     --color-suppor-dark: #E1E1E1;
