@@ -1,7 +1,9 @@
 .timer__time-panel {
-    width: 91%;
-    height: 36.6%;
-    padding: 0;
+    width: 90.96%;
+    height: 37.3%;
+    position: relative;
+    top: 4.3%;
+    left: 4.5%;
 }
 
 .timer__clock-panel {
@@ -10,36 +12,44 @@
     width: 100%;
     height: 50%;
     position: relative;
-    /*border: #6a1a21 solid;*/
 }
 
 .timer__clock {
     font-family: var(--font);
-    line-height: 60%;
     font-size: 83.33px;
-    position: absolute;
+    position: relative;
+    left: 39%;
 }
+
 .timer__clock-top {
-    right: 10%;
-    bottom: 0;
+    bottom: 9%;
 }
+
 .timer__clock-bottom {
-    right: 10%;
-    bottom: 6%;
+    bottom: 17%;
 }
 
 .timer__time-signature {
     font-family: var(--font);
-    font-size: 10px;
+    font-size: 14px;
     position: absolute;
-    right: 78%;
-    bottom: 30%;
+    right: 76%;
+}
+
+.timer__time-signature-top {
+    bottom: 6%;
+}
+
+.timer__time-signature-bottom {
+    bottom: 17%;
 }
 
 .timer__time-title {
+    display: inline-block;
     font-family: var(--font);
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 18px;
+    margin-left: 2%;
+    margin-bottom: 2%;
 }
 
 .timer__white-bar {
@@ -48,7 +58,7 @@
     flex-direction: column;
     position: relative;
     width: 100%;
-    height: 80%;
+    height: 77.2%;
     background: var(--color-background);
     border-radius: 16.6662px;
     box-shadow: inset 0 6.66647px 6.66647px rgba(0, 0, 0, 0.25);
@@ -56,7 +66,7 @@
 
 .timer__blue-bar {
     position: absolute;
-    width: 30%;
+    width: 10%;
     height: 100%;
     background: var(--gradient-timer);
     border-radius: 16.6662px 0 0 16.6662px;
@@ -64,8 +74,8 @@
 }
 
 .timer__right-panel {
-    width: 250px;
-    height: 420px;
+    width: 371px;
+    height: 587px;
     background-color: var(--color-support-light);
     border-radius: 8px;
 }
@@ -77,10 +87,6 @@
 
 .timer__digit-left {
     text-align: left;
-}
-
-.timer__colon {
-    text-align: center;
 }
 
 .timer__digit-right {
