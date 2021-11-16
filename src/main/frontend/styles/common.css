@@ -28,7 +28,7 @@
     width: 100%;
     height: 12%;
     display: flex;
-    background-color: var(--color-suppor-dark);
+    background-color: var(--color-support-dark);
 }
 
 .table-line__number {
@@ -86,19 +86,19 @@
     width: 25%;
     height: 50%;
     margin: auto 2% auto auto;
-    background-color: #C9C9C9;
+    background-color: var(--color-button);
     box-shadow: 0 0 0 0;
     border-radius: 2px;
 }
 
-.table-line__button__text {
+.table-line__button-text {
     font-family: var(--font);
     font-weight: var(--font-semi-bold);
     font-size: 63%;
 }
 
 .table-line__button:hover {
-    background-color: #aaaaaa;
+    background-color: var(--color-support-dark);
     height: 50%;
     width: 25%;
 }
