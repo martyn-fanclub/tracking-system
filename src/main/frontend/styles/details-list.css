@@ -26,30 +26,33 @@
     height: 100%;
     font-family: var(--font);
     font-style: normal;
+    font-weight: var(--font-regular);
     font-size: 65%;
 }
 
 .table-header__name-detail {
     position: relative;
-    width: 45%;
+    width: 47.5%;
     height: 100%;
     display: flex;
     align-items: center;
     color: #000000;
     font-family: var(--font);
     font-style: normal;
+    font-weight: var(--font-regular);
     font-size: 65%;
 }
 
 .table-header__time {
     position: relative;
-    width: 13%;
+    width: 10%;
     height: 100%;
     display: flex;
     color: #000000;
     align-items: center;
     font-family: var(--font);
     font-style: normal;
+    font-weight: var(--font-regular);
     font-size: 65%;
 }
 
@@ -60,6 +63,6 @@
     align-items: center;
     font-family: var(--font);
     font-style: normal;
-    font-weight: 600;
+    font-weight: var(--font-regular);
     font-size: 65%;
 }
