@@ -2,7 +2,7 @@
     width: 90.96%;
     height: 37.3%;
     position: relative;
-    top: 4.3%;
+    top: 4.23%;
     left: 4.5%;
 }
 
@@ -15,10 +15,9 @@
 }
 
 .timer__clock {
-    font-family: var(--font);
     font-size: 83.33px;
     position: relative;
-    left: 39%;
+    left: 39.5%;
 }
 
 .timer__clock-top {
@@ -31,13 +30,14 @@
 
 .timer__time-signature {
     font-family: var(--font);
+    font-weight: var(--font-regular);
     font-size: 14px;
     position: absolute;
     right: 76%;
 }
 
 .timer__time-signature-top {
-    bottom: 6%;
+    bottom: 5.6%;
 }
 
 .timer__time-signature-bottom {
@@ -47,9 +47,10 @@
 .timer__time-title {
     display: inline-block;
     font-family: var(--font);
+    font-weight: var(--font-regular);
     font-size: 18px;
-    margin-left: 2%;
-    margin-bottom: 2%;
+    margin-left: 2.15%;
+    margin-bottom: 2.1%;
 }
 
 .timer__white-bar {
@@ -83,6 +84,7 @@
 .timer__digit {
     display: inline;
     font-family: var(--font);
+    font-weight: var(--font-semi-bold);
 }
 
 .timer__digit-left {
