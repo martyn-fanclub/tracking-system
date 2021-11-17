@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Tracking system</title>
-  <link rel="stylesheet" type="text/css" href="/styles/design-token.css">
-  <link rel="stylesheet" type="text/css" href="/styles/common.css">
-  <link rel="stylesheet" type="text/css" href="/styles/base.css">
-  <link rel="stylesheet" type="text/css" href="/styles/user-panel.css">
-  <link rel="stylesheet" type="text/css" href="/styles/timetable.css">
-  <link rel="stylesheet" type="text/css" href="/styles/details-list.css">
-  <link rel="stylesheet" type="text/css" href="/styles/popup.css">
-  <link rel="stylesheet" type="text/css" href="/styles/header.css">
+    <meta charset="UTF-8">
+    <title>Tracking system</title>
+    <link rel="stylesheet" type="text/css" href="../styles/design-token.css">
+    <link rel="stylesheet" type="text/css" href="../styles/common.css">
+    <link rel="stylesheet" type="text/css" href="../styles/base.css">
+    <link rel="stylesheet" type="text/css" href="../styles/user-panel.css">
+    <link rel="stylesheet" type="text/css" href="../styles/timetable.css">
+    <link rel="stylesheet" type="text/css" href="../styles/details-list.css">
+    <link rel="stylesheet" type="text/css" href="../styles/popup.css">
+    <link rel="stylesheet" type="text/css" href="../styles/header.css">
 </head>
 <body>
 <header>
@@ -57,7 +57,52 @@
           </div>
         </div>
       </section>
-      <section class="timetable"><!-- to do Alena --></section>
+      <section class="timetable">
+                <div class="timer__time-panel">
+                    <span class="timer__time-title">время смены</span>
+                    <div class="timer__white-bar">
+                        <div class="timer__blue-bar"></div>
+                        <div class="timer__clock-panel">
+                            <div class="timer__time-signature timer__time-signature-top">прошло:</div>
+                            <div class="timer__clock timer__clock-top">
+                                <span class="timer__digit timer__digit-right">0</span><span
+                                    class="timer__digit">:</span><span
+                                    class="timer__digit timer__digit-left">22</span>
+                            </div>
+                        </div>
+                        <div class="timer__clock-panel">
+                            <div class="timer__time-signature timer__time-signature-bottom">нач:</div>
+                            <div class="timer__clock timer__clock-bottom">
+                                <span class="timer__digit timer__digit-right">8</span><span
+                                    class="timer__digit">:</span><span
+                                    class="timer__digit timer__digit-left">42</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timer__time-panel">
+                    <span class="timer__time-title">изготовление(подготовка)</span>
+                    <div class="timer__white-bar">
+                        <div class="timer__blue-bar"></div>
+                        <div class="timer__clock-panel">
+                            <div class="timer__time-signature timer__time-signature-top">прошло:</div>
+                            <div class="timer__clock timer__clock-top">
+                                <span class="timer__digit timer__digit-right">0</span><span
+                                    class="timer__digit">:</span><span
+                                    class="timer__digit timer__digit-left">42</span>
+                            </div>
+                        </div>
+                        <div class="timer__clock-panel">
+                            <div class="timer__time-signature timer__time-signature-bottom">макс:</div>
+                            <div class="timer__clock timer__clock-bottom">
+                                <span class="timer__digit timer__digit-right">1</span><span
+                                    class="timer__digit">:</span><span
+                                    class="timer__digit timer__digit-left">22</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
     </div>
     <section class="details-list">
 

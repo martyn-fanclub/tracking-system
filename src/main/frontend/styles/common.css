@@ -19,9 +19,105 @@
     font-size: 1.8vh;
 }
 
-.button:hover {
+.b
     background-color: var(--color-support-dark);
 }
+
+
+
+/*START TIMER CSS*/
+
+.timer__time-panel {
+    width: 90.96%;
+    height: 37.3%;
+    position: relative;
+    top: 4.23%;
+    left: 4.5%;
+}
+
+.timer__time-title {
+    display: inline-block;
+    font-family: var(--font);
+    font-weight: var(--font-regular);
+    font-size: 1.6vh;
+    margin-left: 2.15%;
+    margin-bottom: 2.1%;
+}
+
+.timer__clock-panel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    position: relative;
+}
+
+.timer__clock {
+    font-size: 6vh;
+    position: relative;
+    left: 38%;
+}
+
+.timer__clock-top {
+    bottom: 9%;
+}
+
+.timer__clock-bottom {
+    bottom: 17%;
+}
+
+.timer__digit {
+    display: inline;
+    font-family: var(--font);
+    font-weight: var(--font-semi-bold);
+}
+
+.timer__digit-left {
+    text-align: left;
+}
+
+.timer__digit-right {
+    text-align: right;
+}
+
+.timer__time-signature {
+    font-family: var(--font);
+    font-weight: var(--font-regular);
+    font-size: 1vh;
+    position: absolute;
+    right: 76%;
+}
+
+.timer__time-signature-top {
+    bottom: 5.6%;
+}
+
+.timer__time-signature-bottom {
+    bottom: 17%;
+}
+
+.timer__white-bar {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 77.2%;
+    background: var(--color-background);
+    border-radius: 16.6662px;
+    box-shadow: inset 0 0.61727vh 0.61727vh rgba(0, 0, 0, 0.25);
+}
+
+.timer__blue-bar {
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    background: var(--gradient-timer);
+    border-radius: 16.6662px 0 0 16.6662px;
+    box-shadow: inset 0 0.61727vh 0.61727vh rgba(0, 0, 0, 0.25);
+}
+
+/*END TIMER CSS*/
 
 .table-line {
     position: relative;
@@ -120,3 +216,4 @@
     margin: 0;
     line-height: 4.1vh;
 }
+
