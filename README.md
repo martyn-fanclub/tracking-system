@@ -1,7 +1,5 @@
 # tracking-system
 
-Tracking-system board на Jira:
-https://pobedos.atlassian.net/jira/software/projects/TS/boards/1
+Tracking-system board на ClickUp:
+https://app.clickup.com/24372532/v/b/4-42443007-2
 
-Tracking-system space на Confluence:
-https://pobedos.atlassian.net/wiki/spaces/TS/overview

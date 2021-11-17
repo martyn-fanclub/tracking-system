@@ -1,0 +1,31 @@
+
+.header__half {
+    display: flex;
+    align-items: center;
+    width: calc(var(--width) / 2);
+}
+
+header img {
+    width: 3.5vh;
+    margin-left: 1.5vh;
+}
+
+header a {
+    font-size: 1.2vh;
+    color: var(--color-button);
+    text-decoration: none;
+    margin-left: 1vh;
+}
+
+.header__working-place{
+    margin-left: 3vh;
+}
+
+.header__working-place{
+    color: var(--color-background);
+}
+
+.header__timer{
+    margin-left: auto;
+    margin-right: 2vh;
+}
