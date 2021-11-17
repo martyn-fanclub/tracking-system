@@ -1,0 +1,57 @@
+.user-panel__info-section {
+    margin: 2vh 2vh 2vh 2vh;
+    display: flex;
+
+}
+
+.user-panel__machine-name {
+    font-weight: var(--font-bold);
+    font-size: 2.4vh;
+    line-height: 2.5vh;
+    margin-top: 0;
+    margin-bottom: 0.7vh;
+}
+
+.user-panel__worker-name {
+    margin-top: 0;
+    font-size: 1.3vh;
+}
+
+.user-panel__info-section > img {
+    margin-top: 0.5vh;
+    margin-left: 0.2vh;
+    height: 1.7vh;
+}
+
+.user-panel__button {
+    margin-top: 0.5vh;
+    width: auto;
+}
+
+.user-panel__nav {
+    margin: 2vh 2vh 2vh 2vh;
+    width: auto;
+}
+
+.user-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user-panel__button:first-child {
+    background-color: var(--color-accent);
+}
+
+.user-panel__button:first-child:hover {
+    background-color: var(--color-accent-light);
+}
+
+
+.user-panel__button > .button__text {
+    line-height: 1.2vh;
+}
+
+.user-panel__wrap {
+    margin-bottom: 3vh;
+}
