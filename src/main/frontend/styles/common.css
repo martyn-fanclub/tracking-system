@@ -2,25 +2,25 @@
 
 .button {
     cursor: pointer;
-    width: 150px;
-    height: 60px;
-    background-color: red;
+    width: 20vh;
+    height: 8vh;
+    background-color: var(--color-button);
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    border-radius: 0.9vh;
+    transition: all 0.4s ease-in-out;
 }
 
 .button__text {
-    font-family: Roboto, serif;
-    font-weight: bold;
+    font-family: var(--font);
+    font-weight: var(--font-semi-bold);
+    word-wrap: break-word;
+    font-size: 1.8vh;
 }
 
 .button:hover {
-    background-color: indianred;
-    width: 160px;
-    height: 70px;
+    background-color: var(--color-support-dark);
 }
 
 .table-line {
@@ -93,7 +93,7 @@
 
 .table-line__button-text {
     font-family: var(--font);
-    font-weight: var(--font-semi-bold);
+    font-weight: var(--font-bold);
     font-size: 63%;
 }
 
@@ -101,4 +101,22 @@
     background-color: var(--color-support-dark);
     height: 50%;
     width: 25%;
+}
+
+.timer-small {
+    background-color: var(--color-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: min-content;
+    height: min-content;
+    font-size: 4.5vh;
+    padding: 0.5vh;
+    border-radius: 0.8vh;
+    box-shadow: 0 0 1vh var(--color-shadow);
+}
+
+.timer-small__text {
+    margin: 0;
+    line-height: 4.1vh;
 }
