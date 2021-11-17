@@ -36,9 +36,8 @@ public class DetailController {
             model.addAttribute("title", "detail with id " + id);
             //[REDACT] add new page and more information
             return "details/detailInfo";
-        } else {
-            return "redirect:/details";
         }
+        return "redirect:/details";
     }
 
     @PostMapping

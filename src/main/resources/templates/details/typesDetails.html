@@ -7,15 +7,8 @@
     <form action="#" th:action="@{/detailsTypes/deleteDetailType}" method="post">
         <div>удалить тип детали</div>
         <div>
-            <input type="number" class="form-control" id="id1" placeholder="id" th:field="*{Id_DTO_for_delete.id}">
+            <input type="number" class="form-control" id="id1" placeholder="id" th:field="*{IdDTOForDelete.id}">
             <button type="submit">удалить</button>
-        </div>
-    </form>
-    <form action="#" th:action="@{/detailsTypes/searchDetailType}" method="get">
-        <div>удалить тип детали</div>
-        <div>
-            <input type="number" class="form-control" id="id2" placeholder="id" th:field="*{Id_DTO_for_search.id}">
-            <button type="submit">искать</button>
         </div>
     </form>
     <table>

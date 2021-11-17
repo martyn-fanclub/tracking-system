@@ -9,10 +9,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -31,8 +28,7 @@ public class DetailTypesController {
     public String getAllTypeDetail(Model model) {
         model.addAttribute("title", "All detail types");
         model.addAttribute("detailTypes", detailsTypeService.findAll());
-        model.addAttribute("Id_DTO_for_delete", new IdDTO());
-        model.addAttribute("Id_DTO_for_search", new IdDTO());
+        model.addAttribute("IdDTOForDelete", new IdDTO());
         return "details/typesDetails";
     }
 
@@ -53,7 +49,7 @@ public class DetailTypesController {
     }
 
     @PostMapping("/deleteDetailType")
-    public String deleteTypeDetail(@ModelAttribute("Id_DTO_for_delete") IdDTO idDTO) {
+    public String deleteTypeDetail(@ModelAttribute("IdDTOForDelete") IdDTO idDTO) {
         if (idDTO.getId() != null) {
             try {
                 detailsTypeService.deleteById(idDTO.getId());
@@ -63,18 +59,14 @@ public class DetailTypesController {
         return "redirect:/detailsTypes";
     }
 
-    @GetMapping("/searchDetailType")
-    public String searchDetailType(Model model, @ModelAttribute("Id_DTO_for_search") IdDTO idDTO) {
-        if (idDTO.getId() == null) {
-            return "redirect:/detailsTypes";
-        }
-        Optional<DetailType> detailType = detailsTypeService.findById(idDTO.getId());
+    @GetMapping("/{id}")
+    public String searchDetailType(@PathVariable(name = "id") Long id, Model model) {
+        Optional<DetailType> detailType = detailsTypeService.findById(id);
         if (detailType.isPresent()) {
-            model.addAttribute("title", "detail types with id " + idDTO.getId());
+            model.addAttribute("title", "detail types with id " + id);
             model.addAttribute("detailType", detailType.get());
             return "details/detailTypeInfo";
-        } else {
-            return "redirect:/detailsTypes";
         }
+        return "redirect:/detailsTypes";
     }
 }
