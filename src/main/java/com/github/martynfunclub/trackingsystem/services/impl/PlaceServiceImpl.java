@@ -1,6 +1,7 @@
 package com.github.martynfunclub.trackingsystem.services.impl;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -25,6 +26,9 @@ public class PlaceServiceImpl implements PlaceService {
 
     @Override
     public List<WorkersPlace> getCurrentPlaces(Cookie[] cookies) {
+        if (cookies == null) {
+            return Collections.emptyList();
+        }
         Cookie placeCookie = null;
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("test")) {
