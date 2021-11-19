@@ -19,7 +19,7 @@
     font-size: 1.8vh;
 }
 
-.b
+.b{
     background-color: var(--color-support-dark);
 }
 
@@ -27,21 +27,11 @@
 
 /*START TIMER CSS*/
 
-.timer__time-panel {
-    width: 90.96%;
-    height: 37.3%;
-    position: relative;
-    top: 4.23%;
-    left: 4.5%;
-}
-
 .timer__time-title {
     display: inline-block;
     font-family: var(--font);
     font-weight: var(--font-regular);
     font-size: 1.6vh;
-    margin-left: 2.15%;
-    margin-bottom: 2.1%;
 }
 
 .timer__clock-panel {
@@ -53,7 +43,7 @@
 }
 
 .timer__clock {
-    font-size: 6vh;
+    font-size: 7vh;
     position: relative;
     left: 38%;
 }
@@ -67,17 +57,19 @@
 }
 
 .timer__digit {
-    display: inline;
+    display: inline-block;
     font-family: var(--font);
     font-weight: var(--font-semi-bold);
 }
 
 .timer__digit-left {
     text-align: left;
+    width: 5vh;
 }
 
 .timer__digit-right {
     text-align: right;
+    width: 5vh;
 }
 
 .timer__time-signature {
@@ -97,23 +89,19 @@
 }
 
 .timer__white-bar {
-    float: left;
-    display: flex;
-    flex-direction: column;
-    position: relative;
+    position: absolute;
     width: 100%;
-    height: 77.2%;
+    height: 100%;
     background: var(--color-background);
-    border-radius: 16.6662px;
+    border-radius: 1.39vh;
     box-shadow: inset 0 0.61727vh 0.61727vh rgba(0, 0, 0, 0.25);
 }
 
 .timer__blue-bar {
     position: absolute;
-    width: 10%;
     height: 100%;
     background: var(--gradient-timer);
-    border-radius: 16.6662px 0 0 16.6662px;
+    border-radius: 1.39vh 0 0 1.39vh;
     box-shadow: inset 0 0.61727vh 0.61727vh rgba(0, 0, 0, 0.25);
 }
 

@@ -1,0 +1,42 @@
+.timetable__top-time-panel {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3vh;
+}
+
+.timetable__bottom-time-panel {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1vh;
+}
+
+.timetable__title-section {
+    margin-left: 3vh;
+    margin-bottom: 0.5vh;
+}
+
+.timetable__bar {
+    margin: 0 2vh 2vh 2vh;
+    width: auto;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 14.1vh;
+}
+
+.timetable__left-top-blue-bar {
+    width: 10%;
+}
+
+.timetable__left-bottom-blue-bar {
+    width: 50%;
+}
+
+.timetable__right-top-blue-bar {
+    width: 30%;
+}
+
+.timetable__right-bottom-blue-bar {
+    width: 70%;
+}
+
