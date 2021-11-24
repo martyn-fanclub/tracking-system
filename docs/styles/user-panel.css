@@ -1,7 +1,7 @@
 .user-panel__info-section {
-    margin: 2vh 2vh 2vh 2vh;
+    margin: 1.5vh;
     display: flex;
-
+    justify-content: space-between;
 }
 
 .user-panel__machine-name {
@@ -25,12 +25,11 @@
 
 .user-panel__button {
     margin-top: 0.5vh;
-    width: auto;
+    width: 100%;
 }
 
 .user-panel__nav {
-    margin: 2vh 2vh 2vh 2vh;
-    width: auto;
+    margin: 2vh;
 }
 
 .user-panel {
@@ -39,19 +38,16 @@
     justify-content: space-between;
 }
 
-.user-panel__button:first-child {
-    background-color: var(--color-accent);
-}
-
-.user-panel__button:first-child:hover {
-    background-color: var(--color-accent-light);
-}
-
-
 .user-panel__button > .button__text {
-    line-height: 1.2vh;
+    line-height: 1.5vh;
 }
 
-.user-panel__wrap {
-    margin-bottom: 3vh;
+.user-panel__button_accent > .button__text {
+    line-height: 1.7vh;
+}
+
+.user-panel svg {
+    margin-left: 3px;
+    height: 3vh;
+    width: 3vh;
 }

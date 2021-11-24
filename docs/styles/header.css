@@ -1,13 +1,17 @@
 
 .header__half {
+    z-index: 2;
     display: flex;
     align-items: center;
     width: calc(var(--width) / 2);
 }
 
-header img {
-    width: 3.5vh;
-    margin-left: 1.5vh;
+
+header svg {
+    width: 10%;
+    margin-left: 5%;
+    margin-top: 3%;
+    fill: var(--color-background);
 }
 
 header a {
@@ -17,15 +21,13 @@ header a {
     margin-left: 1vh;
 }
 
-.header__working-place{
+.header__working-place {
     margin-left: 3vh;
-}
-
-.header__working-place{
     color: var(--color-background);
 }
 
-.header__timer{
+
+.header__timer {
     margin-left: auto;
     margin-right: 2vh;
 }

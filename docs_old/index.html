@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/styles/index.css">
+</head>
+<body class="app">
+
+<header class="sticky-top p-3 py-2 bg-dark text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none mx-4" href="index.html">
+                <img alt="mdo" height="48" src="static/data/logo.png" width="48">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a class="nav-link px-2 text-secondary" href="#">Рабочее место</a></li>
+                <!--[REDACT] Должна показываться ток после входа в аккаунт-->
+                <li><a class="nav-link px-2 text-white" href="statistics.html">Личная статистика</a></li>
+            </ul>
+
+            <div class="dropdown text-end">
+                <!--[REDACT] Должна показываться ток после входа в аккаунт-->
+                <a class="btn btn-outline-light me-2" href="authentication.html">Заблокировать</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+
+    <div class="d-flex flex-row justify-content-around align-items-center">
+
+        <!--[REDACT] Это - один станок, если вставить этот див еще раз - будет второй, выравняются автоматом
+        Для смены состояния станка вставляйте вместо этого div'ы из других html страниц с соответсвующими названиями
+        Так как все остальные страницы с подобным содержанием: просто вариации этой страницы с другим состоянием-->
+        <div class="d-flex flex-column justify-content-between align-items-center mt-5 p-3 col-5 border rounded-3">
+
+            <div class="w-100 d-flex flex-row justify-content-between align-items-stretch">
+
+                <div class="m-3 p-2 py-3 w-50 border rounded-3 bg-light d-flex flex-column justify-content-between align-items-center">
+                    <div class="h4 mb-4">
+                        <!--[REDACT] Название станка -->
+                        Станок станковой
+                    </div>
+
+                    <!--[REDACT] Кнопка начала смены, должна МЕНЯТЬ состояние этой страницы, не переходить на другую -->
+                    <div class="d-flex flex-column align-items-center justify-content-center w-100">
+                        <a class="w-75 btn btn-primary" href="shift-started-condition.html" type="button">Начать
+                            смену</a>
+                    </div>
+                </div>
+
+                <div class="m-3 p-2 w-50 border rounded-3 bg-light d-flex flex-column align-items-center">
+                    <div class="bg-grey w-100 p-2 border rounded-3">
+                        <div class="h5">
+                            Время:
+                        </div>
+                        <!--[REDACT] Сюда передаем текущее время системы -->
+                        <div class="h1">
+                            00:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="p-1 border bg-light row">
+                    <div class="col-1">
+                        №
+                    </div>
+                    <div class="col-4">
+                        название
+                    </div>
+                    <div class="col-2">
+                        время
+                    </div>
+                    <div class="col-2">
+                        № ячейки
+                    </div>
+                    <div class="col-3">
+                        информация
+                    </div>
+                </div>
+
+                <!--[REDACT] Тут элементы таблицы, каждый элемент - вот этот div,
+                bg-grey/light обеспечивает чередование цвета
+                border-3 border-primary выделение первого цветом-->
+                <div class="p-1 border border-3 border-primary bg-grey row">
+                    <div class="col-1 pt-2">
+                        1
+                    </div>
+                    <div class="col-4 pt-2">
+                        уточка
+                    </div>
+                    <div class="col-2 pt-2">
+                        0:45
+                    </div>
+                    <div class="col-2 pt-2">
+                        23:45
+                    </div>
+                    <div class="col-3 d-flex align-items-center">
+                        <!--[REDACT] Здесь переход на доп инфу-->
+                        <a class="btn btn-primary" href="info.html" type="button">Доп. инф</a>
+                    </div>
+                </div>
+                <div class="p-1 border bg-light row">
+                    <div class="col-1 pt-2">
+                        1
+                    </div>
+                    <div class="col-4 pt-2">
+                        уточка
+                    </div>
+                    <div class="col-2 pt-2">
+                        0:45
+                    </div>
+                    <div class="col-2 pt-2">
+                        23:45
+                    </div>
+                    <div class="col-3 d-flex align-items-center">
+                        <!--[REDACT] Здесь переход на доп инфу-->
+                        <a class="btn btn-primary" href="info.html" type="button">Доп. инф</a>
+                    </div>
+                </div>
+                <div class="p-1 border bg-grey row">
+                    <div class="col-1 pt-2">
+                        1
+                    </div>
+                    <div class="col-4 pt-2">
+                        уточка
+                    </div>
+                    <div class="col-2 pt-2">
+                        0:45
+                    </div>
+                    <div class="col-2 pt-2">
+                        23:45
+                    </div>
+                    <div class="col-3 d-flex align-items-center">
+                        <!--[REDACT] Здесь переход на доп инфу-->
+                        <a class="btn btn-primary" href="info.html" type="button">Доп. инф</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+</body>
+</html>
