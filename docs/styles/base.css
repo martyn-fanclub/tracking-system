@@ -38,10 +38,6 @@ header {
     border-radius: 1.3vh;
 }
 
-.user-panel {
-
-}
-
 main {
     flex-grow: 1;
     display: flex;

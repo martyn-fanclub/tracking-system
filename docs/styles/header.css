@@ -22,11 +22,9 @@ header a {
 
 .header__working-place{
     margin-left: 3vh;
-}
-
-.header__working-place{
     color: var(--color-background);
 }
+
 
 .header__timer{
     margin-left: auto;
