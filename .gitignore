@@ -2,8 +2,8 @@ HELP.md
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
+!docs/src/main/**/build/
+!docs/src/test/**/build/
 ### STS ###
 .apt_generated
 .classpath
@@ -26,8 +26,8 @@ build/
 /nbdist/
 /.nb-gradle/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+!docs/src/main/**/build/
+!docs/src/test/**/build/
 
 ### VS Code ###
 .vscode/

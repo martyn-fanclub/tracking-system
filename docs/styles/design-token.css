@@ -17,6 +17,8 @@
     --color-header: #313131;
     --color-text: #FFFFFF;
     --color-alert: #DE4A4A;
+    --color-alert-light: #de7272;
+    --color-blur: #C4C4C4;
     --color-transperant: rgba(222, 74, 74, 0);
     --color-shadow: rgba(0, 0, 0, 0.16);
     --gradient-timer: linear-gradient(to left, #CAD3F4, #B3AFF6);

@@ -1,13 +1,16 @@
 
 .header__half {
+    z-index: 2;
     display: flex;
     align-items: center;
     width: calc(var(--width) / 2);
 }
 
-header img {
-    width: 3.5vh;
+header svg {
+    width: 7vh;
     margin-left: 1.5vh;
+    margin-top: 2vh;
+    fill: var(--color-background);
 }
 
 header a {

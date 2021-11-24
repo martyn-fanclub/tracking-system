@@ -12,11 +12,16 @@ body {
     flex-direction: column;
 }
 
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 header {
+    z-index: 2;
     background-color: var(--color-header);
-    height: 6.8%;
-    flex-basis: 6.8%;
-    flex-grow: 0;
+    height: 6.8vh;
     display: flex;
 }
 
@@ -31,6 +36,10 @@ header {
     background-color: var(--color-support-light);
     width: 49%;
     border-radius: 1.3vh;
+}
+
+.user-panel {
+
 }
 
 main {

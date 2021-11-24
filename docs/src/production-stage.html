@@ -13,9 +13,26 @@
     <link rel="stylesheet" type="text/css" href="../styles/header.css">
 </head>
 <body>
+<svg display="none">
+    <symbol viewBox="0 0 24 24" id="info-icon">
+        <path d="M8.40626 5.57929H10.2395V7.41257H8.40626V5.57929ZM8.40626 9.24586H10.2395V14.7457H8.40626V9.24586ZM9.3229 0.996094C4.26304 0.996094 0.156494 5.10264 0.156494 10.1625C0.156494 15.2223 4.26304 19.3289 9.3229 19.3289C14.3827 19.3289 18.4893 15.2223 18.4893 10.1625C18.4893 5.10264 14.3827 0.996094 9.3229 0.996094ZM9.3229 17.4956C5.28051 17.4956 1.98977 14.2049 1.98977 10.1625C1.98977 6.12011 5.28051 2.82937 9.3229 2.82937C13.3653 2.82937 16.656 6.12011 16.656 10.1625C16.656 14.2049 13.3653 17.4956 9.3229 17.4956Z" fill="#C9C9C9"/>
+    </symbol>
+    <symbol viewBox="0 0 200 200" id="logo-icon">
+        <path id="path3801_2_" class="st3" d="
+		M97,26.3c-7.9,0-20.9,0.3-28.4,1.2C58.1,28.8,54,34.2,52.9,44c-0.9,7.5-1.5,18.4-1.5,28.5c0,10.2,0.2,21.1,1.5,28.6
+		c1.6,9.8,6.2,14.9,15.7,16.4c7.5,1.2,21.3,1.2,28.4,1.2c7.1,0,20.9,0,28.4-1.2c9.4-1.5,13.9-6.6,15.7-16.4
+		c1.3-7.5,1.5-18.9,1.5-28.6c0-9.7-0.9-22.6-1.5-28.5c-1-10.2-5.4-15.1-15.7-16.5C117.8,26.5,104.8,26.3,97,26.3z M128.9,36.7
+		c2,0.9,5.5,6.1,4.7,11.8c-3.9,3.2-8.7,5.5-13.3,6.2v36.5H134c0,5.6-0.9,10.1-1.8,11.8h-24.9V55.3H90v28.5
+		c0,14.4-8.1,21.4-18.4,21.4c-2.9,0-6.4-0.4-9.3-1.2c-1.4-1.9-2-7.4-2.2-14.4c6.9,3.3,16.2,4.9,16.9-5.9V57.1
+		c-10.4,1.2-14.3,8.5-17.8,13.3c0.1-6.6,0.4-12.4,0.7-16.4C67,46.3,75,42.7,90.7,42.7h22.5C118.7,42.7,124,40.7,128.9,36.7z"/>
+    </symbol>
+</svg>
 <header>
     <div class="header__half">
-        <img class="header__logo" src="../img/logo.svg" alt="Логотип политеха">
+        <svg class="header__logo">
+            <use xlink:href="#logo-icon" alt="Логотип политеха">
+            </use>
+        </svg>
         <nav class="header__nav">
             <a class="header__working-place" href="">Рабочее место</a>
             <a class="header__stats" href="">Статистика</a>
@@ -31,8 +48,127 @@
         </div>
     </div>
 </header>
+<div class="popup-container">
+    <div class="popup" data-machine-id="1">
+        <div class="popup__window">
+            <svg class="popup__close-button">
+                <use xlink:href="#close-icon"></use>
+            </svg>
+            <p class="popup__title">Выберите причину простоя</p>
+            <div>
+                <form action="break.html" method="post">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button button_accent">
+                        <p class="button__text">
+                            перерыв
+                        </p>
+                    </button>
+                </form>
+                <form action="break.html" method="post">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button">
+                        <p class="button__text">
+                            работа на др. станке
+                        </p>
+                    </button>
+                </form>
+                <form action="break.html" method="post">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button">
+                        <p class="button__text">
+                            инструмент/оснастка
+                        </p>
+                    </button>
+                </form>
+                <form action="break.html" method="post">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button">
+                        <p class="button__text">
+                            контроль
+                        </p>
+                    </button>
+                </form>
+                <form action="break.html" method="post">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button">
+                        <p class="button__text">
+                            станок
+                        </p>
+                    </button>
+                </form>
+                <form action="break.html" method="post">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button button_alert">
+                        <p class="button__text">
+                            нужен мастер
+                        </p>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="popup" data-machine-id="2">
+        <div class="popup__background"></div>
+        <div class="popup__window">
+            <svg class="popup__close-button">
+                <use xlink:href="#close-icon"></use>
+            </svg>
+            <p class="popup__title">Выберите причину простоя</p>
+            <div>
+                <form action="break.html" method="post">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button button_accent">
+                        <p class="button__text">
+                            перерыв
+                        </p>
+                    </button>
+                </form>
+                <form action="break.html" method="post">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button">
+                        <p class="button__text">
+                            работа на др. станке
+                        </p>
+                    </button>
+                </form>
+                <form action="break.html" method="post">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button">
+                        <p class="button__text">
+                            инструмент/оснастка
+                        </p>
+                    </button>
+                </form>
+                <form action="break.html" method="post">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button">
+                        <p class="button__text">
+                            контроль
+                        </p>
+                    </button>
+                </form>
+                <form action="break.html" method="post">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button">
+                        <p class="button__text">
+                            станок
+                        </p>
+                    </button>
+                </form>
+                <form action="break.html" method="post">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button button_alert">
+                        <p class="button__text">
+                            нужен мастер
+                        </p>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <main>
-    <div class="content">
+    <div class="content" data-machine-id="1">
         <div class="upper-section">
             <section class="user-panel">
                 <div class="user-panel__info-section">
@@ -40,13 +176,24 @@
                         <p class="user-panel__machine-name">Слесарный станок #1231414</p>
                         <p class="user-panel__worker-name"></p>
                     </div>
-                    <img src="../img/info_icon.svg" alt="additional information">
+                    <svg>
+                        <use xlink:href="#info-icon" alt="additional information">
+                        </use >
+                    </svg>
                 </div>
                 <div class="user-panel__nav">
+                    <form action="starting-menu.html" method="post">
+                        <input type="hidden">
+                        <button type=submit class="button user-panel__button button_accent">
+                            <p class="button__text user-panel__wrap">
+                                сдать деталь
+                            </p>
+                        </button>
+                    </form>
                     <div class="button user-panel__button">
-                        <p class="button__text user-panel__wrap"><br>начать работу </br><br> над деталью</br></p>
+                        <p class="button__text">ЛКР</p>
                     </div>
-                    <div class="button user-panel__button">
+                    <div class="button user-panel__button button_open-popup">
                         <p class="button__text">простой</p>
                     </div>
                     <div class="button user-panel__button">
@@ -198,7 +345,7 @@
 
         </section>
     </div>
-    <div class="content">
+    <div class="content" data-machine-id="2">
         <div class="upper-section">
             <section class="user-panel">
                 <div class="user-panel__info-section">
@@ -206,13 +353,24 @@
                         <p class="user-panel__machine-name">Слесарный станок #1231414</p>
                         <p class="user-panel__worker-name"></p>
                     </div>
-                    <img src="../img/info_icon.svg" alt="additional information">
+                    <svg>
+                        <use xlink:href="#info-icon" alt="additional information">
+                        </use >
+                    </svg>
                 </div>
                 <div class="user-panel__nav">
+                    <form action="starting-menu.html" method="post">
+                        <input type="hidden">
+                        <button type=submit class="button user-panel__button button_accent">
+                            <p class="button__text user-panel__wrap">
+                                сдать деталь
+                            </p>
+                        </button>
+                    </form>
                     <div class="button user-panel__button">
-                        <p class="button__text user-panel__wrap"><br>начать работу </br><br> над деталью</br></p>
+                        <p class="button__text">ЛКР</p>
                     </div>
-                    <div class="button user-panel__button">
+                    <div class="button user-panel__button button_open-popup">
                         <p class="button__text">простой</p>
                     </div>
                     <div class="button user-panel__button">
@@ -225,7 +383,7 @@
                     <span class="timer__time-title timetable__title-section">время смены</span>
                     <div class="timetable__bar">
                         <div class="timer__bar_white"></div>
-                        <div class="timer__bar_blue timetable__right-top-blue-bar"></div>
+                        <div class="timer__bar_blue timetable__left-top-blue-bar"></div>
                         <div class="timer__clock-panel">
                             <div class="timer__time-signature timer__time-signature_top">прошло:</div>
                             <div class="timer__clock timer__clock_top">
@@ -248,7 +406,7 @@
                     <span class="timer__time-title timetable__title-section">изготовление(подготовка)</span>
                     <div class="timetable__bar">
                         <div class="timer__bar_white"></div>
-                        <div class="timer__bar_blue timetable__right-bottom-blue-bar"></div>
+                        <div class="timer__bar_blue timetable__left-bottom-blue-bar"></div>
                         <div class="timer__clock-panel">
                             <div class="timer__time-signature timer__time-signature_top">прошло:</div>
                             <div class="timer__clock timer__clock_top">
@@ -365,5 +523,6 @@
         </section>
     </div>
 </main>
+<script src="../scripts/popup.js"></script>
 </body>
 </html>
