@@ -13,8 +13,7 @@
     display: flex;
     position: relative;
     width: 100%;
-    height: 9%;
-    background-color: var(--color-support-light);
+    height: 5%;
 }
 
 .table-header__number {
@@ -27,7 +26,7 @@
     font-family: var(--font);
     font-style: normal;
     font-weight: var(--font-regular);
-    font-size: 65%;
+    font-size: 60%;
 }
 
 .table-header__name-detail {
@@ -40,7 +39,7 @@
     font-family: var(--font);
     font-style: normal;
     font-weight: var(--font-regular);
-    font-size: 65%;
+    font-size: 60%;
 }
 
 .table-header__time {
@@ -53,7 +52,7 @@
     font-family: var(--font);
     font-style: normal;
     font-weight: var(--font-regular);
-    font-size: 65%;
+    font-size: 60%;
 }
 
 .table-header__cell-number {
@@ -64,5 +63,5 @@
     font-family: var(--font);
     font-style: normal;
     font-weight: var(--font-regular);
-    font-size: 65%;
+    font-size: 60%;
 }

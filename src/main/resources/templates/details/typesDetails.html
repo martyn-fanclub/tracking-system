@@ -1,0 +1,32 @@
+<th:block th:replace="fragments/head"/>
+<body>
+<th:block th:replace="fragments/header"/>
+<div class="col-md-10 mx-auto col-lg-5">
+    <div><a href="http://localhost:8080/details">back to all details</a></div>
+    <div><a href="http://localhost:8080/detailsTypes/createNew">create new</a></div>
+    <form action="#" th:action="@{/detailsTypes/deleteDetailType}" method="post">
+        <div>удалить тип детали</div>
+        <div>
+            <input type="number" class="form-control" id="id1" placeholder="id" th:field="*{IdDTOForDelete.id}">
+            <button type="submit">удалить</button>
+        </div>
+    </form>
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>название</th>
+            <th>максимальное время</th>
+        </tr>
+        </thead>
+        <tbody class="col-md-10 mx-auto col-lg-5">
+        <tr th:each="type : ${detailTypes}">
+            <td th:text="${type.id}"></td>
+            <td th:text="${type.name}"></td>
+            <td th:text="${type.maxTime}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
