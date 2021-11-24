@@ -1,7 +1,6 @@
 let closePopupBTN = document.querySelectorAll(`.popup__close-button`)
 let openPopupBTN = document.querySelectorAll(`.button_open-popup`)
 
-let popupContainer = document.querySelector(".popup-container")
 let popups = document.querySelectorAll(".popup")
 let main = document.querySelector("main")
 

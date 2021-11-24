@@ -1,6 +1,7 @@
 .user-panel__info-section {
     margin: 1.5vh;
     display: flex;
+    justify-content: space-between;
 }
 
 .user-panel__machine-name {
