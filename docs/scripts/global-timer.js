@@ -1,10 +1,9 @@
-let globalTime = new Date()
+
 let smallGlobalTimer = document.querySelector(".timer-small__text")
 
 function updateTime() {
-    console.log(smallGlobalTimer)
-    smallGlobalTimer.textContent = globalTime.getHours() + ":" + globalTime.getMinutes()
+    smallGlobalTimer.textContent = new Date().getHours() + ":" + new Date().getMinutes()
 }
 
 updateTime()
-setInterval(updateTime,60000)
+setInterval(updateTime,10000)
