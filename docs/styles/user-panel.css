@@ -51,3 +51,20 @@
     height: 3vh;
     width: 3vh;
 }
+
+.user-panel__break {
+
+    margin: 8vh 0 0 1.5vh;
+}
+
+.user-panel__break > h2 {
+    margin: 0;
+    font-weight: var(--font-bold);
+    font-size: 4vh;
+}
+
+.user-panel__break > p {
+    margin: 0;
+    font-weight: var(--font-semi-bold);
+    font-size: 1.5vh;
+}
