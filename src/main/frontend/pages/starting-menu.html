@@ -14,285 +14,356 @@
 </head>
 <body>
 <header>
-  <div class="header__half">
-    <img class="header__logo" src="/img/logo.svg" alt="Логотип политеха">
-    <nav class="header__nav">
-      <a class="header__working-place" href="">Рабочее место</a>
-      <a class="header__stats" href="">Статистика</a>
-    </nav>
-  </div>
-  <div class="header__half">
-    <nav class="header__nav">
-      <a class="header__working-place" href="">Рабочее место</a>
-      <a class="header__stats" href="">Статистика</a>
-    </nav>
-    <div class="header__timer timer-small">
-      <p class="timer-small__text">12:32</p>
+    <div class="header__half">
+        <img class="header__logo" src="../img/logo.svg" alt="Логотип политеха">
+        <nav class="header__nav">
+            <a class="header__working-place" href="">Рабочее место</a>
+            <a class="header__stats" href="">Статистика</a>
+        </nav>
     </div>
-  </div>
+    <div class="header__half">
+        <nav class="header__nav">
+            <a class="header__working-place" href="">Рабочее место</a>
+            <a class="header__stats" href="">Статистика</a>
+        </nav>
+        <div class="header__timer timer-small">
+            <p class="timer-small__text">12:32</p>
+        </div>
+    </div>
 </header>
 <main>
-  <div class="content">
-    <div class="upper-section">
-      <section class="user-panel">
-        <div class="user-panel__info-section">
-          <div class="user-panel__text">
-            <p class="user-panel__machine-name">Слесарный станок #1231414</p>
-            <p class="user-panel__worker-name"></p>
-          </div>
-          <img src="/img/info_icon.svg" alt="additional information">
-        </div>
-        <div class="user-panel__nav">
-          <div class="button user-panel__button">
-            <p class="button__text user-panel__wrap"><br>начать работу </br><br> над деталью</br></p>
-          </div>
-          <div class="button user-panel__button">
-            <p class="button__text">простой</p>
-          </div>
-          <div class="button user-panel__button">
-            <p class="button__text">закончить смену</p>
-          </div>
-        </div>
-      </section>
-      <section class="timetable">
-                <div class="timer__time-panel">
-                    <span class="timer__time-title">время смены</span>
-                    <div class="timer__white-bar">
-                        <div class="timer__blue-bar"></div>
+    <div class="content">
+        <div class="upper-section">
+            <section class="user-panel">
+                <div class="user-panel__info-section">
+                    <div class="user-panel__text">
+                        <p class="user-panel__machine-name">Слесарный станок #1231414</p>
+                        <p class="user-panel__worker-name"></p>
+                    </div>
+                    <img src="../img/info_icon.svg" alt="additional information">
+                </div>
+                <div class="user-panel__nav">
+                    <div class="button user-panel__button">
+                        <p class="button__text user-panel__wrap"><br>начать работу </br><br> над деталью</br></p>
+                    </div>
+                    <div class="button user-panel__button">
+                        <p class="button__text">простой</p>
+                    </div>
+                    <div class="button user-panel__button">
+                        <p class="button__text">закончить смену</p>
+                    </div>
+                </div>
+            </section>
+            <section class="timetable">
+                <div class="timetable__shift-timer">
+                    <span class="timer__time-title timetable__title-section">время смены</span>
+                    <div class="timetable__bar">
+                        <div class="timer__bar_white"></div>
+                        <div class="timer__bar_blue timetable__left-top-blue-bar"></div>
                         <div class="timer__clock-panel">
-                            <div class="timer__time-signature timer__time-signature-top">прошло:</div>
-                            <div class="timer__clock timer__clock-top">
-                                <span class="timer__digit timer__digit-right">0</span><span
+                            <div class="timer__time-signature timer__time-signature_top">прошло:</div>
+                            <div class="timer__clock timer__clock_top">
+                                <span class="timer__digit timer__digit_hours">0</span><span
                                     class="timer__digit">:</span><span
-                                    class="timer__digit timer__digit-left">22</span>
+                                    class="timer__digit timer__digit_minutes">22</span>
                             </div>
                         </div>
                         <div class="timer__clock-panel">
-                            <div class="timer__time-signature timer__time-signature-bottom">нач:</div>
-                            <div class="timer__clock timer__clock-bottom">
-                                <span class="timer__digit timer__digit-right">8</span><span
+                            <div class="timer__time-signature timer__time-signature_bottom">нач:</div>
+                            <div class="timer__clock timer__clock_bottom">
+                                <span class="timer__digit timer__digit_hours">8</span><span
                                     class="timer__digit">:</span><span
-                                    class="timer__digit timer__digit-left">42</span>
+                                    class="timer__digit timer__digit_minutes">42</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timetable__bottom-time-panel">
+                    <span class="timer__time-title timetable__title-section">изготовление(подготовка)</span>
+                    <div class="timetable__bar">
+                        <div class="timer__bar_white"></div>
+                        <div class="timer__bar_blue timetable__left-bottom-blue-bar"></div>
+                        <div class="timer__clock-panel">
+                            <div class="timer__time-signature timer__time-signature_top">прошло:</div>
+                            <div class="timer__clock timer__clock_top">
+                                <span class="timer__digit timer__digit_hours">0</span><span
+                                    class="timer__digit">:</span><span
+                                    class="timer__digit timer__digit_minutes">42</span>
+                            </div>
+                        </div>
+                        <div class="timer__clock-panel">
+                            <div class="timer__time-signature timer__time-signature_bottom">макс:</div>
+                            <div class="timer__clock timer__clock_bottom">
+                                <span class="timer__digit timer__digit_hours">1</span><span
+                                    class="timer__digit">:</span><span
+                                    class="timer__digit timer__digit_minutes">22</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+        </div>
+        <section class="details-list">
+
+            <div class="table-header">
+                <div class="table-header__number">№</div>
+                <div class="table-header__name-detail">название</div>
+                <div class="table-header__time">время</div>
+                <div class="table-header__cell-number">№ ячейки</div>
+            </div>
+
+            <div class="table-line table-line-first">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
+
+            <div class="table-line table-line-odd">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
+
+            <div class="table-line">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
+
+            <div class="table-line table-line-odd">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
+
+            <div class="table-line">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
+
+            <div class="table-line table-line-odd">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
+
+            <div class="table-line">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
+
+        </section>
     </div>
-    <section class="details-list">
+    <div class="content">
+        <div class="upper-section">
+            <section class="user-panel">
+                <div class="user-panel__info-section">
+                    <div class="user-panel__text">
+                        <p class="user-panel__machine-name">Слесарный станок #1231414</p>
+                        <p class="user-panel__worker-name"></p>
+                    </div>
+                    <img src="../img/info_icon.svg" alt="additional information">
+                </div>
+                <div class="user-panel__nav">
+                    <div class="button user-panel__button">
+                        <p class="button__text user-panel__wrap"><br>начать работу </br><br> над деталью</br></p>
+                    </div>
+                    <div class="button user-panel__button">
+                        <p class="button__text">простой</p>
+                    </div>
+                    <div class="button user-panel__button">
+                        <p class="button__text">закончить смену</p>
+                    </div>
+                </div>
+            </section>
+            <section class="timetable">
+                <div class="timetable__shift-timer">
+                    <span class="timer__time-title timetable__title-section">время смены</span>
+                    <div class="timetable__bar">
+                        <div class="timer__bar_white"></div>
+                        <div class="timer__bar_blue timetable__right-top-blue-bar"></div>
+                        <div class="timer__clock-panel">
+                            <div class="timer__time-signature timer__time-signature_top">прошло:</div>
+                            <div class="timer__clock timer__clock_top">
+                                <span class="timer__digit timer__digit_hours">0</span><span
+                                    class="timer__digit">:</span><span
+                                    class="timer__digit timer__digit_minutes">22</span>
+                            </div>
+                        </div>
+                        <div class="timer__clock-panel">
+                            <div class="timer__time-signature timer__time-signature_bottom">нач:</div>
+                            <div class="timer__clock timer__clock_bottom">
+                                <span class="timer__digit timer__digit_hours">8</span><span
+                                    class="timer__digit">:</span><span
+                                    class="timer__digit timer__digit_minutes">42</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timetable__bottom-time-panel">
+                    <span class="timer__time-title timetable__title-section">изготовление(подготовка)</span>
+                    <div class="timetable__bar">
+                        <div class="timer__bar_white"></div>
+                        <div class="timer__bar_blue timetable__right-bottom-blue-bar"></div>
+                        <div class="timer__clock-panel">
+                            <div class="timer__time-signature timer__time-signature_top">прошло:</div>
+                            <div class="timer__clock timer__clock_top">
+                                <span class="timer__digit timer__digit_hours">0</span><span
+                                    class="timer__digit">:</span><span
+                                    class="timer__digit timer__digit_minutes">42</span>
+                            </div>
+                        </div>
+                        <div class="timer__clock-panel">
+                            <div class="timer__time-signature timer__time-signature_bottom">макс:</div>
+                            <div class="timer__clock timer__clock_bottom">
+                                <span class="timer__digit timer__digit_hours">1</span><span
+                                    class="timer__digit">:</span><span
+                                    class="timer__digit timer__digit_minutes">22</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section class="details-list">
 
-      <div class="table-header">
-        <div class="table-header__number">№</div>
-        <div class="table-header__name-detail">название</div>
-        <div class="table-header__time">время</div>
-        <div class="table-header__cell-number">№ ячейки</div>
-      </div>
+            <div class="table-header">
+                <div class="table-header__number">№</div>
+                <div class="table-header__name-detail">название</div>
+                <div class="table-header__time">время</div>
+                <div class="table-header__cell-number">№ ячейки</div>
+            </div>
 
-      <div class="table-line table-line-first">
-        <div class="table-line__number">1.</div>
-        <div class="table-line__detail-name">
-          Первая деталь
-        </div>
-        <div class="table-line__time-detail">00:40</div>
-        <div class="table-line__cell-number">12-2</div>
-        <div class="button table-line__button">
-          <p class="button__text table-line__button-text">доп.инф.</p>
-        </div>
-      </div>
+            <div class="table-line table-line-first">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
 
-      <div class="table-line table-line-odd">
-        <div class="table-line__number">1.</div>
-        <div class="table-line__detail-name">
-          Первая деталь
-        </div>
-        <div class="table-line__time-detail">00:40</div>
-        <div class="table-line__cell-number">12-2</div>
-        <div class="button table-line__button">
-          <p class="button__text table-line__button-text">доп.инф.</p>
-        </div>
-      </div>
+            <div class="table-line table-line-odd">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
 
-      <div class="table-line">
-        <div class="table-line__number">1.</div>
-        <div class="table-line__detail-name">
-          Первая деталь
-        </div>
-        <div class="table-line__time-detail">00:40</div>
-        <div class="table-line__cell-number">12-2</div>
-        <div class="button table-line__button">
-          <p class="button__text table-line__button-text">доп.инф.</p>
-        </div>
-      </div>
+            <div class="table-line">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
 
-      <div class="table-line table-line-odd">
-        <div class="table-line__number">1.</div>
-        <div class="table-line__detail-name">
-          Первая деталь
-        </div>
-        <div class="table-line__time-detail">00:40</div>
-        <div class="table-line__cell-number">12-2</div>
-        <div class="button table-line__button">
-          <p class="button__text table-line__button-text">доп.инф.</p>
-        </div>
-      </div>
+            <div class="table-line table-line-odd">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
 
-      <div class="table-line">
-        <div class="table-line__number">1.</div>
-        <div class="table-line__detail-name">
-          Первая деталь
-        </div>
-        <div class="table-line__time-detail">00:40</div>
-        <div class="table-line__cell-number">12-2</div>
-        <div class="button table-line__button">
-          <p class="button__text table-line__button-text">доп.инф.</p>
-        </div>
-      </div>
+            <div class="table-line">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
 
-      <div class="table-line table-line-odd">
-        <div class="table-line__number">1.</div>
-        <div class="table-line__detail-name">
-          Первая деталь
-        </div>
-        <div class="table-line__time-detail">00:40</div>
-        <div class="table-line__cell-number">12-2</div>
-        <div class="button table-line__button">
-          <p class="button__text table-line__button-text">доп.инф.</p>
-        </div>
-      </div>
+            <div class="table-line table-line-odd">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
 
-      <div class="table-line">
-        <div class="table-line__number">1.</div>
-        <div class="table-line__detail-name">
-          Первая деталь
-        </div>
-        <div class="table-line__time-detail">00:40</div>
-        <div class="table-line__cell-number">12-2</div>
-        <div class="button table-line__button">
-          <p class="button__text table-line__button-text">доп.инф.</p>
-        </div>
-      </div>
+            <div class="table-line">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
 
-    </section>
-  </div>
-  <div class="content">
-    <div class="upper-section">
-      <section class="user-panel">
-        <div class="user-panel__info-section">
-          <div class="user-panel__text">
-            <p class="user-panel__machine-name">Слесарный станок #1231414</p>
-            <p class="user-panel__worker-name"></p>
-          </div>
-          <img src="/img/info_icon.svg" alt="additional information">
-        </div>
-        <div class="user-panel__nav">
-          <div class="button user-panel__button">
-            <p class="button__text user-panel__wrap"><br>начать работу </br><br> над деталью</br></p>
-          </div>
-          <div class="button user-panel__button">
-            <p class="button__text">простой</p>
-          </div>
-          <div class="button user-panel__button">
-            <p class="button__text">закончить смену</p>
-          </div>
-        </div>
-      </section>
-      <section class="timetable"><!-- to do Alena --></section>
+        </section>
     </div>
-    <section class="details-list">
-
-      <div class="table-header">
-        <div class="table-header__number">№</div>
-        <div class="table-header__name-detail">название</div>
-        <div class="table-header__time">время</div>
-        <div class="table-header__cell-number">№ ячейки</div>
-      </div>
-
-      <div class="table-line table-line-first">
-        <div class="table-line__number">1.</div>
-        <div class="table-line__detail-name">
-          Первая деталь
-        </div>
-        <div class="table-line__time-detail">00:40</div>
-        <div class="table-line__cell-number">12-2</div>
-        <div class="button table-line__button">
-          <p class="button__text table-line__button-text">доп.инф.</p>
-        </div>
-      </div>
-
-      <div class="table-line table-line-odd">
-        <div class="table-line__number">1.</div>
-        <div class="table-line__detail-name">
-          Первая деталь
-        </div>
-        <div class="table-line__time-detail">00:40</div>
-        <div class="table-line__cell-number">12-2</div>
-        <div class="button table-line__button">
-          <p class="button__text table-line__button-text">доп.инф.</p>
-        </div>
-      </div>
-
-      <div class="table-line">
-        <div class="table-line__number">1.</div>
-        <div class="table-line__detail-name">
-          Первая деталь
-        </div>
-        <div class="table-line__time-detail">00:40</div>
-        <div class="table-line__cell-number">12-2</div>
-        <div class="button table-line__button">
-          <p class="button__text table-line__button-text">доп.инф.</p>
-        </div>
-      </div>
-
-      <div class="table-line table-line-odd">
-        <div class="table-line__number">1.</div>
-        <div class="table-line__detail-name">
-          Первая деталь
-        </div>
-        <div class="table-line__time-detail">00:40</div>
-        <div class="table-line__cell-number">12-2</div>
-        <div class="button table-line__button">
-          <p class="button__text table-line__button-text">доп.инф.</p>
-        </div>
-      </div>
-
-      <div class="table-line">
-        <div class="table-line__number">1.</div>
-        <div class="table-line__detail-name">
-          Первая деталь
-        </div>
-        <div class="table-line__time-detail">00:40</div>
-        <div class="table-line__cell-number">12-2</div>
-        <div class="button table-line__button">
-          <p class="button__text table-line__button-text">доп.инф.</p>
-        </div>
-      </div>
-
-      <div class="table-line table-line-odd">
-        <div class="table-line__number">1.</div>
-        <div class="table-line__detail-name">
-          Первая деталь
-        </div>
-        <div class="table-line__time-detail">00:40</div>
-        <div class="table-line__cell-number">12-2</div>
-        <div class="button table-line__button">
-          <p class="button__text table-line__button-text">доп.инф.</p>
-        </div>
-      </div>
-
-      <div class="table-line">
-        <div class="table-line__number">1.</div>
-        <div class="table-line__detail-name">
-          Первая деталь
-        </div>
-        <div class="table-line__time-detail">00:40</div>
-        <div class="table-line__cell-number">12-2</div>
-        <div class="button table-line__button">
-          <p class="button__text table-line__button-text">доп.инф.</p>
-        </div>
-      </div>
-
-    </section>
-  </div>
 </main>
 </body>
 </html>

@@ -1,219 +1,205 @@
 @import "design-token.css";
 
 .button {
-    cursor: pointer;
-    width: 20vh;
-    height: 8vh;
-    background-color: var(--color-button);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0.9vh;
-    transition: all 0.4s ease-in-out;
+  cursor: pointer;
+  width: 20vh;
+  height: 8vh;
+  background-color: var(--color-button);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.9vh;
+  transition: all 0.4s ease-in-out;
 }
 
 .button__text {
-    font-family: var(--font);
-    font-weight: var(--font-semi-bold);
-    word-wrap: break-word;
-    font-size: 1.8vh;
+  font-family: var(--font);
+  font-weight: var(--font-semi-bold);
+  word-wrap: break-word;
+  font-size: 1.8vh;
 }
 
-.b
-    background-color: var(--color-support-dark);
+.b {
+  background-color: var(--color-support-dark);
 }
-
 
 
 /*START TIMER CSS*/
 
-.timer__time-panel {
-    width: 90.96%;
-    height: 37.3%;
-    position: relative;
-    top: 4.23%;
-    left: 4.5%;
-}
-
 .timer__time-title {
-    display: inline-block;
-    font-family: var(--font);
-    font-weight: var(--font-regular);
-    font-size: 1.6vh;
-    margin-left: 2.15%;
-    margin-bottom: 2.1%;
+  display: inline-block;
+  font-family: var(--font);
+  font-weight: var(--font-regular);
+  font-size: 1.6vh;
 }
 
 .timer__clock-panel {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 50%;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+  position: relative;
 }
 
 .timer__clock {
-    font-size: 6vh;
-    position: relative;
-    left: 38%;
+  font-size: 7vh;
+  position: relative;
+  left: 38%;
 }
 
-.timer__clock-top {
-    bottom: 9%;
+.timer__clock_top {
+  bottom: 9%;
 }
 
-.timer__clock-bottom {
-    bottom: 17%;
+.timer__clock_bottom {
+  bottom: 17%;
 }
 
 .timer__digit {
-    display: inline;
-    font-family: var(--font);
-    font-weight: var(--font-semi-bold);
+  display: inline-block;
+  font-family: var(--font);
+  font-weight: var(--font-semi-bold);
 }
 
-.timer__digit-left {
-    text-align: left;
+.timer__digit_minutes {
+  text-align: left;
+  width: 5vh;
 }
 
-.timer__digit-right {
-    text-align: right;
+.timer__digit_hours {
+  text-align: right;
+  width: 5vh;
 }
 
 .timer__time-signature {
-    font-family: var(--font);
-    font-weight: var(--font-regular);
-    font-size: 1vh;
-    position: absolute;
-    right: 76%;
+  font-family: var(--font);
+  font-weight: var(--font-regular);
+  font-size: 1vh;
+  position: absolute;
+  right: 76%;
 }
 
-.timer__time-signature-top {
-    bottom: 5.6%;
+.timer__time-signature_top {
+  bottom: 5.6%;
 }
 
-.timer__time-signature-bottom {
-    bottom: 17%;
+.timer__time-signature_bottom {
+  bottom: 17%;
 }
 
-.timer__white-bar {
-    float: left;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-    height: 77.2%;
-    background: var(--color-background);
-    border-radius: 16.6662px;
-    box-shadow: inset 0 0.61727vh 0.61727vh rgba(0, 0, 0, 0.25);
+.timer__bar_white {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--color-background);
+  border-radius: 1.39vh;
+  box-shadow: inset 0 0.61727vh 0.61727vh rgba(0, 0, 0, 0.25);
 }
 
-.timer__blue-bar {
-    position: absolute;
-    width: 10%;
-    height: 100%;
-    background: var(--gradient-timer);
-    border-radius: 16.6662px 0 0 16.6662px;
-    box-shadow: inset 0 0.61727vh 0.61727vh rgba(0, 0, 0, 0.25);
+.timer__bar_blue {
+  position: absolute;
+  height: 100%;
+  background: var(--gradient-timer);
+  border-radius: 1.39vh 0 0 1.39vh;
+  box-shadow: inset 0 0.61727vh 0.61727vh rgba(0, 0, 0, 0.25);
 }
 
 /*END TIMER CSS*/
 
 .table-line {
-    position: relative;
-    width: 100%;
-    height: 12%;
-    display: flex;
-    background-color: var(--color-support-dark);
+  position: relative;
+  width: 100%;
+  height: 12%;
+  display: flex;
+  background-color: var(--color-support-dark);
 }
 
 .table-line__number {
-    position: relative;
-    width: 7.9%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font);
-    font-style: normal;
-    font-weight: var(--font-semi-bold);
-    font-size: 90%;
+  position: relative;
+  width: 7.9%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font);
+  font-style: normal;
+  font-weight: var(--font-semi-bold);
+  font-size: 90%;
 }
 
 .table-line__detail-name {
-    position: relative;
-    width: 63%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    font-family: var(--font);
-    font-style: normal;
-    font-weight: var(--font-semi-bold);
-    font-size: 50%;
+  position: relative;
+  width: 63%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-family: var(--font);
+  font-style: normal;
+  font-weight: var(--font-semi-bold);
+  font-size: 50%;
 }
 
 .table-line__time-detail {
-    position: relative;
-    width: 8%;
-    height: 100%;
-    display: flex;
-    margin-left: auto;
-    right: 5%;
-    align-items: center;
-    font-family: var(--font);
-    font-style: normal;
-    font-weight: var(--font-semi-bold);
-    font-size: 80%;
+  position: relative;
+  width: 8%;
+  height: 100%;
+  display: flex;
+  margin-left: auto;
+  right: 5%;
+  align-items: center;
+  font-family: var(--font);
+  font-style: normal;
+  font-weight: var(--font-semi-bold);
+  font-size: 80%;
 }
 
 .table-line__cell-number {
-    position: relative;
-    width: 12%;
-    display: flex;
-    align-items: center;
-    font-family: var(--font);
-    font-style: normal;
-    font-weight: var(--font-semi-bold);
-    font-size: 80%;
+  position: relative;
+  width: 12%;
+  display: flex;
+  align-items: center;
+  font-family: var(--font);
+  font-style: normal;
+  font-weight: var(--font-semi-bold);
+  font-size: 80%;
 }
 
 .table-line__button {
-    position: relative;
-    width: 25%;
-    height: 50%;
-    margin: auto 2% auto auto;
-    background-color: var(--color-button);
-    box-shadow: 0 0 0 0;
-    border-radius: 2px;
+  position: relative;
+  width: 25%;
+  height: 50%;
+  margin: auto 2% auto auto;
+  background-color: var(--color-button);
+  box-shadow: 0 0 0 0;
+  border-radius: 2px;
 }
 
 .table-line__button-text {
-    font-family: var(--font);
-    font-weight: var(--font-bold);
-    font-size: 63%;
+  font-family: var(--font);
+  font-weight: var(--font-bold);
+  font-size: 63%;
 }
 
 .table-line__button:hover {
-    background-color: var(--color-support-dark);
-    height: 50%;
-    width: 25%;
+  background-color: var(--color-support-dark);
+  height: 50%;
+  width: 25%;
 }
 
 .timer-small {
-    background-color: var(--color-background);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: min-content;
-    height: min-content;
-    font-size: 4.5vh;
-    padding: 0.5vh;
-    border-radius: 0.8vh;
-    box-shadow: 0 0 1vh var(--color-shadow);
+  background-color: var(--color-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: min-content;
+  height: min-content;
+  font-size: 4.5vh;
+  padding: 0.5vh;
+  border-radius: 0.8vh;
+  box-shadow: 0 0 1vh var(--color-shadow);
 }
 
 .timer-small__text {
-    margin: 0;
-    line-height: 4.1vh;
+  margin: 0;
+  line-height: 4.1vh;
 }
-

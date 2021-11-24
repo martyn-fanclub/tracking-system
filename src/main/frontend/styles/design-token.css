@@ -19,6 +19,6 @@
     --color-alert: #DE4A4A;
     --color-transperant: rgba(222, 74, 74, 0);
     --color-shadow: rgba(0, 0, 0, 0.16);
-    --gradient-timer: linear-gradient(#CAD3F4, #B3AFF6);
+    --gradient-timer: linear-gradient(to left, #CAD3F4, #B3AFF6);
     --width: calc(100vh / 3 * 4); /*Временное решение*/
 }
