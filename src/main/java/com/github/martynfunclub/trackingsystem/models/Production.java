@@ -25,10 +25,6 @@ public class Production {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "place")
-    private WorkersPlace place;
-
     @ManyToOne(
             optional = false,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}
@@ -48,13 +44,12 @@ public class Production {
 
     @Override
     public String toString() {
-        return "Action{" +
+        return "Production{" +
                 "id=" + id +
-                ", place=" + place.getName() +
                 ", change=" + change.getStartTime() +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
-                ", detail=" + detail.getDetailType().getName() +
+                ", detail=" + detail.getDetailType() +
                 '}';
     }
 }

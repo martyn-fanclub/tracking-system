@@ -43,4 +43,8 @@ public class Change {
 
     @OneToMany(mappedBy = "change", cascade = CascadeType.ALL)
     private Set<Production> productions;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "place")
+    private WorkersPlace place;
 }

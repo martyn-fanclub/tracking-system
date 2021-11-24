@@ -1,7 +1,6 @@
 package com.github.martynfunclub.trackingsystem.services;
 
 import java.util.Set;
-
 import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +9,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import com.github.martynfunclub.trackingsystem.dto.ActionTypeDTO;
 import com.github.martynfunclub.trackingsystem.dto.UserDTO;
 import com.github.martynfunclub.trackingsystem.models.User;
 import com.github.martynfunclub.trackingsystem.repositories.RoleRepository;

@@ -1,38 +1,183 @@
 <th:block th:replace="fragments/head"/>
-
 <body class="app">
 <th:block th:replace="fragments/header"/>
 
-<main class="row">
-    <div th:each="place : ${places}" class="mt-5 col-md-10 mx-auto col-lg-5">
-        <p class="m-3">Станок №<span th:text="${place.name}"></span></p>
-        <p class="m-3">Изготовление:
-            <span th:if="${place.currentProduction}">
-                <span th:if="${place.currentProduction.detail}"
-                      th:text="${place.currentProduction.detail.detailType.name}"></span>
-                <span th:text="${place.currentProduction.change.user.name}"></span>
-            </span>
-            <span th:unless="${place.currentProduction}">простой</span>
-        </p>
-        <form class="p-5 border rounded-3 bg-light">
-            <div class="d-flex flex-column justify-content-between align-items-center">
-                <button type="button" class="mb-4 btn btn-success">Начать смену</button>
-                <button type="button" class="mb-4 btn btn-primary">Взять новый заказ</button>
-                <button type="button" class="mb-4 btn btn-warning">Перейти в режим ТО станка</button>
-                <button type="button" class="mb-4 btn btn-danger">Сообщить о проблеме</button>
-                <button type="button" class="btn btn-info">Уйти на перерыв</button>
+<main>
+
+    <div class="d-flex flex-row justify-content-around align-items-center">
+
+        <!--[REDACT] Это - один станок, если вставить этот див еще раз - будет второй, выравняются автоматом
+        Для смены состояния станка вставляйте вместо этого div'ы из других html страниц с соответсвующими названиями
+        Так как все остальные страницы с подобным содержанием: просто вариации этой страницы с другим состоянием-->
+        <div th:each="place : ${places}"
+             class="d-flex flex-column justify-content-between align-items-center mt-5 p-3 col-5 border rounded-3">
+
+            <!--/*@thymesVar id="place" type="com.github.martynfunclub.trackingsystem.models.WorkersPlace"*/-->
+            <div class="w-100 d-flex flex-row justify-content-between align-items-stretch">
+
+                <div class="m-3 p-2 py-3 w-50 border rounded-3 bg-light d-flex flex-column justify-content-between align-items-center">
+                    <div class="d-flex flex-column align-items-center justify-content-center w-100">
+                        <div th:text="${place.name}" class="h4 text-center"></div>
+                        <div class="h5 mb-4 text-center" th:if="${place.currentChange}">
+                            <span th:text="${place.currentChange.user.surname}"></span>
+                            <span th:text="${place.currentChange.user.name}"></span>
+                            <span th:text="${place.currentChange.user.patronymic}"></span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column align-items-center justify-content-center w-100">
+                        <div th:if="${place.currentChange}" class="d-flex flex-column align-items-center w-100">
+                            <a th:if="${place.currentChange.productions.isEmpty()}" class="w-75 btn btn-primary"
+                               href="detail-preparation.html" type="button">Взять деталь</a>
+                            <a th:unless="${place.currentChange.productions.isEmpty()}" class="w-75 btn btn-primary"
+                               href="shift-started-condition.html" type="button">Сдать деталь</a>
+                            <a class="w-75 btn btn-secondary mt-1" href="stale.html" type="button">Простой</a>
+                            <a class="w-75 btn btn-danger mt-1" href="index.html" type="button">Закончить смену</a>
+                        </div>
+                        <a th:unless="${place.currentChange}" class="w-75 btn btn-primary"
+                           th:href="@{/change/on}" type="button">
+                            Начать смену
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="m-3 p-2 w-50 border rounded-3 bg-light d-flex flex-column align-items-center">
+                    <div class="bg-grey w-100 p-2 border rounded-3">
+                        <div class="h5">
+                            Время:
+                        </div>
+                        <div class="h1 clock"></div>
+                    </div>
+
+                    <div th:if="${place.currentChange}" class="w-100 d-flex flex-column">
+                        <div class="h5">
+                            Время смены:
+                        </div>
+                        <div class="bg-grey w-100 p-2 border rounded-3 d-flex flex-column">
+                            <div class="w-100 p-2 d-flex flex-row align-items-baseline">
+                                <div class="h-25 h5 p-0 m-0">нач:</div>
+                                <div class="h1 p-0 m-0 px-1"
+                                     th:text="${#temporals.format(place.currentChange.startTime, 'HH:mm')}"></div>
+                            </div>
+                            <div class="w-100 p-2 d-flex flex-row align-items-baseline">
+                                <div class="h-25 h5 p-0 m-0">
+                                    длт:
+                                </div>
+                                <!--[REDACT] Сюда передаем длительность смены -->
+                                <div class="h1 p-0 m-0 px-1 duration">
+                                    00:00
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </form>
+
+            <div class="container">
+                <div class="p-1 border bg-light row">
+                    <div class="col-1">
+                        №
+                    </div>
+                    <div class="col-4">
+                        название
+                    </div>
+                    <div class="col-2">
+                        время
+                    </div>
+                    <div class="col-2">
+                        № ячейки
+                    </div>
+                    <div class="col-3">
+                        информация
+                    </div>
+                </div>
+
+                <!--[REDACT] Тут элементы таблицы, каждый элемент - вот этот div,
+                bg-grey/light обеспечивает чередование цвета
+                border-3 border-primary выделение первого цветом-->
+                <div class="p-1 border border-3 border-primary bg-grey row">
+                    <div class="col-1 pt-2">
+                        1
+                    </div>
+                    <div class="col-4 pt-2">
+                        уточка
+                    </div>
+                    <div class="col-2 pt-2">
+                        0:45
+                    </div>
+                    <div class="col-2 pt-2">
+                        23:45
+                    </div>
+                    <div class="col-3 d-flex align-items-center">
+                        <!--[REDACT] Здесь переход на доп инфу-->
+                        <a class="btn btn-primary" href="info.html" type="button">Доп. инф</a>
+                    </div>
+                </div>
+                <div class="p-1 border bg-light row">
+                    <div class="col-1 pt-2">
+                        1
+                    </div>
+                    <div class="col-4 pt-2">
+                        уточка
+                    </div>
+                    <div class="col-2 pt-2">
+                        0:45
+                    </div>
+                    <div class="col-2 pt-2">
+                        23:45
+                    </div>
+                    <div class="col-3 d-flex align-items-center">
+                        <!--[REDACT] Здесь переход на доп инфу-->
+                        <a class="btn btn-primary" href="info.html" type="button">Доп. инф</a>
+                    </div>
+                </div>
+                <div class="p-1 border bg-grey row">
+                    <div class="col-1 pt-2">
+                        1
+                    </div>
+                    <div class="col-4 pt-2">
+                        уточка
+                    </div>
+                    <div class="col-2 pt-2">
+                        0:45
+                    </div>
+                    <div class="col-2 pt-2">
+                        23:45
+                    </div>
+                    <div class="col-3 d-flex align-items-center">
+                        <!--[REDACT] Здесь переход на доп инфу-->
+                        <a class="btn btn-primary" href="info.html" type="button">Доп. инф</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </main>
+
 <script>
     let timeDisplays = document.getElementsByClassName("clock");
+    let durations = document.getElementsByClassName("duration");
     document.body.onload = refreshTime;
+
     function refreshTime() {
         for (let timeDisplay of timeDisplays) {
-            timeDisplay.innerHTML = new Date().toLocaleTimeString("ru-RU");
+            timeDisplay.textContent = new Date().toLocaleTimeString("ru-RU");
         }
     }
+
+    function refreshDuration() {
+        for (let duration of durations) {
+            let units = duration.parentElement.previousElementSibling.children[1].textContent.split(':');
+            let diff = new Date(Date.now() - units[0] * 3600000 - units[1] * 60000);
+            duration.textContent = diff.getHours() + ':' + diff.getMinutes();
+        }
+    }
+
     setInterval(refreshTime, 1000);
+    setInterval(refreshDuration, 60000);
 </script>
+
 </body>
+</html>

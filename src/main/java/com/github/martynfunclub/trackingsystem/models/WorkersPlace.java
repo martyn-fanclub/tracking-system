@@ -1,7 +1,6 @@
 package com.github.martynfunclub.trackingsystem.models;
 
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,6 +15,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Table(name = "workers_place")
 @Entity
@@ -23,6 +23,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class WorkersPlace {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,17 +34,8 @@ public class WorkersPlace {
     private String name;
 
     @OneToMany(mappedBy = "place", fetch = FetchType.EAGER)
-    private Set<Production> productions;
+    private Set<Change> changes;
 
     @Transient
-    private Production currentProduction;
-
-    @Override
-    public String toString() {
-        return "WorkersPlace{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", actions=" + productions +
-                '}';
-    }
+    private Change currentChange;
 }
