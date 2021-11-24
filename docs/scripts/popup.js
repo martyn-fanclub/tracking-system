@@ -7,7 +7,7 @@ let main = document.querySelector("main")
 
 
 function openPopup(el) {
-    popupContainer.style.visibility = "visible"
+    
     let i = 0
     while (popups[i].dataset.machineId !== el){
         i++
@@ -17,7 +17,6 @@ function openPopup(el) {
 }
 
 function closePopup(el) {
-    popupContainer.style.visibility = "hidden"
     let i = 0
     while (popups[i].dataset.machineId !== el){
         i++
