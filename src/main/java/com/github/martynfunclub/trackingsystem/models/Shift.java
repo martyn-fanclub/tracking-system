@@ -19,13 +19,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Table(name = "changes")
+@Table(name = "shifts")
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Change {
+public class Shift {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -41,7 +41,7 @@ public class Change {
     @JoinColumn(name = "worker_id", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "change", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "shift", cascade = CascadeType.ALL)
     private Set<Production> productions;
 
     @ManyToOne(optional = false)

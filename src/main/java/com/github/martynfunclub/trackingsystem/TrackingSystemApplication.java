@@ -9,16 +9,18 @@ import com.github.martynfunclub.trackingsystem.repositories.UserRepository;
 
 @SpringBootApplication
 public class TrackingSystemApplication implements CommandLineRunner {
+    RoleRepository roleRepository;
+    UserRepository userRepository;
+
+    @Autowired
+    public TrackingSystemApplication(RoleRepository roleRepository, UserRepository userRepository) {
+        this.roleRepository = roleRepository;
+        this.userRepository = userRepository;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(TrackingSystemApplication.class, args);
     }
-
-    @Autowired
-    RoleRepository roleRepository;
-
-    @Autowired
-    UserRepository userRepository;
 
     @Override
     public void run(String... args) throws Exception {

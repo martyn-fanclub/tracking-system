@@ -1,12 +1,10 @@
 package com.github.martynfunclub.trackingsystem.dto;
 
 import java.util.Set;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.github.martynfunclub.trackingsystem.models.Number;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -46,7 +44,7 @@ public class UserDTO {
     @NotNull
     private String skills;
 
-    public UserDTO(String name, String surname, String personnelNumber,  String username, String password) {
+    public UserDTO(String name, String surname, String personnelNumber, String username, String password) {
         this.name = name;
         this.surname = surname;
         this.personnelNumber = personnelNumber;
