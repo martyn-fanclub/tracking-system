@@ -29,7 +29,7 @@ public class Production {
             optional = false,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}
     )
-    @JoinColumn(name = "change_id", nullable = false)
+    @JoinColumn(name = "shift_id", nullable = false)
     private Shift shift;
 
     @Column(name = "start_time", nullable = false)
@@ -46,7 +46,7 @@ public class Production {
     public String toString() {
         return "Production{" +
                 "id=" + id +
-                ", change=" + shift.getStartTime() +
+                ", shift=" + shift.getStartTime() +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
                 ", detail=" + detail.getDetailType() +
