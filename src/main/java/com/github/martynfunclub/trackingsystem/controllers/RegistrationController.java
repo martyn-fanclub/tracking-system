@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.github.martynfunclub.trackingsystem.dto.ActionTypeDTO;
 import com.github.martynfunclub.trackingsystem.dto.UserDTO;
 import com.github.martynfunclub.trackingsystem.services.UserService;
 
@@ -39,11 +37,11 @@ public class RegistrationController {
         if (bindingResult.hasErrors()) {
             return "registration";
         }
-        if (!userDTO.getPassword().equals(userDTO.getPasswordConfirm())){
+        if (!userDTO.getPassword().equals(userDTO.getPasswordConfirm())) {
             model.addAttribute("passwordError", "Passwords are not equal");
             return "registration";
         }
-        if (!userService.saveUser(userDTO)){
+        if (!userService.saveUser(userDTO)) {
             model.addAttribute("usernameError", "User with this username already exists");
             return "registration";
         }

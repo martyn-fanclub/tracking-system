@@ -1,15 +1,15 @@
 package com.github.martynfunclub.trackingsystem.services.impl;
 
+import java.time.LocalTime;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import com.github.martynfunclub.trackingsystem.dto.DetailTypeDTO;
 import com.github.martynfunclub.trackingsystem.models.DetailType;
 import com.github.martynfunclub.trackingsystem.repositories.DetailTypeRepository;
 import com.github.martynfunclub.trackingsystem.services.DetailTypeService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.time.LocalTime;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class DetailTypeServiceImpl implements DetailTypeService {

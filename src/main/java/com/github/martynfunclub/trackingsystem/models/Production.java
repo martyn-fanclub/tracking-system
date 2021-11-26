@@ -25,16 +25,12 @@ public class Production {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "place")
-    private WorkersPlace place;
-
     @ManyToOne(
             optional = false,
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}
     )
     @JoinColumn(name = "change_id", nullable = false)
-    private Change change;
+    private Shift shift;
 
     @Column(name = "start_time", nullable = false)
     private LocalDateTime startTime;
@@ -48,13 +44,12 @@ public class Production {
 
     @Override
     public String toString() {
-        return "Action{" +
+        return "Production{" +
                 "id=" + id +
-                ", place=" + place.getName() +
-                ", change=" + change.getStartTime() +
+                ", change=" + shift.getStartTime() +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
-                ", detail=" + detail.getDetailType().getName() +
+                ", detail=" + detail.getDetailType() +
                 '}';
     }
 }
