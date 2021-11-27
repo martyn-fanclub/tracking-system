@@ -32,4 +32,10 @@ public class Action {
 
     @ManyToOne
     private ActionType actionType;
+
+    public Action(String comment, Production production, ActionType actionType) {
+        this.comment = comment;
+        this.production = production;
+        this.actionType = actionType;
+    }
 }
