@@ -1,9 +1,9 @@
 package com.github.martynfunclub.trackingsystem.services;
 
-import com.github.martynfunclub.trackingsystem.models.Detail;
-
 import java.util.List;
 import java.util.Optional;
+
+import com.github.martynfunclub.trackingsystem.models.Detail;
 
 public interface DetailService {
     List<Detail> findAll();
