@@ -12,13 +12,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Table(name = "productions")
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Production {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,5 +55,12 @@ public class Production {
                 ", endTime=" + endTime +
                 ", detail=" + detail.getDetailType() +
                 '}';
+    }
+
+    public Production(Shift shift, LocalDateTime startTime, LocalDateTime endTime, Detail detail) {
+        this.shift = shift;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.detail = detail;
     }
 }
