@@ -1,10 +1,10 @@
 package com.github.martynfunclub.trackingsystem.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.github.martynfunclub.trackingsystem.models.Production;
-import com.github.martynfunclub.trackingsystem.models.WorkersPlace;
 
+@Repository
 public interface ProductionRepository extends JpaRepository<Production, Long> {
-    Production getProductionByPlaceAndEndTimeIsNull(WorkersPlace place);
 }

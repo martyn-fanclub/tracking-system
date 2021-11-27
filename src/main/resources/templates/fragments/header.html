@@ -1,18 +1,19 @@
 <header class="sticky-top p-3 py-2 bg-dark text-white">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a th:href="@{/}" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none mx-4">
-                <img th:src="@{/static/data/logo.png}" alt="mdo" width="48" height="48" src="">
+            <a class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none mx-4" th:href="@{/}">
+                <img alt="mdo" height="48" th:src="@{/static/data/logo.png}" width="48">
             </a>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-2 text-white">Рабочее место</a></li>
-                <li><a href="statistics.html" class="nav-link px-2 text-secondary">Личная статистика</a></li>
+                <li><a class="nav-link px-2 text-secondary" href="#">Рабочее место</a></li>
+                <!--[REDACT] Должна показываться ток после входа в аккаунт-->
+                <li><a class="nav-link px-2 text-white" href="">Личная статистика</a></li>
             </ul>
 
             <div class="dropdown text-end">
-                <a class="btn btn-outline-light me-2">Заблокировать</a>
-                <a class="btn btn-outline-danger">Выйти</a>
+                <!--[REDACT] Должна показываться ток после входа в аккаунт-->
+                <a class="btn btn-outline-light me-2" th:href="@{/logout}">Заблокировать</a>
             </div>
         </div>
     </div>

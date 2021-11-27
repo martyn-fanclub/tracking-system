@@ -9,20 +9,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Table(name = "phone_numbers")
 @Entity
-@Table
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Number {
+public class PhoneNumber {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -37,13 +36,13 @@ public class Number {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Number(String number, String comment, User user) {
+    public PhoneNumber(String number, String comment, User user) {
         this.number = number;
         this.comment = comment;
         this.user = user;
     }
 
-    public Number(String number) {
+    public PhoneNumber(String number) {
         this.number = number;
     }
 }

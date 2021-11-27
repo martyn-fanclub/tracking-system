@@ -1,7 +1,5 @@
 package com.github.martynfunclub.trackingsystem.dto;
 
-import java.sql.Time;
-
 import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;

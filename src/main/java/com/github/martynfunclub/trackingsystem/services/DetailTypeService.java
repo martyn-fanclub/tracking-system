@@ -1,10 +1,10 @@
 package com.github.martynfunclub.trackingsystem.services;
 
-import com.github.martynfunclub.trackingsystem.dto.DetailTypeDTO;
-import com.github.martynfunclub.trackingsystem.models.DetailType;
-
 import java.util.List;
 import java.util.Optional;
+
+import com.github.martynfunclub.trackingsystem.dto.DetailTypeDTO;
+import com.github.martynfunclub.trackingsystem.models.DetailType;
 
 public interface DetailTypeService {
     List<DetailType> findAll();

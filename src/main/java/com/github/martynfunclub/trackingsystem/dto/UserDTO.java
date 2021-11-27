@@ -5,7 +5,7 @@ import java.util.Set;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.github.martynfunclub.trackingsystem.models.Number;
+import com.github.martynfunclub.trackingsystem.models.PhoneNumber;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,7 +29,7 @@ public class UserDTO {
     @NotBlank
     private String personnelNumber;
 
-    private Set<Number> numbers;
+    private Set<PhoneNumber> phoneNumbers;
 
     @NotBlank
     private String username;
@@ -46,7 +46,7 @@ public class UserDTO {
     @NotNull
     private String skills;
 
-    public UserDTO(String name, String surname, String personnelNumber,  String username, String password) {
+    public UserDTO(String name, String surname, String personnelNumber, String username, String password) {
         this.name = name;
         this.surname = surname;
         this.personnelNumber = personnelNumber;
