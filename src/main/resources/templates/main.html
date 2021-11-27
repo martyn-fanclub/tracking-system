@@ -31,7 +31,7 @@
                                href="detail-preparation.html" type="button">Взять деталь</a>
                             <a th:unless="${place.getCurrentShift.productions.isEmpty()}" class="w-75 btn btn-primary"
                                href="shift-started-condition.html" type="button">Сдать деталь</a>
-                            <a class="w-75 btn btn-secondary mt-1" href="stale.html" type="button">Простой</a>
+                            <a class="w-75 btn btn-secondary mt-1" th:href="@{{placeID}/actions(placeID=${place.getId()})}" type="button">Простой</a>
                             <a class="w-75 btn btn-danger mt-1" href="index.html" type="button">Закончить смену</a>
                         </div>
                         <a th:unless="${place.getCurrentShift}" class="w-75 btn btn-primary"

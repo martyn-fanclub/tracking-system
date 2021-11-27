@@ -1,0 +1,17 @@
+<th:block th:replace="fragments/head"/>
+<body>
+<th:block th:replace="fragments/header"/>
+<!--<div th:each="actionType : ${actionTypes}">
+    <a th:href="@{/actions/{id}(id=${actionType.getId()})}"
+    th:text="${actionType.getName()}">action</a>
+</div>-->
+<div th:each="actionType : ${actionTypes}">
+<form class="p-5 pt-4 border rounded-3 bg-light" action="#" th:action="@{/actions/{id}(id=${actionType.getId()})}"
+      th:object="${actionDTO}" method="post">
+    <div>
+        <button type="submit" class="w-100 btn btn-lg btn-primary" name="qwerty"
+        th:text="${actionType.getName()}"></button>
+    </div>
+</form>
+</div>
+</body>
