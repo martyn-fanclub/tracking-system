@@ -29,8 +29,7 @@ public class ProductionOnServiceImpl implements ProductionOnService {
                 .filter(shiftInSet -> shiftInSet.getStartTime().isBefore(LocalDateTime.now()) && (shiftInSet.getEndTime() == null))
                 .findFirst();
         if (shift.isPresent()) {
-            Production production = new Production(shift.get(), LocalDateTime.now(), null, null);
-            productionRepository.save(production);
+            productionRepository.save(new Production(shift.get(), LocalDateTime.now(), null, null));
             return true;
         }
         return false;
