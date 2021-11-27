@@ -3,9 +3,8 @@ package com.github.martynfunclub.trackingsystem.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.github.martynfunclub.trackingsystem.models.User;
+import com.github.martynfunclub.trackingsystem.models.Shift;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-    User findByUsername(String username);
+public interface ShiftRepository extends JpaRepository<Shift, Long> {
 }

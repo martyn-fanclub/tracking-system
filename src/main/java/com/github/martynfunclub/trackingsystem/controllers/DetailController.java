@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.github.martynfunclub.trackingsystem.dto.IdDTO;
 import com.github.martynfunclub.trackingsystem.models.Detail;
 import com.github.martynfunclub.trackingsystem.services.DetailService;

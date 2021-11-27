@@ -1,6 +1,7 @@
 package com.github.martynfunclub.trackingsystem.controllers;
 
 import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.github.martynfunclub.trackingsystem.dto.DetailTypeDTO;
 import com.github.martynfunclub.trackingsystem.dto.IdDTO;
 import com.github.martynfunclub.trackingsystem.models.DetailType;

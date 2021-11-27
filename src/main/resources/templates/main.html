@@ -18,23 +18,23 @@
                 <div class="m-3 p-2 py-3 w-50 border rounded-3 bg-light d-flex flex-column justify-content-between align-items-center">
                     <div class="d-flex flex-column align-items-center justify-content-center w-100">
                         <div th:text="${place.name}" class="h4 text-center"></div>
-                        <div class="h5 mb-4 text-center" th:if="${place.currentChange}">
-                            <span th:text="${place.currentChange.user.surname}"></span>
-                            <span th:text="${place.currentChange.user.name}"></span>
-                            <span th:text="${place.currentChange.user.patronymic}"></span>
+                        <div class="h5 mb-4 text-center" th:if="${place.currentShift}">
+                            <span th:text="${place.currentShift.user.surname}"></span>
+                            <span th:text="${place.currentShift.user.name}"></span>
+                            <span th:text="${place.currentShift.user.patronymic}"></span>
                         </div>
                     </div>
 
                     <div class="d-flex flex-column align-items-center justify-content-center w-100">
-                        <div th:if="${place.currentChange}" class="d-flex flex-column align-items-center w-100">
-                            <a th:if="${place.currentChange.productions.isEmpty()}" class="w-75 btn btn-primary"
+                        <div th:if="${place.getCurrentShift}" class="d-flex flex-column align-items-center w-100">
+                            <a th:if="${place.getCurrentShift.productions.isEmpty()}" class="w-75 btn btn-primary"
                                href="detail-preparation.html" type="button">Взять деталь</a>
-                            <a th:unless="${place.currentChange.productions.isEmpty()}" class="w-75 btn btn-primary"
+                            <a th:unless="${place.getCurrentShift.productions.isEmpty()}" class="w-75 btn btn-primary"
                                href="shift-started-condition.html" type="button">Сдать деталь</a>
                             <a class="w-75 btn btn-secondary mt-1" href="stale.html" type="button">Простой</a>
                             <a class="w-75 btn btn-danger mt-1" href="index.html" type="button">Закончить смену</a>
                         </div>
-                        <a th:unless="${place.currentChange}" class="w-75 btn btn-primary"
+                        <a th:unless="${place.getCurrentShift}" class="w-75 btn btn-primary"
                            th:href="@{/change/on}" type="button">
                             Начать смену
                         </a>
@@ -50,7 +50,7 @@
                         <div class="h1 clock"></div>
                     </div>
 
-                    <div th:if="${place.currentChange}" class="w-100 d-flex flex-column">
+                    <div th:if="${place.getCurrentShift}" class="w-100 d-flex flex-column">
                         <div class="h5">
                             Время смены:
                         </div>
@@ -58,7 +58,7 @@
                             <div class="w-100 p-2 d-flex flex-row align-items-baseline">
                                 <div class="h-25 h5 p-0 m-0">нач:</div>
                                 <div class="h1 p-0 m-0 px-1"
-                                     th:text="${#temporals.format(place.currentChange.startTime, 'HH:mm')}"></div>
+                                     th:text="${#temporals.format(place.getCurrentShift.startTime, 'HH:mm')}"></div>
                             </div>
                             <div class="w-100 p-2 d-flex flex-row align-items-baseline">
                                 <div class="h-25 h5 p-0 m-0">

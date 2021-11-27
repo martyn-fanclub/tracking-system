@@ -2,6 +2,7 @@ package com.github.martynfunclub.trackingsystem.models;
 
 import java.util.Collection;
 import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +16,7 @@ import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -48,7 +50,7 @@ public class User implements UserDetails {
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private Set<Number> numbers;
+    private Set<PhoneNumber> phoneNumbers;
 
     @Column(name = "personnel_number", nullable = false, length = 60, unique = true)
     private String personnelNumber;
@@ -82,26 +84,26 @@ public class User implements UserDetails {
         this.skills = skills;
     }
 
-    public User(String name, String surname, String patronymic, String username, String password, Set<Number> numbers, String personnelNumber, Long salary, String skills, Set<Role> roles) {
+    public User(String name, String surname, String patronymic, String username, String password, Set<PhoneNumber> phoneNumbers, String personnelNumber, Long salary, String skills, Set<Role> roles) {
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
         this.username = username;
         this.password = password;
-        this.numbers = numbers;
+        this.phoneNumbers = phoneNumbers;
         this.personnelNumber = personnelNumber;
         this.salary = salary;
         this.skills = skills;
         this.roles = roles;
     }
 
-    public void setNumbers(Set<Number> numbers) {
-        if (numbers != null) {
-            for (Number number : numbers) {
-                number.setUser(this);
+    public void setPhoneNumbers(Set<PhoneNumber> phoneNumbers) {
+        if (phoneNumbers != null) {
+            for (PhoneNumber phoneNumber : phoneNumbers) {
+                phoneNumber.setUser(this);
             }
         }
-        this.numbers = numbers;
+        this.phoneNumbers = phoneNumbers;
     }
 
     @Override
