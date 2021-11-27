@@ -8,10 +8,13 @@
     <option name="IMPORT_LAYOUT_TABLE">
       <value>
         <package name="java" withSubpackages="true" static="false" />
+        <emptyLine />
         <package name="javax" withSubpackages="true" static="false" />
         <emptyLine />
         <package name="org" withSubpackages="true" static="false" />
+        <emptyLine />
         <package name="com" withSubpackages="true" static="false" />
+        <emptyLine />
         <package name="" withSubpackages="true" static="false" />
         <emptyLine />
         <package name="" withSubpackages="true" static="true" />
@@ -30,6 +33,10 @@
   <ADDITIONAL_INDENT_OPTIONS fileType="sql">
     <option name="INDENT_SIZE" value="2" />
   </ADDITIONAL_INDENT_OPTIONS>
+  <codeStyleSettings language="JAVA">
+    <option name="RIGHT_MARGIN" value="120" />
+    <option name="BLANK_LINES_AROUND_METHOD_IN_INTERFACE" value="0" />
+  </codeStyleSettings>
   <codeStyleSettings language="kotlin">
     <option name="CODE_STYLE_DEFAULTS" value="KOTLIN_OFFICIAL" />
   </codeStyleSettings>
