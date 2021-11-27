@@ -46,6 +46,13 @@ public class Production {
     @JoinColumn(name = "detail_id")
     private Detail detail;
 
+    public Production(Shift shift, LocalDateTime startTime, LocalDateTime endTime, Detail detail) {
+        this.shift = shift;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.detail = detail;
+    }
+
     @Override
     public String toString() {
         return "Production{" +
@@ -55,12 +62,5 @@ public class Production {
                 ", endTime=" + endTime +
                 ", detail=" + detail.getDetailType() +
                 '}';
-    }
-
-    public Production(Shift shift, LocalDateTime startTime, LocalDateTime endTime, Detail detail) {
-        this.shift = shift;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.detail = detail;
     }
 }

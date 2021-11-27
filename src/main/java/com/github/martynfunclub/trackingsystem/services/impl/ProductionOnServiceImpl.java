@@ -26,7 +26,8 @@ public class ProductionOnServiceImpl implements ProductionOnService {
     @Override
     public boolean save(Long id) {
         Optional<Shift> shift = placeRepository.getById(id).getShifts().stream()
-                .filter(shiftInSet -> shiftInSet.getStartTime().isBefore(LocalDateTime.now()) && (shiftInSet.getEndTime() == null))
+                .filter(shiftInSet -> shiftInSet.getStartTime().isBefore(LocalDateTime.now())
+                        && (shiftInSet.getEndTime() == null))
                 .findFirst();
         if (shift.isPresent()) {
             productionRepository.save(new Production(shift.get(), LocalDateTime.now(), null, null));
