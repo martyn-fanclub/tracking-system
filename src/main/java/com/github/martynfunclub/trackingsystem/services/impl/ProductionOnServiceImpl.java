@@ -1,7 +1,7 @@
 package com.github.martynfunclub.trackingsystem.services.impl;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,14 +25,11 @@ public class ProductionOnServiceImpl implements ProductionOnService {
 
     @Override
     public boolean save(Long placeId) {
-        if (placeId == null) {
-            return false;
+        Optional<Shift> shift = shiftRepository.findByPlaceIdAndEndTimeIsNull(placeId);
+        if (shift.isPresent()) {
+            productionRepository.save(new Production(shift.get(), LocalDateTime.now(), null, null));
+            return true;
         }
-        List<Shift> shifts = shiftRepository.findByPlaceIdAndEndTimeIsNull(placeId);
-        if (shifts.isEmpty()) {
-            return false;
-        }
-        productionRepository.save(new Production(shifts.get(0), LocalDateTime.now(), null, null));
-        return true;
+        return false;
     }
 }

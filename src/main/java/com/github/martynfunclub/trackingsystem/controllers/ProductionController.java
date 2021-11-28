@@ -2,11 +2,10 @@ package com.github.martynfunclub.trackingsystem.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.github.martynfunclub.trackingsystem.dto.IdDTO;
 import com.github.martynfunclub.trackingsystem.services.ProductionOnService;
 
 @Controller
@@ -20,10 +19,8 @@ public class ProductionController {
     }
 
     @PostMapping
-    public String createProduction(@ModelAttribute("IdDTO") IdDTO idDTO) {
-        if (idDTO.getId() != null) {
-            productionOnService.save(idDTO.getId());
-        }
+    public String createProduction(@RequestParam(value = "placeId") Long placeId) {
+        productionOnService.save(placeId);
         return "redirect:/";
     }
 }
