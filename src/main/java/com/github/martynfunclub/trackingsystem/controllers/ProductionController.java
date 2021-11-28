@@ -11,11 +11,11 @@ import com.github.martynfunclub.trackingsystem.services.ProductionOnService;
 
 @Controller
 @RequestMapping("/production/on")
-public class ProductionOnController {
+public class ProductionController {
     ProductionOnService productionOnService;
 
     @Autowired
-    public ProductionOnController(ProductionOnService productionOnService) {
+    public ProductionController(ProductionOnService productionOnService) {
         this.productionOnService = productionOnService;
     }
 

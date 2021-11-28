@@ -1,38 +1,38 @@
 package com.github.martynfunclub.trackingsystem.services.impl;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.martynfunclub.trackingsystem.models.Production;
 import com.github.martynfunclub.trackingsystem.models.Shift;
-import com.github.martynfunclub.trackingsystem.repositories.PlaceRepository;
 import com.github.martynfunclub.trackingsystem.repositories.ProductionRepository;
+import com.github.martynfunclub.trackingsystem.repositories.ShiftRepository;
 import com.github.martynfunclub.trackingsystem.services.ProductionOnService;
 
 @Service
 public class ProductionOnServiceImpl implements ProductionOnService {
     ProductionRepository productionRepository;
-    PlaceRepository placeRepository;
+    ShiftRepository shiftRepository;
 
     @Autowired
-    public ProductionOnServiceImpl(ProductionRepository productionRepository, PlaceRepository placeRepository) {
+    public ProductionOnServiceImpl(ProductionRepository productionRepository, ShiftRepository shiftRepository) {
         this.productionRepository = productionRepository;
-        this.placeRepository = placeRepository;
+        this.shiftRepository = shiftRepository;
     }
 
     @Override
     public boolean save(Long id) {
-        Optional<Shift> shift = placeRepository.getById(id).getShifts().stream()
-                .filter(shiftInSet -> shiftInSet.getStartTime().isBefore(LocalDateTime.now())
-                        && (shiftInSet.getEndTime() == null))
-                .findFirst();
-        if (shift.isPresent()) {
-            productionRepository.save(new Production(shift.get(), LocalDateTime.now(), null, null));
-            return true;
+        if (id == null) {
+            return false;
         }
-        return false;
+        List<Shift> shift = shiftRepository.findByPlaceId(id);
+        if (shift.isEmpty()) {
+            return false;
+        }
+        productionRepository.save(new Production(shift.get(0), LocalDateTime.now(), null, null));
+        return true;
     }
 }
