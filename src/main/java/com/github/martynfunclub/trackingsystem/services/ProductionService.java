@@ -1,5 +1,5 @@
 package com.github.martynfunclub.trackingsystem.services;
 
-public interface ProductionOnService {
+public interface ProductionService {
     boolean save(Long id);
 }

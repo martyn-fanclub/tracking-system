@@ -10,15 +10,15 @@ import com.github.martynfunclub.trackingsystem.models.Production;
 import com.github.martynfunclub.trackingsystem.models.Shift;
 import com.github.martynfunclub.trackingsystem.repositories.ProductionRepository;
 import com.github.martynfunclub.trackingsystem.repositories.ShiftRepository;
-import com.github.martynfunclub.trackingsystem.services.ProductionOnService;
+import com.github.martynfunclub.trackingsystem.services.ProductionService;
 
 @Service
-public class ProductionOnServiceImpl implements ProductionOnService {
+public class ProductionServiceImpl implements ProductionService {
     ProductionRepository productionRepository;
     ShiftRepository shiftRepository;
 
     @Autowired
-    public ProductionOnServiceImpl(ProductionRepository productionRepository, ShiftRepository shiftRepository) {
+    public ProductionServiceImpl(ProductionRepository productionRepository, ShiftRepository shiftRepository) {
         this.productionRepository = productionRepository;
         this.shiftRepository = shiftRepository;
     }

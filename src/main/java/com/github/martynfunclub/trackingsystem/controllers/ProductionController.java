@@ -6,21 +6,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.github.martynfunclub.trackingsystem.services.ProductionOnService;
+import com.github.martynfunclub.trackingsystem.services.ProductionService;
 
 @Controller
 @RequestMapping("/production/on")
 public class ProductionController {
-    ProductionOnService productionOnService;
+    ProductionService productionService;
 
     @Autowired
-    public ProductionController(ProductionOnService productionOnService) {
-        this.productionOnService = productionOnService;
+    public ProductionController(ProductionService productionService) {
+        this.productionService = productionService;
     }
 
     @PostMapping
-    public String createProduction(@RequestParam(value = "placeId") Long placeId) {
-        productionOnService.save(placeId);
+    public String createProduction(@RequestParam Long placeId) {
+        productionService.save(placeId);
         return "redirect:/";
     }
 }
