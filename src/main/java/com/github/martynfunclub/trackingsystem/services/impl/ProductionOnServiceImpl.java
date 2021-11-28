@@ -24,15 +24,15 @@ public class ProductionOnServiceImpl implements ProductionOnService {
     }
 
     @Override
-    public boolean save(Long id) {
-        if (id == null) {
+    public boolean save(Long placeId) {
+        if (placeId == null) {
             return false;
         }
-        List<Shift> shift = shiftRepository.findByPlaceId(id);
-        if (shift.isEmpty()) {
+        List<Shift> shifts = shiftRepository.findByPlaceIdAndEndTimeIsNull(placeId);
+        if (shifts.isEmpty()) {
             return false;
         }
-        productionRepository.save(new Production(shift.get(0), LocalDateTime.now(), null, null));
+        productionRepository.save(new Production(shifts.get(0), LocalDateTime.now(), null, null));
         return true;
     }
 }

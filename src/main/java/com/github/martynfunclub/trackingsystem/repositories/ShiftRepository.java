@@ -13,5 +13,5 @@ import com.github.martynfunclub.trackingsystem.models.Shift;
 public interface ShiftRepository extends JpaRepository<Shift, Long> {
     @Query(value = "select * from shifts s " +
             "where s.place=:id and s.end_time is null", nativeQuery = true)
-    List<Shift> findByPlaceId(@Param("id") Long id);
+    List<Shift> findByPlaceIdAndEndTimeIsNull(@Param("id") Long id);
 }
