@@ -1,11 +1,14 @@
 package com.github.martynfunclub.trackingsystem.controllers;
 
+import java.util.List;
+import java.util.Optional;
+
 import com.github.martynfunclub.trackingsystem.dto.ActionDTO;
 import com.github.martynfunclub.trackingsystem.models.ActionType;
 import com.github.martynfunclub.trackingsystem.models.Production;
 import com.github.martynfunclub.trackingsystem.repositories.ProductionRepository;
-import com.github.martynfunclub.trackingsystem.services.impl.ActionServiceImpl;
-import com.github.martynfunclub.trackingsystem.services.impl.ActionTypeServiceImpl;
+import com.github.martynfunclub.trackingsystem.services.ActionService;
+import com.github.martynfunclub.trackingsystem.services.ActionTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,22 +17,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
-import java.util.Optional;
-
 @Controller
 @RequestMapping
 public class ActionController {
-
-    ActionTypeServiceImpl actionTypeService;
-    ActionServiceImpl actionService;
+    ActionTypeService actionTypeService;
+    ActionService actionService;
     ProductionRepository productionRepository;
 
     List<ActionType> actionTypes;
     Long currentPlace;
 
     @Autowired
-    public ActionController(ActionTypeServiceImpl actionTypeService, ActionServiceImpl actionService,
+    public ActionController(ActionTypeService actionTypeService, ActionService actionService,
                             ProductionRepository productionRepository) {
         this.actionTypeService = actionTypeService;
         this.actionService = actionService;
@@ -37,7 +36,7 @@ public class ActionController {
     }
 
     @GetMapping("{placeID}/actions")
-    public String getActions(@PathVariable("placeID") Long placeID, Model model) {
+    public String getActionTypes(@PathVariable("placeID") Long placeID, Model model) {
         actionTypes = actionTypeService.getAllActionTypes();
         currentPlace = placeID;
         model.addAttribute("actionTypes", actionTypes);
@@ -53,5 +52,4 @@ public class ActionController {
                 actionService.createAction(new ActionDTO(actionTypeID, production.getId())));
         return "redirect:/";
     }
-
 }
