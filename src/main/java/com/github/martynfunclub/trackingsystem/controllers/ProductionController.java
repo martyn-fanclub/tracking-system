@@ -19,8 +19,8 @@ public class ProductionController {
     }
 
     @PostMapping("/off")
-    public String finishProduction(@RequestParam Long id) {
-        productionService.updateEndTime(id);
+    public String finishProduction(@RequestParam Long workersPlaceId) {
+        productionService.updateEndTime(workersPlaceId);
         return "redirect:/";
     }
 }

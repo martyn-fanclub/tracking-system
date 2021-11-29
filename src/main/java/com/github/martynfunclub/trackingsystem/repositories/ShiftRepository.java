@@ -7,5 +7,4 @@ import com.github.martynfunclub.trackingsystem.models.Shift;
 
 @Repository
 public interface ShiftRepository extends JpaRepository<Shift, Long> {
-    Shift getByPlaceId(Long id);
 }

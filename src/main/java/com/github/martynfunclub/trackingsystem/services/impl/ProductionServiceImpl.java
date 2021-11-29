@@ -23,9 +23,9 @@ public class ProductionServiceImpl implements ProductionService {
     }
 
     @Override
-    public void updateEndTime(@RequestParam Long id) {
+    public void updateEndTime(@RequestParam Long workersPlaceId) {
         Production production =
-                productionRepository.getProductionByShiftAndEndTimeIsNull(shiftRepository.getByPlaceId(id));
+                productionRepository.getProductionByPlaceId(workersPlaceId);
         if (production != null) {
             production.setEndTime(LocalDateTime.now());
             productionRepository.save(production);
