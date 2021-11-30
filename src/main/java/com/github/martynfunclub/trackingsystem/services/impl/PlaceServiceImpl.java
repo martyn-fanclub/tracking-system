@@ -65,4 +65,9 @@ public class PlaceServiceImpl implements PlaceService {
         String[] placesNames = cookie.get().getValue().split(":+");
         return List.of(placesNames);
     }
+
+    @Override
+    public Optional<WorkersPlace> getPlaceById(Long id) {
+        return placeRepository.findById(id);
+    }
 }
