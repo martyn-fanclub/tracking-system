@@ -22,8 +22,7 @@ public class MainController {
 
     @GetMapping("/")
     public String main(HttpServletRequest request, Model model) {
-        List<WorkersPlace> places = placeService.getCurrentPlaces(request.getCookies());
-        model.addAttribute("places", places);
+        model.addAttribute("places", placeService.getCurrentPlaces(request.getCookies()));
         model.addAttribute("title", "Станки");
         return "main";
     }

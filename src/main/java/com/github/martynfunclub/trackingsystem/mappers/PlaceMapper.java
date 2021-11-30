@@ -23,8 +23,7 @@ public class PlaceMapper implements RowMapper<WorkersPlace> {
 
     @Override
     public WorkersPlace mapRow(ResultSet rs, int rowNum) throws SQLException {
-        WorkersPlace wp = new WorkersPlace(rs.getLong("id"),
-                rs.getString("place_name"), null);
+        WorkersPlace place = new WorkersPlace(rs.getLong("id"), rs.getString("place_name"), null);
         Shift shift = null;
         LocalDateTime localStartTime = null;
         LocalDateTime localEndTime = null;
@@ -39,10 +38,10 @@ public class PlaceMapper implements RowMapper<WorkersPlace> {
                 localEndTime = LocalDateTime.parse(endTime, FORMATTER);
             }
             User worker = userRepository.findById(rs.getLong("worker_id")).orElse(null);
-            shift = new Shift(shiftId, localStartTime, localEndTime, worker, Set.of(), wp);
+            shift = new Shift(shiftId, localStartTime, localEndTime, worker, Set.of(), place);
         }
-        wp.setCurrentShift(shift);
-        wp.setShifts(Collections.singleton(shift));
-        return wp;
+        place.setCurrentShift(shift);
+        place.setShifts(Collections.singleton(shift));
+        return place;
     }
 }
