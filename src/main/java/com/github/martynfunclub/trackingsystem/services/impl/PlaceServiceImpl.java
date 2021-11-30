@@ -45,21 +45,6 @@ public class PlaceServiceImpl implements PlaceService {
     }
 
     @Override
-    public List<String> getPlacesNames(Cookie[] cookies) {
-        if ((cookies == null) || (cookies.length == 0)) {
-            return Collections.emptyList();
-        }
-        Optional<Cookie> cookie = Arrays.stream(cookies)
-                .filter(c -> c.getName().equals(COOKIE_NAME))
-                .findFirst();
-        if (cookie.isEmpty()) {
-            return Collections.emptyList();
-        }
-        String[] placesNames = cookie.get().getValue().split(":+");
-        return List.of(placesNames);
-    }
-
-    @Override
     public Optional<WorkersPlace> getPlaceById(Long id) {
         return placeRepository.findById(id);
     }
