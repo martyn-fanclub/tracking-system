@@ -39,4 +39,10 @@ public class WorkersPlace {
 
     @Transient
     private Shift currentShift;
+
+    public WorkersPlace(Long id, String name, Shift currentShift) {
+        this.id = id;
+        this.name = name;
+        this.currentShift = currentShift;
+    }
 }

@@ -32,12 +32,15 @@
                             <a th:unless="${place.getCurrentShift.productions.isEmpty()}" class="w-75 btn btn-primary"
                                href="shift-started-condition.html" type="button">Сдать деталь</a>
                             <a class="w-75 btn btn-secondary mt-1" href="stale.html" type="button">Простой</a>
-                            <a class="w-75 btn btn-danger mt-1" href="index.html" type="button">Закончить смену</a>
+                            <form th:if="${place.getCurrentShift}" method="post" th:action="@{/shift/off}" class="d-flex justify-content-center w-100">
+                                <input type="hidden" name="id" th:value="${place.id}">
+                                <button type="submit" class="w-75 btn btn-danger">Закончить смену</button>
+                            </form>
                         </div>
-                        <a th:unless="${place.getCurrentShift}" class="w-75 btn btn-primary"
-                           th:href="@{/change/on}" type="button">
-                            Начать смену
-                        </a>
+                        <form th:unless="${place.getCurrentShift}" method="post" th:action="@{/shift/on}" class="d-flex justify-content-center w-100">
+                            <input type="hidden" name="id" th:value="${place.id}">
+                            <button type="submit" class="w-75 btn btn-primary">Начать смену</button>
+                        </form>
                     </div>
 
                 </div>

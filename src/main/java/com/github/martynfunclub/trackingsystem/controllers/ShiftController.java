@@ -22,7 +22,7 @@ import com.github.martynfunclub.trackingsystem.services.PlaceService;
 import lombok.AllArgsConstructor;
 
 @Controller
-@RequestMapping("/shift")
+@RequestMapping("/shifts")
 @AllArgsConstructor
 public class ShiftController {
     ShiftRepository shiftRepository;
