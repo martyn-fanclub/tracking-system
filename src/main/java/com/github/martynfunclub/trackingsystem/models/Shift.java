@@ -47,4 +47,11 @@ public class Shift {
     @ManyToOne(optional = false)
     @JoinColumn(name = "place")
     private WorkersPlace place;
+
+    public Shift(LocalDateTime startTime, User user, Set<Production> productions, WorkersPlace place) {
+        this.startTime = startTime;
+        this.user = user;
+        this.productions = productions;
+        this.place = place;
+    }
 }
