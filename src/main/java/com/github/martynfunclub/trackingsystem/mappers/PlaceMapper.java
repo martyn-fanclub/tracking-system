@@ -18,7 +18,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class PlaceMapper implements RowMapper<WorkersPlace> {
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private final UserRepository userRepository;
 
     @Override
@@ -32,11 +32,11 @@ public class PlaceMapper implements RowMapper<WorkersPlace> {
         if (shiftId != 0) {
             if (rs.getString("start_time") == null) {
                 String startTime = rs.getString("start_time").split("\\.")[0];
-                localStartTime = LocalDateTime.parse(startTime, formatter);
+                localStartTime = LocalDateTime.parse(startTime, FORMATTER);
             }
             if (rs.getString("end_time") == null) {
                 String endTime = rs.getString("end_time").split("\\.")[0];
-                localEndTime = LocalDateTime.parse(endTime, formatter);
+                localEndTime = LocalDateTime.parse(endTime, FORMATTER);
             }
             User worker = userRepository.findById(rs.getLong("worker_id")).orElse(null);
             shift = new Shift(shiftId, localStartTime, localEndTime, worker, Set.of(), wp);
