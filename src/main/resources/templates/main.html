@@ -1,186 +1,367 @@
-<th:block th:replace="fragments/head"/>
-<body class="app">
-<th:block th:replace="fragments/header"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tracking system</title>
+    <link rel="stylesheet" type="text/css" href="static/styles/design-token.css">
+    <link rel="stylesheet" type="text/css" href="static/styles/common.css">
+    <link rel="stylesheet" type="text/css" href="static/styles/base.css">
+    <link rel="stylesheet" type="text/css" href="static/styles/user-panel.css">
+    <link rel="stylesheet" type="text/css" href="static/styles/timetable.css">
+    <link rel="stylesheet" type="text/css" href="static/styles/details-list.css">
+    <link rel="stylesheet" type="text/css" href="static/styles/popup.css">
+    <link rel="stylesheet" type="text/css" href="static/styles/header.css">
+</head>
+<body>
+<svg display="none">
+    <symbol viewBox="0 0 24 24" id="info-icon">
+        <path d="M8.40626 5.57929H10.2395V7.41257H8.40626V5.57929ZM8.40626 9.24586H10.2395V14.7457H8.40626V9.24586ZM9.3229 0.996094C4.26304 0.996094 0.156494 5.10264 0.156494 10.1625C0.156494 15.2223 4.26304 19.3289 9.3229 19.3289C14.3827 19.3289 18.4893 15.2223 18.4893 10.1625C18.4893 5.10264 14.3827 0.996094 9.3229 0.996094ZM9.3229 17.4956C5.28051 17.4956 1.98977 14.2049 1.98977 10.1625C1.98977 6.12011 5.28051 2.82937 9.3229 2.82937C13.3653 2.82937 16.656 6.12011 16.656 10.1625C16.656 14.2049 13.3653 17.4956 9.3229 17.4956Z"
+              fill="#C9C9C9"/>
+    </symbol>
+    <symbol viewBox="0 0 200 200" id="logo-icon">
+        <path id="path3801_2_" class="st3" d="
+		M97,26.3c-7.9,0-20.9,0.3-28.4,1.2C58.1,28.8,54,34.2,52.9,44c-0.9,7.5-1.5,18.4-1.5,28.5c0,10.2,0.2,21.1,1.5,28.6
+		c1.6,9.8,6.2,14.9,15.7,16.4c7.5,1.2,21.3,1.2,28.4,1.2c7.1,0,20.9,0,28.4-1.2c9.4-1.5,13.9-6.6,15.7-16.4
+		c1.3-7.5,1.5-18.9,1.5-28.6c0-9.7-0.9-22.6-1.5-28.5c-1-10.2-5.4-15.1-15.7-16.5C117.8,26.5,104.8,26.3,97,26.3z M128.9,36.7
+		c2,0.9,5.5,6.1,4.7,11.8c-3.9,3.2-8.7,5.5-13.3,6.2v36.5H134c0,5.6-0.9,10.1-1.8,11.8h-24.9V55.3H90v28.5
+		c0,14.4-8.1,21.4-18.4,21.4c-2.9,0-6.4-0.4-9.3-1.2c-1.4-1.9-2-7.4-2.2-14.4c6.9,3.3,16.2,4.9,16.9-5.9V57.1
+		c-10.4,1.2-14.3,8.5-17.8,13.3c0.1-6.6,0.4-12.4,0.7-16.4C67,46.3,75,42.7,90.7,42.7h22.5C118.7,42.7,124,40.7,128.9,36.7z"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="close-icon">
+        <path d="M0 0h24v24H0V0z" fill="none"/>
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+    </symbol>
+</svg>
+<header>
+    <div class="header__half">
+        <svg class="header__logo">
+            <use xlink:href="#logo-icon" alt="Логотип политеха">
+            </use>
+        </svg>
+        <nav class="header__nav">
+            <a class="header__working-place" href="">Рабочее место</a>
+            <a class="header__stats" href="">Статистика</a>
+        </nav>
+    </div>
+    <div class="header__half">
+        <nav class="header__nav">
+            <a class="header__working-place" href="">Рабочее место</a>
+            <a class="header__stats" href="">Статистика</a>
+        </nav>
+        <div class="header__timer timer-small">
+            <p class="timer-small__text">12:32</p>
+        </div>
+    </div>
+</header>
+<!--/*@thymesVar id="place" type="com.github.martynfunclub.trackingsystem.models.WorkersPlace"*/-->
+<div class="popup-container">
+    <div th:each="place : ${places}" class="popup" th:data-machine-id="${place.id}">
+        <div class="popup__window">
+            <svg class="popup__close-button">
+                <use xlink:href="#close-icon"></use>
+            </svg>
+            <p class="popup__title">Выберите причину простоя</p>
 
+            <!--List of breaks-->
+
+            <div>
+                <form action="break.html" method="get">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button button_accent">
+                        <p class="button__text">
+
+                            <!--Break name-->
+
+                            перерыв
+                        </p>
+                    </button>
+                </form>
+
+                <form action="break.html" method="get">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button">
+                        <p class="button__text">
+                            работа на др. станке
+                        </p>
+                    </button>
+                </form>
+
+                <form action="break.html" method="get">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button">
+                        <p class="button__text">
+                            инструмент/оснастка
+                        </p>
+                    </button>
+                </form>
+
+                <form action="break.html" method="get">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button">
+                        <p class="button__text">
+                            контроль
+                        </p>
+                    </button>
+                </form>
+
+                <form action="break.html" method="get">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button">
+                        <p class="button__text">
+                            станок
+                        </p>
+                    </button>
+                </form>
+
+                <form action="break.html" method="get">
+                    <input type="hidden">
+                    <button type=submit class="button popup__button button_alert">
+                        <p class="button__text">
+                            нужен мастер
+                        </p>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
 <main>
+    <div th:each="place : ${places}" class="content" th:data-machine-id="${place.id}">
+        <div class="upper-section">
+            <section class="user-panel">
+                <div class="user-panel__info-section">
+                    <div class="user-panel__text">
 
-    <div class="d-flex flex-row justify-content-around align-items-center">
+                        <!--Name of machine-->
 
-        <!--[REDACT] Это - один станок, если вставить этот див еще раз - будет второй, выравняются автоматом
-        Для смены состояния станка вставляйте вместо этого div'ы из других html страниц с соответсвующими названиями
-        Так как все остальные страницы с подобным содержанием: просто вариации этой страницы с другим состоянием-->
-        <div th:each="place : ${places}"
-             class="d-flex flex-column justify-content-between align-items-center mt-5 p-3 col-5 border rounded-3">
+                        <p class="user-panel__machine-name">Слесарный станок <span th:text="${place.id}"></span></p>
 
-            <!--/*@thymesVar id="place" type="com.github.martynfunclub.trackingsystem.models.WorkersPlace"*/-->
-            <div class="w-100 d-flex flex-row justify-content-between align-items-stretch">
+                        <!--Worker name-->
 
-                <div class="m-3 p-2 py-3 w-50 border rounded-3 bg-light d-flex flex-column justify-content-between align-items-center">
-                    <div class="d-flex flex-column align-items-center justify-content-center w-100">
-                        <div th:text="${place.name}" class="h4 text-center"></div>
-                        <div class="h5 mb-4 text-center" th:if="${place.currentShift}">
+                        <p class="user-panel__worker-name" th:if="${place.currentShift}" >
                             <span th:text="${place.currentShift.user.surname}"></span>
                             <span th:text="${place.currentShift.user.name}"></span>
                             <span th:text="${place.currentShift.user.patronymic}"></span>
-                        </div>
+                        </p>
                     </div>
-
-                    <div class="d-flex flex-column align-items-center justify-content-center w-100">
-                        <div th:if="${place.getCurrentShift}" class="d-flex flex-column align-items-center w-100">
-                            <a th:if="${place.getCurrentShift.productions.isEmpty()}" class="w-75 btn btn-primary"
-                               href="detail-preparation.html" type="button">Взять деталь</a>
-                            <a th:unless="${place.getCurrentShift.productions.isEmpty()}" class="w-75 btn btn-primary"
-                               href="shift-started-condition.html" type="button">Сдать деталь</a>
-                            <a class="w-75 btn btn-secondary mt-1" href="stale.html" type="button">Простой</a>
-                            <form th:if="${place.getCurrentShift}" method="post" th:action="@{/shifts/off}" class="d-flex justify-content-center w-100">
-                                <input type="hidden" name="id" th:value="${place.id}">
-                                <button type="submit" class="w-75 btn btn-danger">Закончить смену</button>
-                            </form>
-                        </div>
-                        <form th:unless="${place.getCurrentShift}" method="post" th:action="@{/shifts/on}" class="d-flex justify-content-center w-100">
-                            <input type="hidden" name="id" th:value="${place.id}">
-                            <button type="submit" class="w-75 btn btn-primary">Начать смену</button>
-                        </form>
-                    </div>
-
+                    <svg>
+                        <use xlink:href="#info-icon" alt="additional information">
+                        </use>
+                    </svg>
                 </div>
 
-                <div class="m-3 p-2 w-50 border rounded-3 bg-light d-flex flex-column align-items-center">
-                    <div class="bg-grey w-100 p-2 border rounded-3">
-                        <div class="h5">
-                            Время:
-                        </div>
-                        <div class="h1 clock"></div>
+                <!--Move to next stage-->
+
+                <div class="user-panel__nav">
+                    <form action="production-stage.html" method="get">
+                        <input type="hidden">
+                        <button type=submit class="button user-panel__button button_accent">
+                            <p class="button__text user-panel__wrap">
+                                закончить подг. стадию
+                            </p>
+                        </button>
+                    </form>
+
+                    <!--LKR-->
+
+                    <div class="button user-panel__button">
+                        <p class="button__text">ЛКР</p>
                     </div>
 
-                    <div th:if="${place.getCurrentShift}" class="w-100 d-flex flex-column">
-                        <div class="h5">
-                            Время смены:
-                        </div>
-                        <div class="bg-grey w-100 p-2 border rounded-3 d-flex flex-column">
-                            <div class="w-100 p-2 d-flex flex-row align-items-baseline">
-                                <div class="h-25 h5 p-0 m-0">нач:</div>
-                                <div class="h1 p-0 m-0 px-1"
-                                     th:text="${#temporals.format(place.getCurrentShift.startTime, 'HH:mm')}"></div>
+                    <!--Take break-->
+
+                    <div class="button user-panel__button button_open-popup">
+                        <p class="button__text" th:data-machine-id="${place.id}">простой</p>
+                    </div>
+
+                    <!--End shift-->
+
+                    <form th:if="${place.currentShift}" method="POST" th:action="@{/shifts/off}">
+                        <input type="hidden" name="id" th:value="${place.id}">
+                        <button type=submit class="button user-panel__button">
+                            <p class="button__text user-panel__wrap">
+                                закончить смену
+                            </p>
+                        </button>
+                    </form>
+                    <form th:unless="${place.currentShift}" method="POST" th:action="@{/shifts/on}">
+                        <input type="hidden" name="id" th:value="${place.id}">
+                        <button type=submit class="button user-panel__button button_accent">
+                            <p class="button__text">начать смену</p>
+                        </button>
+                    </form>
+                </div>
+            </section>
+            <section class="timetable">
+
+                <div class="timer timetable__shift-timer">
+
+                    <!--Shift timer-->
+
+                    <span class="timer__time-title timetable__title-section">время смены</span>
+                    <div class="timetable__bar">
+                        <div class="timer__bar_white"></div>
+                        <div class="timer__bar_blue timetable__left-top-blue-bar"></div>
+                        <div class="timer__clock-panel">
+
+                            <!--Time passed-->
+
+                            <div class="timer__time-signature timer__time-signature_top">прошло:</div>
+                            <div class="timer__clock timer__clock_top">
+                                <span class="timer__digit timer__digit_hours"><!--Hours-->0</span><span
+                                    class="timer__digit">:</span><span
+                                    class="timer__digit timer__digit_minutes"><!--Minutes-->22</span>
                             </div>
-                            <div class="w-100 p-2 d-flex flex-row align-items-baseline">
-                                <div class="h-25 h5 p-0 m-0">
-                                    длт:
-                                </div>
-                                <!--[REDACT] Сюда передаем длительность смены -->
-                                <div class="h1 p-0 m-0 px-1 duration">
-                                    00:00
-                                </div>
+                        </div>
+                        <div class="timer__clock-panel">
+
+                            <!--Start time-->
+
+                            <div class="timer__time-signature timer__time-signature_bottom">нач:</div>
+                            <div class="timer__clock timer__clock_bottom">
+                                <span class="timer__digit timer__digit_hours"><!--Hours-->8</span><span
+                                    class="timer__digit">:</span><span
+                                    class="timer__digit timer__digit_minutes"><!--Minutes-->42</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="container">
-                <div class="p-1 border bg-light row">
-                    <div class="col-1">
-                        №
-                    </div>
-                    <div class="col-4">
-                        название
-                    </div>
-                    <div class="col-2">
-                        время
-                    </div>
-                    <div class="col-2">
-                        № ячейки
-                    </div>
-                    <div class="col-3">
-                        информация
-                    </div>
-                </div>
+                <div class="timetable__bottom-time-panel">
 
-                <!--[REDACT] Тут элементы таблицы, каждый элемент - вот этот div,
-                bg-grey/light обеспечивает чередование цвета
-                border-3 border-primary выделение первого цветом-->
-                <div class="p-1 border border-3 border-primary bg-grey row">
-                    <div class="col-1 pt-2">
-                        1
-                    </div>
-                    <div class="col-4 pt-2">
-                        уточка
-                    </div>
-                    <div class="col-2 pt-2">
-                        0:45
-                    </div>
-                    <div class="col-2 pt-2">
-                        23:45
-                    </div>
-                    <div class="col-3 d-flex align-items-center">
-                        <!--[REDACT] Здесь переход на доп инфу-->
-                        <a class="btn btn-primary" href="info.html" type="button">Доп. инф</a>
-                    </div>
-                </div>
-                <div class="p-1 border bg-light row">
-                    <div class="col-1 pt-2">
-                        1
-                    </div>
-                    <div class="col-4 pt-2">
-                        уточка
-                    </div>
-                    <div class="col-2 pt-2">
-                        0:45
-                    </div>
-                    <div class="col-2 pt-2">
-                        23:45
-                    </div>
-                    <div class="col-3 d-flex align-items-center">
-                        <!--[REDACT] Здесь переход на доп инфу-->
-                        <a class="btn btn-primary" href="info.html" type="button">Доп. инф</a>
-                    </div>
-                </div>
-                <div class="p-1 border bg-grey row">
-                    <div class="col-1 pt-2">
-                        1
-                    </div>
-                    <div class="col-4 pt-2">
-                        уточка
-                    </div>
-                    <div class="col-2 pt-2">
-                        0:45
-                    </div>
-                    <div class="col-2 pt-2">
-                        23:45
-                    </div>
-                    <div class="col-3 d-flex align-items-center">
-                        <!--[REDACT] Здесь переход на доп инфу-->
-                        <a class="btn btn-primary" href="info.html" type="button">Доп. инф</a>
-                    </div>
-                </div>
-            </div>
+                    <!--Production detail timer-->
 
+                    <span class="timer__time-title timetable__title-section">изготовление(подготовка)</span>
+                    <div class="timetable__bar">
+                        <div class="timer__bar_white"></div>
+                        <div class="timer__bar_blue" style="width: 50%;"></div>
+                        <div class="timer__clock-panel">
+
+                            <!--Time passed-->
+
+                            <div class="timer__time-signature timer__time-signature_top">прошло:</div>
+                            <div class="timer__clock timer__clock_top">
+                                <span class="timer__digit timer__digit_hours"><!--Hours-->0</span><span
+                                    class="timer__digit">:</span><span
+                                    class="timer__digit timer__digit_minutes"><!--Minutes-->42</span>
+                            </div>
+                        </div>
+                        <div class="timer__clock-panel">
+
+                            <!--Time limit-->
+
+                            <div class="timer__time-signature timer__time-signature_bottom">макс:</div>
+                            <div class="timer__clock timer__clock_bottom">
+                                <span class="timer__digit timer__digit_hours"><!--Hours-->1</span><span
+                                    class="timer__digit">:</span><span
+                                    class="timer__digit timer__digit_minutes"><!--Minutes-->22</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
+        <section class="details-list">
+
+            <div class="table-header">
+                <div class="table-header__number">№</div>
+                <div class="table-header__name-detail">название</div>
+                <div class="table-header__time">время</div>
+                <div class="table-header__cell-number">№ ячейки</div>
+            </div>
+
+            <div class="table-line table-line-first">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
+
+            <div class="table-line table-line-odd">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
+
+            <div class="table-line">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
+
+            <!--Detail-->
+
+            <div class="table-line table-line-odd">
+                <div class="table-line__number"><!--Number-->1.</div>
+                <div class="table-line__detail-name"><!--Description-->
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail"><!--Time limitation (houars:minutes)-->00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
+
+            <div class="table-line">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
+
+            <div class="table-line table-line-odd">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
+
+            <div class="table-line">
+                <div class="table-line__number">1.</div>
+                <div class="table-line__detail-name">
+                    Первая деталь
+                </div>
+                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__cell-number">12-2</div>
+                <div class="button table-line__button">
+                    <p class="button__text table-line__button-text">доп.инф.</p>
+                </div>
+            </div>
+
+        </section>
     </div>
 </main>
-
-<script>
-    let timeDisplays = document.getElementsByClassName("clock");
-    let durations = document.getElementsByClassName("duration");
-    document.body.onload = refreshTime;
-
-    function refreshTime() {
-        for (let timeDisplay of timeDisplays) {
-            timeDisplay.textContent = new Date().toLocaleTimeString("ru-RU");
-        }
-    }
-
-    function refreshDuration() {
-        for (let duration of durations) {
-            let units = duration.parentElement.previousElementSibling.children[1].textContent.split(':');
-            let diff = new Date(Date.now() - units[0] * 3600000 - units[1] * 60000);
-            duration.textContent = diff.getHours() + ':' + diff.getMinutes();
-        }
-    }
-
-    setInterval(refreshTime, 1000);
-    setInterval(refreshDuration, 60000);
-</script>
+<script src="static/scripts/popup.js"></script>
+<script src="static/scripts/global-timer.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,33 @@
+
+.header__half {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    width: calc(var(--width) / 2);
+}
+
+
+header svg {
+    width: 10%;
+    margin-left: 2%;
+    margin-top: 3%;
+    fill: var(--color-background);
+}
+
+header a {
+    font-size: 1.2vh;
+    color: var(--color-button);
+    text-decoration: none;
+    margin-left: 1vh;
+}
+
+.header__working-place {
+    margin-left: 3vh;
+    color: var(--color-background);
+}
+
+
+.header__timer {
+    margin-left: auto;
+    margin-right: 2vh;
+}

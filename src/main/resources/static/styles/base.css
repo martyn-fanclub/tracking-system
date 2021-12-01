@@ -1,0 +1,59 @@
+@import "design-token.css";
+
+body {
+    height: 100vh;
+    width: var(--width);
+    margin: 0;
+    padding: 0;
+    font-family: var(--font);
+    font-weight: var(--font-semi-bold);
+    background-color: var(--color-background);
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    z-index: 2;
+    background-color: var(--color-header);
+    height: 6.8vh;
+    display: flex;
+}
+
+.upper-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user-panel, .timetable {
+    min-height: 37.5vh;
+    background-color: var(--color-support-light);
+    width: 49%;
+    border-radius: 1.3vh;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+}
+
+.details-list {
+    margin-top: 3.5%;
+    background-color: var(--color-support-light);
+    flex-basis: 100%;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.content {
+    flex-basis: 47%;
+    margin: 1.5%;
+    display: flex;
+    flex-direction: column;
+}
