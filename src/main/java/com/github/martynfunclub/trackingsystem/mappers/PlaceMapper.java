@@ -29,13 +29,13 @@ public class PlaceMapper implements RowMapper<WorkersPlace> {
         LocalDateTime localEndTime = null;
         long shiftId = rs.getLong("s_id");
         if (shiftId != 0) {
-            if (rs.getString("start_time") == null) {
-                String startTime = rs.getString("start_time").split("\\.")[0];
-                localStartTime = LocalDateTime.parse(startTime, FORMATTER);
+            String startTime = rs.getString("start_time");
+            String endTime = rs.getString("end_time");
+            if (startTime != null) {
+                localStartTime = LocalDateTime.parse(startTime.split("\\.")[0], FORMATTER);
             }
-            if (rs.getString("end_time") == null) {
-                String endTime = rs.getString("end_time").split("\\.")[0];
-                localEndTime = LocalDateTime.parse(endTime, FORMATTER);
+            if (endTime != null) {
+                localEndTime = LocalDateTime.parse(endTime.split("\\.")[0], FORMATTER);
             }
             User worker = userRepository.findById(rs.getLong("worker_id")).orElse(null);
             shift = new Shift(shiftId, localStartTime, localEndTime, worker, Set.of(), place);
