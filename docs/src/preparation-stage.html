@@ -60,15 +60,22 @@
                 <use xlink:href="#close-icon"></use>
             </svg>
             <p class="popup__title">Выберите причину простоя</p>
+
+            <!--List of breaks-->
+
             <div>
                 <form action="break.html" method="get">
                     <input type="hidden">
                     <button type=submit class="button popup__button button_accent">
                         <p class="button__text">
+
+                            <!--Break name-->
+
                             перерыв
                         </p>
                     </button>
                 </form>
+
                 <form action="break.html" method="get">
                     <input type="hidden">
                     <button type=submit class="button popup__button">
@@ -77,6 +84,7 @@
                         </p>
                     </button>
                 </form>
+
                 <form action="break.html" method="get">
                     <input type="hidden">
                     <button type=submit class="button popup__button">
@@ -85,6 +93,7 @@
                         </p>
                     </button>
                 </form>
+
                 <form action="break.html" method="get">
                     <input type="hidden">
                     <button type=submit class="button popup__button">
@@ -93,6 +102,7 @@
                         </p>
                     </button>
                 </form>
+
                 <form action="break.html" method="get">
                     <input type="hidden">
                     <button type=submit class="button popup__button">
@@ -101,6 +111,7 @@
                         </p>
                     </button>
                 </form>
+
                 <form action="break.html" method="get">
                     <input type="hidden">
                     <button type=submit class="button popup__button button_alert">
@@ -109,6 +120,7 @@
                         </p>
                     </button>
                 </form>
+
             </div>
         </div>
     </div>
@@ -177,14 +189,23 @@
             <section class="user-panel">
                 <div class="user-panel__info-section">
                     <div class="user-panel__text">
+
+                        <!--Name of machine-->
+
                         <p class="user-panel__machine-name">Слесарный станок #1231414</p>
-                        <p class="user-panel__worker-name"></p>
+
+                        <!--Worker name-->
+
+                        <p class="user-panel__worker-name">Мартынов Алексей Валерльевич</p>
                     </div>
                     <svg>
                         <use xlink:href="#info-icon" alt="additional information">
                         </use>
                     </svg>
                 </div>
+
+                <!--Move to next stage-->
+
                 <div class="user-panel__nav">
                     <form action="production-stage.html" method="get">
                         <input type="hidden">
@@ -194,12 +215,21 @@
                             </p>
                         </button>
                     </form>
+
+                    <!--LKR-->
+
                     <div class="button user-panel__button">
                         <p class="button__text">ЛКР</p>
                     </div>
+
+                    <!--Take break-->
+
                     <div class="button user-panel__button button_open-popup">
                         <p class="button__text" data-machine-id="1">простой</p>
                     </div>
+
+                    <!--End shift-->
+
                     <form action="../index.html" method="get">
                         <input type="hidden">
                         <button type=submit class="button user-panel__button">
@@ -211,48 +241,68 @@
                 </div>
             </section>
             <section class="timetable">
+
                 <div class="timer timetable__shift-timer">
+
+                    <!--Shift timer-->
+
                     <span class="timer__time-title timetable__title-section">время смены</span>
                     <div class="timetable__bar">
                         <div class="timer__bar_white"></div>
                         <div class="timer__bar_blue timetable__left-top-blue-bar"></div>
                         <div class="timer__clock-panel">
+
+                            <!--Time passed-->
+
                             <div class="timer__time-signature timer__time-signature_top">прошло:</div>
                             <div class="timer__clock timer__clock_top">
-                                <span class="timer__digit timer__digit_hours">0</span><span
+                                <span class="timer__digit timer__digit_hours"><!--Hours-->0</span><span
                                     class="timer__digit">:</span><span
-                                    class="timer__digit timer__digit_minutes">22</span>
+                                    class="timer__digit timer__digit_minutes"><!--Minutes-->22</span>
                             </div>
                         </div>
                         <div class="timer__clock-panel">
+
+                            <!--Start time-->
+
                             <div class="timer__time-signature timer__time-signature_bottom">нач:</div>
                             <div class="timer__clock timer__clock_bottom">
-                                <span class="timer__digit timer__digit_hours">8</span><span
+                                <span class="timer__digit timer__digit_hours"><!--Hours-->8</span><span
                                     class="timer__digit">:</span><span
-                                    class="timer__digit timer__digit_minutes">42</span>
+                                    class="timer__digit timer__digit_minutes"><!--Minutes-->42</span>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="timetable__bottom-time-panel">
+
+                    <!--Production detail timer-->
+
                     <span class="timer__time-title timetable__title-section">изготовление(подготовка)</span>
                     <div class="timetable__bar">
                         <div class="timer__bar_white"></div>
                         <div class="timer__bar_blue" style="width: 50%;"></div>
                         <div class="timer__clock-panel">
+
+                            <!--Time passed-->
+
                             <div class="timer__time-signature timer__time-signature_top">прошло:</div>
                             <div class="timer__clock timer__clock_top">
-                                <span class="timer__digit timer__digit_hours">0</span><span
+                                <span class="timer__digit timer__digit_hours"><!--Hours-->0</span><span
                                     class="timer__digit">:</span><span
-                                    class="timer__digit timer__digit_minutes">42</span>
+                                    class="timer__digit timer__digit_minutes"><!--Minutes-->42</span>
                             </div>
                         </div>
                         <div class="timer__clock-panel">
+
+                            <!--Time limit-->
+
                             <div class="timer__time-signature timer__time-signature_bottom">макс:</div>
                             <div class="timer__clock timer__clock_bottom">
-                                <span class="timer__digit timer__digit_hours">1</span><span
+                                <span class="timer__digit timer__digit_hours"><!--Hours-->1</span><span
                                     class="timer__digit">:</span><span
-                                    class="timer__digit timer__digit_minutes">22</span>
+                                    class="timer__digit timer__digit_minutes"><!--Minutes-->22</span>
                             </div>
                         </div>
                     </div>
@@ -304,12 +354,14 @@
                 </div>
             </div>
 
+            <!--Detail-->
+
             <div class="table-line table-line-odd">
-                <div class="table-line__number">1.</div>
-                <div class="table-line__detail-name">
+                <div class="table-line__number"><!--Number-->1.</div>
+                <div class="table-line__detail-name"><!--Description-->
                     Первая деталь
                 </div>
-                <div class="table-line__time-detail">00:40</div>
+                <div class="table-line__time-detail"><!--Time limitation (houars:minutes)-->00:40</div>
                 <div class="table-line__cell-number">12-2</div>
                 <div class="button table-line__button">
                     <p class="button__text table-line__button-text">доп.инф.</p>
