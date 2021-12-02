@@ -41,15 +41,4 @@ public class Production {
     @ManyToOne
     @JoinColumn(name = "detail_id")
     private Detail detail;
-
-    @Override
-    public String toString() {
-        return "Production{" +
-                "id=" + id +
-                ", change=" + shift.getStartTime() +
-                ", startTime=" + startTime +
-                ", endTime=" + endTime +
-                ", detail=" + detail.getDetailType() +
-                '}';
-    }
 }

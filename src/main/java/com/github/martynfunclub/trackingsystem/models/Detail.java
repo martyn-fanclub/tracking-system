@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -29,6 +30,9 @@ public class Detail {
     @ManyToOne(optional = false)
     @JoinColumn(name = "detail_type_id", nullable = false)
     private DetailType detailType;
+
+    @OneToOne(mappedBy = "detail")
+    private Cell cell;
 
     public Detail(DetailType detailType) {
         this.detailType = detailType;

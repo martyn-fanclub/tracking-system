@@ -1,12 +1,14 @@
 package com.github.martynfunclub.trackingsystem.models;
 
 import java.time.LocalTime;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -33,6 +35,11 @@ public class ActionType {
 
     @Column(name = "max_time", nullable = false)
     private LocalTime maxTime;
+
+    @OneToMany(mappedBy = "action_type")
+    private Set<Action> actions;
+
+    private Boolean regulation;
 
     public ActionType(String name, LocalTime maxTime) {
         this.name = name;

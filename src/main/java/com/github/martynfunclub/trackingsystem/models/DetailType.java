@@ -1,12 +1,15 @@
 package com.github.martynfunclub.trackingsystem.models;
 
 import java.time.LocalTime;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -31,6 +34,12 @@ public class DetailType {
 
     @Column(name = "max_time", nullable = false)
     private LocalTime maxTime;
+
+    @OneToMany(mappedBy = "detailType")
+    private Set<Detail> details;
+
+    @ManyToMany(mappedBy = "detailType")
+    private Set<WorkersPlace> places;
 
     public DetailType(String name, LocalTime maxTime) {
         this.name = name;
