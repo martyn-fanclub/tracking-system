@@ -36,7 +36,7 @@ public class ActionType {
     @Column(name = "max_time", nullable = false)
     private LocalTime maxTime;
 
-    @OneToMany(mappedBy = "action_type")
+    @OneToMany(mappedBy = "actionType")
     private Set<Action> actions;
 
     private Boolean regulation;

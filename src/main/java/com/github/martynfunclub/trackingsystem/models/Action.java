@@ -33,7 +33,7 @@ public class Action {
 
     @ManyToOne
     @JoinColumn(name = "action_type_id")
-    private ActionType action_type;
+    private ActionType actionType;
 
     @Column(name = "start_time", nullable = false)
     private LocalDateTime startTime;
