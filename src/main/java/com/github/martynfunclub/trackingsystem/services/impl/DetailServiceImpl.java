@@ -27,14 +27,13 @@ public class DetailServiceImpl implements DetailService {
 
     @Override
     public boolean save(long id) {
-        try {
-            Optional<DetailType> detailType = detailTypeService.findById(id);
-            detailRepository.save(new Detail(detailType.get()));
-        } catch (NoSuchElementException e) {
+        Optional<DetailType> detailType = detailTypeService.findById(id);
+        if (detailType.isEmpty()) {
             return false;
         }
+        detailRepository.save(new Detail(detailType.get()));
         return true;
-    }
+}
 
     @Override
     public Optional<Detail> findById(Long id) {
