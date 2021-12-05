@@ -1,10 +1,10 @@
 @import "design-token.css";
 
-.table-line-odd {
+.details-list .table-line:nth-child(odd) {
     background-color: var(--color-support-light);
 }
 
-.table-line-first {
+.table-line:nth-of-type(2) {
     width: 98.55%;
     border: 3.5px solid var(--color-accent);
 }

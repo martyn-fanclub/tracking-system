@@ -44,12 +44,24 @@ public class Shift {
     @OneToMany(mappedBy = "shift", cascade = CascadeType.ALL)
     private Set<Production> productions;
 
+    @OneToMany(mappedBy = "shift", cascade = CascadeType.ALL)
+    private Set<Action> actions;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "place")
     private WorkersPlace place;
 
     public Shift(LocalDateTime startTime, User user, Set<Production> productions, WorkersPlace place) {
         this.startTime = startTime;
+        this.user = user;
+        this.productions = productions;
+        this.place = place;
+    }
+
+    public Shift(Long id, LocalDateTime startTime, LocalDateTime endTime, User user, Set<Production> productions, WorkersPlace place) {
+        this.id = id;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.user = user;
         this.productions = productions;
         this.place = place;

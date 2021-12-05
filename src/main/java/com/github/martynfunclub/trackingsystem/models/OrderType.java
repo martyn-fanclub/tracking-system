@@ -1,5 +1,6 @@
 package com.github.martynfunclub.trackingsystem.models;
 
+import java.time.LocalTime;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -7,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -15,28 +18,30 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Table(name = "detail_types")
+@Table(name = "order_types")
 @Entity
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class DetailType {
+@Getter
+@Setter
+public class OrderType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @ManyToOne
+    private DetailType from;
 
-    @OneToMany(mappedBy = "detailType")
-    private Set<Detail> details;
+    @ManyToOne
+    private DetailType to;
+
+    @Column(name = "max_time", nullable = false)
+    private LocalTime maxTime;
+
+    @ManyToMany
+    private Set<WorkersPlace> places;
 
     @OneToMany
-    private Set<OrderType> orderTypes;
-
-    public DetailType(String name) {
-        this.name = name;
-    }
+    private Set<Order> orders;
 }

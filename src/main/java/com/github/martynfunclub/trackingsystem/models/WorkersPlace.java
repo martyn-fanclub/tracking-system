@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -37,8 +38,14 @@ public class WorkersPlace {
     @OneToMany(mappedBy = "place", fetch = FetchType.EAGER)
     private Set<Shift> shifts;
 
+    @ManyToMany(mappedBy = "places")
+    private Set<OrderType> orderTypes;
+
     @Transient
     private Shift currentShift;
+
+    @Transient
+    private Set<Order> currentOrders;
 
     public WorkersPlace(Long id, String name, Shift currentShift) {
         this.id = id;
