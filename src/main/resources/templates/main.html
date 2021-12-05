@@ -135,7 +135,7 @@
 
                         <!--Name of machine-->
 
-                        <p class="user-panel__machine-name">Слесарный станок <span th:text="${place.id}"></span></p>
+                        <p th:text="${place.name}" class="user-panel__machine-name"></p>
 
                         <!--Worker name-->
 
@@ -154,7 +154,7 @@
                 <!--Move to next stage-->
 
                 <div class="user-panel__nav">
-                    <form action="production-stage.html" method="get">
+                    <form th:if="${place.currentShift}" action="production-stage.html" method="get">
                         <input type="hidden">
                         <button type=submit class="button user-panel__button button_accent">
                             <p class="button__text user-panel__wrap">
@@ -165,13 +165,13 @@
 
                     <!--LKR-->
 
-                    <div class="button user-panel__button">
+                    <div th:if="${place.currentShift}" class="button user-panel__button">
                         <p class="button__text">ЛКР</p>
                     </div>
 
-                    <!--Take break-->
+                    <!--Take a break-->
 
-                    <div class="button user-panel__button button_open-popup">
+                    <div th:if="${place.currentShift}" class="button user-panel__button button_open-popup">
                         <p class="button__text" th:data-machine-id="${place.id}">простой</p>
                     </div>
 
@@ -195,7 +195,7 @@
             </section>
             <section class="timetable">
 
-                <div class="timer timetable__shift-timer">
+                <div th:if="${place.currentShift}" class="timer timetable__shift-timer">
 
                     <!--Shift timer-->
 
@@ -228,7 +228,7 @@
                     </div>
                 </div>
 
-                <div class="timetable__bottom-time-panel">
+                <div th:if="${place.currentShift}" class="timetable__bottom-time-panel">
 
                     <!--Production detail timer-->
 
@@ -271,87 +271,12 @@
                 <div class="table-header__cell-number">№ ячейки</div>
             </div>
 
-            <div class="table-line table-line-first">
-                <div class="table-line__number">1.</div>
-                <div class="table-line__detail-name">
-                    Первая деталь
-                </div>
-                <div class="table-line__time-detail">00:40</div>
-                <div class="table-line__cell-number">12-2</div>
-                <div class="button table-line__button">
-                    <p class="button__text table-line__button-text">доп.инф.</p>
-                </div>
-            </div>
-
-            <div class="table-line table-line-odd">
-                <div class="table-line__number">1.</div>
-                <div class="table-line__detail-name">
-                    Первая деталь
-                </div>
-                <div class="table-line__time-detail">00:40</div>
-                <div class="table-line__cell-number">12-2</div>
-                <div class="button table-line__button">
-                    <p class="button__text table-line__button-text">доп.инф.</p>
-                </div>
-            </div>
-
-            <div class="table-line">
-                <div class="table-line__number">1.</div>
-                <div class="table-line__detail-name">
-                    Первая деталь
-                </div>
-                <div class="table-line__time-detail">00:40</div>
-                <div class="table-line__cell-number">12-2</div>
-                <div class="button table-line__button">
-                    <p class="button__text table-line__button-text">доп.инф.</p>
-                </div>
-            </div>
-
-            <!--Detail-->
-
-            <div class="table-line table-line-odd">
-                <div class="table-line__number"><!--Number-->1.</div>
-                <div class="table-line__detail-name"><!--Description-->
-                    Первая деталь
-                </div>
-                <div class="table-line__time-detail"><!--Time limitation (houars:minutes)-->00:40</div>
-                <div class="table-line__cell-number">12-2</div>
-                <div class="button table-line__button">
-                    <p class="button__text table-line__button-text">доп.инф.</p>
-                </div>
-            </div>
-
-            <div class="table-line">
-                <div class="table-line__number">1.</div>
-                <div class="table-line__detail-name">
-                    Первая деталь
-                </div>
-                <div class="table-line__time-detail">00:40</div>
-                <div class="table-line__cell-number">12-2</div>
-                <div class="button table-line__button">
-                    <p class="button__text table-line__button-text">доп.инф.</p>
-                </div>
-            </div>
-
-            <div class="table-line table-line-odd">
-                <div class="table-line__number">1.</div>
-                <div class="table-line__detail-name">
-                    Первая деталь
-                </div>
-                <div class="table-line__time-detail">00:40</div>
-                <div class="table-line__cell-number">12-2</div>
-                <div class="button table-line__button">
-                    <p class="button__text table-line__button-text">доп.инф.</p>
-                </div>
-            </div>
-
-            <div class="table-line">
-                <div class="table-line__number">1.</div>
-                <div class="table-line__detail-name">
-                    Первая деталь
-                </div>
-                <div class="table-line__time-detail">00:40</div>
-                <div class="table-line__cell-number">12-2</div>
+            <div th:if="${place.currentOrders}" th:each="order, state : ${place.currentOrders}" class="table-line">
+                <div th:text="${state.index + 1 + '.'}" class="table-line__number"></div>
+                <!--/*@thymesVar id="order" type="com.github.martynfunclub.trackingsystem.models.Order"*/-->
+                <div th:text="${order.orderType.from.name + ' -> ' + order.orderType.to.name}" class="table-line__detail-name"></div>
+                <div th:text="${order.orderType.maxTime}" class="table-line__time-detail"></div>
+                <div th:text="${order.detail.cell.id}" class="table-line__cell-number"></div>
                 <div class="button table-line__button">
                     <p class="button__text table-line__button-text">доп.инф.</p>
                 </div>

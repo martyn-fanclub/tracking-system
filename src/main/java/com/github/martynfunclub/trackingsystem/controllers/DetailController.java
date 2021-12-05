@@ -2,7 +2,6 @@ package com.github.martynfunclub.trackingsystem.controllers;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,15 +14,13 @@ import com.github.martynfunclub.trackingsystem.dto.IdDTO;
 import com.github.martynfunclub.trackingsystem.models.Detail;
 import com.github.martynfunclub.trackingsystem.services.DetailService;
 
+import lombok.AllArgsConstructor;
+
 @Controller
 @RequestMapping("/details")
+@AllArgsConstructor
 public class DetailController {
     DetailService detailService;
-
-    @Autowired
-    public DetailController(DetailService detailService) {
-        this.detailService = detailService;
-    }
 
     @GetMapping
     public String getDetails(Model model) {

@@ -1,6 +1,5 @@
 package com.github.martynfunclub.trackingsystem.models;
 
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -39,11 +38,14 @@ public class WorkersPlace {
     @OneToMany(mappedBy = "place", fetch = FetchType.EAGER)
     private Set<Shift> shifts;
 
-    @ManyToMany
-    private List<DetailType> detailType;
+    @ManyToMany(mappedBy = "places")
+    private Set<OrderType> orderTypes;
 
     @Transient
     private Shift currentShift;
+
+    @Transient
+    private Set<Order> currentOrders;
 
     public WorkersPlace(Long id, String name, Shift currentShift) {
         this.id = id;

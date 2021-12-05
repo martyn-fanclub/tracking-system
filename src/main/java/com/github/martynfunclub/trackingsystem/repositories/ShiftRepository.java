@@ -9,4 +9,5 @@ import com.github.martynfunclub.trackingsystem.models.User;
 @Repository
 public interface ShiftRepository extends JpaRepository<Shift, Long> {
     Shift getShiftByPlaceIdAndEndTimeIsNullAndUser(Long placeId, User principal);
+    Shift getShiftByPlaceIdAndEndTimeIsNull(Long placeId);
 }
