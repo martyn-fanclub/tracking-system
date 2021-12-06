@@ -1,42 +1,32 @@
 package com.github.martynfunclub.trackingsystem.models;
 
-import java.util.Set;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
-@Table(name = "detail_types")
+@Table(name = "cells")
 @Entity
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class DetailType {
+@Getter
+@Setter
+@ToString
+public class Cell {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "name", nullable = false)
-    private String name;
-
-    @OneToMany(mappedBy = "detailType")
-    private Set<Detail> details;
-
-    @OneToMany
-    private Set<OrderType> orderTypes;
-
-    public DetailType(String name) {
-        this.name = name;
-    }
+    @OneToOne(orphanRemoval = true)
+    @JoinColumn(name = "detail_id")
+    private Detail detail;
 }

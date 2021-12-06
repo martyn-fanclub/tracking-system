@@ -8,61 +8,63 @@ import java.util.Optional;
 
 import javax.servlet.http.Cookie;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.martynfunclub.trackingsystem.models.Status;
 import com.github.martynfunclub.trackingsystem.models.WorkersPlace;
+import com.github.martynfunclub.trackingsystem.repositories.OrderRepository;
 import com.github.martynfunclub.trackingsystem.repositories.PlaceRepository;
+import com.github.martynfunclub.trackingsystem.repositories.ShiftRepository;
 import com.github.martynfunclub.trackingsystem.services.PlaceService;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class PlaceServiceImpl implements PlaceService {
     private static final int MAX_PLACES = 2;
     private static final String COOKIE_NAME = "test";
 
-    PlaceRepository placeRepository;
-
-    @Autowired
-    public PlaceServiceImpl(PlaceRepository placeRepository) {
-        this.placeRepository = placeRepository;
-    }
+    private final PlaceRepository placeRepository;
+    private final ShiftRepository shiftRepository;
+    private final OrderRepository orderRepository;
 
     @Override
     public List<WorkersPlace> getCurrentPlaces(Cookie[] cookies) {
         if (cookies == null) {
             return Collections.emptyList();
         }
-        Cookie placeCookie = null;
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("test")) {
-                placeCookie = cookie;
-                break;
-            }
+        String[] cookieValues = getPlacesIds(cookies);
+        if (cookieValues.length > MAX_PLACES) {
+            return List.of();
         }
-        String cookieValue = placeCookie == null ? "" : placeCookie.getValue();
-        String[] cookieValues = cookieValue.split(":+");
-        List<WorkersPlace> places = new ArrayList<>(MAX_PLACES);
-        for (String cookie : cookieValues) {
-            WorkersPlace place = placeRepository.getPlaceByName(cookie);
-            if (place != null) {
-                places.add(place);
+        List<Long> placeIds = new ArrayList<>(MAX_PLACES);
+        try {
+            for (String cookie : cookieValues) {
+                placeIds.add(Long.parseLong(cookie));
             }
+        } catch (NumberFormatException e) {
+            return List.of();
+        }
+        List<WorkersPlace> places = placeRepository.findAll();
+        for (WorkersPlace place : places) {
+            place.setCurrentShift(shiftRepository.getShiftByPlaceIdAndEndTimeIsNull(place.getId()));
+            place.setCurrentOrders(orderRepository.findByOrderTypeInAndStatusIsOrderByPriorityDesc(place.getOrderTypes(), Status.PENDING));
         }
         return places;
     }
 
     @Override
-    public List<String> getPlacesNames(Cookie[] cookies) {
-        if ((cookies == null) || (cookies.length == 0)) {
-            return Collections.emptyList();
+    public Optional<WorkersPlace> getPlaceById(Long id) {
+        return placeRepository.findById(id);
+    }
+
+    private String[] getPlacesIds(Cookie[] cookies) {
+        String cookieValue = "";
+        Optional<Cookie> cookie = Arrays.stream(cookies).filter(c -> COOKIE_NAME.equals(c.getName())).findFirst();
+        if (cookie.isPresent()) {
+            cookieValue = cookie.get().getValue();
         }
-        Optional<Cookie> cookie = Arrays.stream(cookies)
-                .filter(c -> c.getName().equals(COOKIE_NAME))
-                .findFirst();
-        if (cookie.isEmpty()) {
-            return Collections.emptyList();
-        }
-        String[] placesNames = cookie.get().getValue().split(":+");
-        return List.of(placesNames);
+        return cookieValue.split(":+");
     }
 }

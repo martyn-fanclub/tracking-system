@@ -1,6 +1,5 @@
 package com.github.martynfunclub.trackingsystem.services.impl;
 
-import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,7 +31,7 @@ public class DetailTypeServiceImpl implements DetailTypeService {
         if (detailTypeRepository.findByName(detailTypeDTO.getName()) != null) {
             return false;
         }
-        detailTypeRepository.save(new DetailType(detailTypeDTO.getName(), LocalTime.parse(detailTypeDTO.getMaxTime())));
+        detailTypeRepository.save(new DetailType(detailTypeDTO.getName()));
         return true;
     }
 
