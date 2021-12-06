@@ -21,7 +21,9 @@ public class ProductionServiceImpl implements ProductionService {
     OrderRepository orderRepository;
 
     @Autowired
-    public ProductionServiceImpl(ProductionRepository productionRepository, ShiftRepository shiftRepository, OrderRepository orderRepository) {
+    public ProductionServiceImpl(ProductionRepository productionRepository,
+                                 ShiftRepository shiftRepository,
+                                 OrderRepository orderRepository) {
         this.productionRepository = productionRepository;
         this.shiftRepository = shiftRepository;
         this.orderRepository = orderRepository;
