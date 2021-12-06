@@ -42,6 +42,6 @@ public class OrderType {
     @ManyToMany
     private Set<WorkersPlace> places;
 
-    @OneToMany
+    @OneToMany(mappedBy = "orderType")
     private Set<Order> orders;
 }

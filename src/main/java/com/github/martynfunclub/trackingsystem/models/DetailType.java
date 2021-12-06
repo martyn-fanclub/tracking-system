@@ -33,8 +33,11 @@ public class DetailType {
     @OneToMany(mappedBy = "detailType")
     private Set<Detail> details;
 
-    @OneToMany
-    private Set<OrderType> orderTypes;
+    @OneToMany(mappedBy = "from")
+    private Set<OrderType> orderTypesFrom;
+
+    @OneToMany(mappedBy = "to")
+    private Set<OrderType> orderTypesTo;
 
     public DetailType(String name) {
         this.name = name;
