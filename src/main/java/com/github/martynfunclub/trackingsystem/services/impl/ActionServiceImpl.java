@@ -42,7 +42,6 @@ public class ActionServiceImpl implements ActionService {
         if (shift.isEmpty() || actionType.isEmpty()) {
             return false;
         }
-        System.out.println("DEBUG: saving service");
         actionRepository.save(new Action(shift.get(), actionType.get(),
                 LocalDateTime.now(), null, null));
         return true;

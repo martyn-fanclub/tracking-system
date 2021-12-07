@@ -6,7 +6,6 @@ import com.github.martynfunclub.trackingsystem.dto.ActionDTO;
 import com.github.martynfunclub.trackingsystem.models.Shift;
 import com.github.martynfunclub.trackingsystem.repositories.ShiftRepository;
 import com.github.martynfunclub.trackingsystem.services.ActionService;
-import com.github.martynfunclub.trackingsystem.services.ActionTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -29,11 +28,9 @@ public class ActionController {
                                @RequestParam("actionTypeID") Long actionTypeID) {
         Optional<Shift> shiftOptional = shiftRepository.findAll().stream().
                 filter(shift -> shift.getPlace().getId().equals(placeID)).findAny();
-        System.out.println("DEBUG: controller");
-        shiftOptional.ifPresent(shift -> {
-            System.out.println("DEBUG: creating action in controller");
-            actionService.createAction(new ActionDTO("", actionTypeID, shift.getId()));
-        });
+        shiftOptional.ifPresent(shift ->
+                actionService.createAction(new ActionDTO("", actionTypeID, shift.getId()))
+        );
         return "redirect:/";
     }
 }
