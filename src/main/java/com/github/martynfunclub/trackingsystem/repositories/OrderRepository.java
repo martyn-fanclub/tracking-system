@@ -6,11 +6,13 @@ import java.util.Set;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import com.github.martynfunclub.trackingsystem.models.Order;
 import com.github.martynfunclub.trackingsystem.models.OrderType;
 import com.github.martynfunclub.trackingsystem.models.Status;
 
+@Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
     Set<Order> findByOrderTypeInAndStatusIsOrderByPriorityDesc(Set<OrderType> orderTypes, Status status);
