@@ -43,7 +43,7 @@ public class ActionServiceImpl implements ActionService {
             return false;
         }
         actionRepository.save(new Action(shift.get(), actionType.get(),
-                LocalDateTime.now(), null, null));
+                LocalDateTime.now(), null, actionDTO.getComment()));
         return true;
     }
 
