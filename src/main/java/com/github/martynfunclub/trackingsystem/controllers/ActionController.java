@@ -14,14 +14,12 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping
 public class ActionController {
-    ActionTypeService actionTypeService;
     ActionService actionService;
     ShiftRepository shiftRepository;
 
     @Autowired
-    public ActionController(ActionTypeService actionTypeService, ActionService actionService,
+    public ActionController(ActionService actionService,
                             ShiftRepository shiftRepository) {
-        this.actionTypeService = actionTypeService;
         this.actionService = actionService;
         this.shiftRepository = shiftRepository;
     }

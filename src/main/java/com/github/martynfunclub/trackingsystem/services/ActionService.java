@@ -1,10 +1,10 @@
 package com.github.martynfunclub.trackingsystem.services;
 
-import com.github.martynfunclub.trackingsystem.dto.ActionDTO;
-import com.github.martynfunclub.trackingsystem.models.Action;
-
 import java.util.List;
 import java.util.Optional;
+
+import com.github.martynfunclub.trackingsystem.dto.ActionDTO;
+import com.github.martynfunclub.trackingsystem.models.Action;
 
 public interface ActionService {
     List<Action> getAllActions();

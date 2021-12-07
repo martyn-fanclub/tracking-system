@@ -20,10 +20,4 @@ public class ActionDTO {
 
     @NotBlank
     private Long shiftID;
-
-/*    public ActionDTO(String comment, Long actionTypeID, Long shiftID) {
-        this.comment = comment;
-        this.actionTypeID = actionTypeID;
-        this.shiftID = shiftID;
-    }*/
 }

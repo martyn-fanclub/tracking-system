@@ -1,21 +1,19 @@
 package com.github.martynfunclub.trackingsystem.services.impl;
 
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
+
 import com.github.martynfunclub.trackingsystem.dto.ActionDTO;
 import com.github.martynfunclub.trackingsystem.models.Action;
 import com.github.martynfunclub.trackingsystem.models.ActionType;
 import com.github.martynfunclub.trackingsystem.models.Shift;
 import com.github.martynfunclub.trackingsystem.repositories.ActionRepository;
 import com.github.martynfunclub.trackingsystem.repositories.ActionTypeRepository;
-import com.github.martynfunclub.trackingsystem.repositories.ProductionRepository;
 import com.github.martynfunclub.trackingsystem.repositories.ShiftRepository;
 import com.github.martynfunclub.trackingsystem.services.ActionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ActionServiceImpl implements ActionService {
