@@ -43,4 +43,13 @@ public class Action {
 
     @Column(columnDefinition = "TEXT")
     private String comment;
+
+    public Action(Shift shift, ActionType actionType, LocalDateTime startTime,
+                  LocalDateTime endTime, String comment) {
+        this.shift = shift;
+        this.actionType = actionType;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.comment = comment;
+    }
 }
