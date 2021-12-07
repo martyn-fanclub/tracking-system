@@ -12,11 +12,13 @@ import com.github.martynfunclub.trackingsystem.models.OrderType;
 import com.github.martynfunclub.trackingsystem.models.Status;
 
 public interface OrderRepository extends JpaRepository<Order, Long> {
+
     Set<Order> findByOrderTypeInAndStatusIsOrderByPriorityDesc(Set<OrderType> orderTypes, Status status);
 
-    @Query(value = "SELECT * FROM order_types " +
-            "LEFT JOIN orders ON (order_types.id = orders.order_type_id) " +
-            "LEFT JOIN productions ON (orders.order_type_id = productions.order_id) " +
-            "WHERE orders.STATUS='PENDING' ORDER BY ORDERS.PRIORITY", nativeQuery = true)
+    @Query(value = "SELECT * FROM orders " +
+            "join order_types ot " +
+            "join order_types_places otp " +
+            "join workers_place wp " +
+            "where orders.status = 'PENDING' and wp.id = :id  ORDER BY orders.priority", nativeQuery = true)
     List<Order> findByPlaceAndStatusIsOrderByPriority(@Param("id") Long placeId);
 }
