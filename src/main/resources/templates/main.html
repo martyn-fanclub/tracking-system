@@ -65,8 +65,9 @@
             <!--List of breaks-->
 
             <div>
-                <form action="break.html" method="get">
-                    <input type="hidden">
+                <form action="#" th:action="@{/actions}" method="post">
+                    <input type="hidden" name="actionTypeID" th:value="1">
+                    <input type="hidden" name="placeID" th:value="${place.getId()}">
                     <button type=submit class="button popup__button button_accent">
                         <p class="button__text">
 
