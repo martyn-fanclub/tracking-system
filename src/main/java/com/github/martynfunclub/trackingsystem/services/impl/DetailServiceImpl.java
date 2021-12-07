@@ -1,11 +1,11 @@
 package com.github.martynfunclub.trackingsystem.services.impl;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.github.martynfunclub.trackingsystem.models.Cell;
 import com.github.martynfunclub.trackingsystem.models.Detail;
 import com.github.martynfunclub.trackingsystem.models.DetailType;
 import com.github.martynfunclub.trackingsystem.repositories.DetailRepository;
@@ -33,10 +33,25 @@ public class DetailServiceImpl implements DetailService {
         }
         detailRepository.save(new Detail(detailType.get()));
         return true;
-}
+    }
 
     @Override
     public Optional<Detail> findById(Long id) {
         return detailRepository.findById(id);
+    }
+
+    @Override
+    public boolean updateByOrderId(Long id) {
+        Detail detail = detailRepository.findByOrderId(id);
+        if (detail != null) {
+            detail.setIsTaken(true);
+            Cell cell = detail.getCell();
+            if (cell != null) {
+                cell.setDetail(null);
+                detailRepository.save(detail);
+                return true;
+            }
+        }
+        return false;
     }
 }

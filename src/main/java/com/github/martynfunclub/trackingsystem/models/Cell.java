@@ -26,7 +26,7 @@ public class Cell {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(orphanRemoval = true)
+    @OneToOne
     @JoinColumn(name = "detail_id")
     private Detail detail;
 }

@@ -46,4 +46,11 @@ public class Production {
     @OneToOne(orphanRemoval = true)
     @JoinColumn(name = "order_id")
     private Order order;
+
+    public Production(Shift shift, LocalDateTime startTime, LocalDateTime endTime, Order order) {
+        this.shift = shift;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.order = order;
+    }
 }

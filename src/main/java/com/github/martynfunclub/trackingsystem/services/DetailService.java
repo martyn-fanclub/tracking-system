@@ -9,4 +9,5 @@ public interface DetailService {
     List<Detail> findAll();
     boolean save(long id);
     Optional<Detail> findById(Long id);
+    boolean updateByOrderId(Long id);
 }
